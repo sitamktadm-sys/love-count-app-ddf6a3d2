@@ -1,4 +1,5 @@
 import { Smartphone } from "lucide-react";
+import keychainLogo from "@/assets/keychain-logo.png";
 
 const WhatYouGetSection = () => {
   return (
@@ -20,8 +21,8 @@ const WhatYouGetSection = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center shadow-card flex flex-col">
             {/* Keychain Mockup */}
             <div className="h-36 flex items-center justify-center mb-6">
-              <div className="w-24 h-24 rounded-2xl bg-pink flex items-center justify-center transform rotate-12 shadow-lg relative">
-                <span className="text-4xl">💝</span>
+              <div className="w-24 h-24 rounded-2xl bg-navy border-2 border-pink/30 flex items-center justify-center transform rotate-12 shadow-lg relative overflow-hidden">
+                <img src={keychainLogo} alt="LoveCount" className="w-20 h-20 object-contain" />
                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-coral border-2 border-white" />
               </div>
             </div>
