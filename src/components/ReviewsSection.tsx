@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 const ReviewsSection = () => {
   const reviews = [
     {
@@ -18,42 +20,99 @@ const ReviewsSection = () => {
       author: "Mark & Anna",
       meta: "5 year anniversary",
     },
+    {
+      stars: 5,
+      text: "I'm not great with romantic gestures. This did the work for me — she loved it and I didn't have to write a poem.",
+      author: "Tom H.",
+      meta: "1st Anniversary",
+    },
+    {
+      stars: 5,
+      text: "We've got 847 days and counting. It's weirdly satisfying to watch the number go up together.",
+      author: "Rachel & Dan",
+      meta: "Dating Anniversary",
+    },
+    {
+      stars: 5,
+      text: "Got one for my parents' 30th. My mum keeps showing it to everyone who visits. Dad pretends to be embarrassed but he loves it.",
+      author: "Priya K.",
+      meta: "Parents' Anniversary",
+    },
   ];
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationId: number;
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5;
+
+    const scroll = () => {
+      if (!isPaused && scrollContainer) {
+        scrollPosition += scrollSpeed;
+        
+        // Reset scroll position when we've scrolled half the content (since we duplicate it)
+        const halfWidth = scrollContainer.scrollWidth / 2;
+        if (scrollPosition >= halfWidth) {
+          scrollPosition = 0;
+        }
+        
+        scrollContainer.scrollLeft = scrollPosition;
+      }
+      animationId = requestAnimationFrame(scroll);
+    };
+
+    animationId = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(animationId);
+  }, [isPaused]);
+
+  // Duplicate reviews for seamless loop
+  const duplicatedReviews = [...reviews, ...reviews];
+
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <p className="section-label">Customer love</p>
           <h2 className="section-title">What Couples Are Saying</h2>
         </div>
+      </div>
 
-        {/* Reviews Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-2xl p-6 shadow-subtle card-hover border border-foreground/10 flex flex-col"
-            >
-              {/* Stars */}
-              <div className="flex gap-0.5 text-coral mb-4">
-                {[...Array(review.stars)].map((_, i) => (
-                  <span key={i}>★</span>
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-foreground leading-relaxed flex-1">"{review.text}"</p>
-
-              {/* Author */}
-              <div className="border-t border-foreground/10 pt-4 mt-6">
-                <p className="font-semibold text-foreground">{review.author}</p>
-                <p className="text-sm text-foreground/60">{review.meta}</p>
-              </div>
+      {/* Reviews Carousel */}
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-hidden px-6"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {duplicatedReviews.map((review, index) => (
+          <div
+            key={index}
+            className="bg-card rounded-2xl p-6 shadow-subtle border border-foreground/10 flex flex-col flex-shrink-0 w-[320px] md:w-[360px]"
+          >
+            {/* Stars */}
+            <div className="flex gap-0.5 text-coral mb-4">
+              {[...Array(review.stars)].map((_, i) => (
+                <span key={i}>★</span>
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* Quote */}
+            <p className="text-foreground leading-relaxed flex-1">"{review.text}"</p>
+
+            {/* Author */}
+            <div className="border-t border-foreground/10 pt-4 mt-6">
+              <p className="font-semibold text-foreground">{review.author}</p>
+              <p className="text-sm text-foreground/60">{review.meta}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
