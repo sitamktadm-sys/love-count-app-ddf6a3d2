@@ -8,10 +8,10 @@ const FinalCTASection = () => {
           Start counting today
         </h2>
         <p className="text-pink text-lg mb-8 max-w-md mx-auto">
-          Create your LoveCount and celebrate every moment together
+          Get your LoveCount and celebrate every moment together
         </p>
         <Button variant="cta" size="xl">
-          Create yours
+          Get yours
         </Button>
       </div>
     </section>
