@@ -11,7 +11,7 @@ const FinalCTASection = () => {
           Create your LoveCount and celebrate every moment together
         </p>
         <Button variant="cta" size="xl">
-          Create yours — £34.99
+          Create yours
         </Button>
       </div>
     </section>
