@@ -27,7 +27,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <img src={logo} alt="LoveCount" className="h-10 md:h-12 w-auto" />
-            <img src={lovecountText} alt="LoveCount" className="h-6 md:h-8 w-auto" />
+            <img src={lovecountText} alt="LoveCount" className="h-4 md:h-5 w-auto" />
           </a>
 
           {/* CTA Button */}
