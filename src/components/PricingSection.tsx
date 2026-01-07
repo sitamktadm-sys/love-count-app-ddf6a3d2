@@ -23,18 +23,13 @@ const PricingSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Simple pricing</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">Everything included</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">Everything Included</h2>
         </div>
 
         {/* Pricing Card */}
         <div className="max-w-md mx-auto">
           <div className="relative bg-white rounded-3xl shadow-card overflow-hidden">
-            {/* Popular Badge */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-coral text-white text-xs font-semibold px-4 py-1.5 rounded-b-lg">
-              Most Popular
-            </div>
-
-            <div className="p-8 pt-12">
+            <div className="p-8">
               {/* Title */}
               <h3 className="text-2xl font-bold text-navy text-center mb-2">
                 LoveCount Keychain
@@ -65,7 +60,7 @@ const PricingSection = () => {
 
               {/* CTA Button */}
               <Button variant="ctaLarge" size="xl" className="w-full">
-                Get your LoveCount
+                Start Your LoveCount
               </Button>
             </div>
           </div>

@@ -32,7 +32,7 @@ const BenefitsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Why couples love it</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">A gift that means more every day</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">A Gift That Means More Every Day</h2>
         </div>
 
         {/* Benefits Grid */}

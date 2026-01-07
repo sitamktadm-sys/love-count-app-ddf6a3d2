@@ -47,7 +47,7 @@ const HeroSection = () => {
 
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Celebrate every day together
+              Celebrate Every Day Together
             </h1>
 
             {/* Subtitle */}
