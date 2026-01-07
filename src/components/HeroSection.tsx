@@ -3,13 +3,6 @@ import PhoneMockup from "./PhoneMockup";
 import { Clock, Truck, Smartphone } from "lucide-react";
 
 const HeroSection = () => {
-  const avatars = [
-    { initials: "ET", bg: "bg-coral" },
-    { initials: "JM", bg: "bg-pink" },
-    { initials: "SL", bg: "bg-coral/80" },
-    { initials: "MA", bg: "bg-pink/80" },
-  ];
-
   return (
     <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
       {/* Background decoration */}
@@ -19,32 +12,6 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div className="text-center lg:text-left">
-            {/* Social Proof */}
-            <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-              <div className="flex -space-x-2">
-                {avatars.map((avatar, i) => (
-                  <div
-                    key={i}
-                    className={`w-8 h-8 rounded-full ${avatar.bg} border-2 border-background flex items-center justify-center`}
-                  >
-                    <span className="text-xs font-medium text-white">
-                      {avatar.initials}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="flex text-coral">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i}>★</span>
-                  ))}
-                </div>
-                <span className="text-sm text-foreground/70">
-                  4.9 from 50+ couples
-                </span>
-              </div>
-            </div>
-
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
               Celebrate Every Day Together
