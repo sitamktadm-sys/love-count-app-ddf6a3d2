@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import logo from "@/assets/logo.png";
 
 const PhoneMockup = () => {
   const [days, setDays] = useState(1247);
@@ -46,31 +47,25 @@ const PhoneMockup = () => {
       {/* iPhone Frame */}
       <div className="relative w-[280px] md:w-[320px] mx-auto">
         {/* Phone outer frame */}
-        <div className="relative bg-navy rounded-[3rem] p-3 shadow-hover">
+        <div className="relative bg-foreground/10 rounded-[3rem] p-3 shadow-hover border border-foreground/20">
           {/* Phone screen bezel */}
-          <div className="relative bg-navy rounded-[2.5rem] overflow-hidden">
+          <div className="relative bg-foreground/5 rounded-[2.5rem] overflow-hidden">
             {/* Dynamic Island / Notch */}
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-navy rounded-full z-10" />
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
             
             {/* Screen content */}
-            <div className="relative bg-background rounded-[2.25rem] overflow-hidden aspect-[9/19.5] flex flex-col">
+            <div className="relative bg-white rounded-[2.25rem] overflow-hidden aspect-[9/19.5] flex flex-col">
               {/* App Header */}
               <div className="pt-10 pb-4 px-5 bg-navy">
                 <div className="flex items-center justify-center gap-2">
-                  <div className="w-5 h-5 rounded bg-coral flex items-center justify-center">
-                    <span className="text-background text-xs">♥</span>
-                  </div>
-                  <span className="text-sm font-semibold text-background">
-                    <span>Love</span>
-                    <span className="text-coral">Count</span>
-                  </span>
+                  <img src={logo} alt="LoveCount" className="h-6 w-auto" />
                 </div>
               </div>
 
               {/* Names */}
               <div className="text-center py-4 px-4">
                 <p className="text-lg font-semibold text-navy">Sarah & James</p>
-                <p className="text-xs text-muted-foreground mt-1">Together since June 15, 2021</p>
+                <p className="text-xs text-gray-500 mt-1">Together since June 15, 2021</p>
               </div>
 
               {/* Counter Display */}
@@ -79,11 +74,11 @@ const PhoneMockup = () => {
                   <span className="text-5xl md:text-6xl font-bold text-coral tabular-nums">
                     {days.toLocaleString()}
                   </span>
-                  <span className="text-lg font-medium text-muted-foreground">days</span>
+                  <span className="text-lg font-medium text-gray-500">days</span>
                 </div>
                 
                 {/* Detailed time */}
-                <div className="flex justify-center gap-4 mt-3 text-xs text-muted-foreground">
+                <div className="flex justify-center gap-4 mt-3 text-xs text-gray-500">
                   <div className="flex flex-col items-center">
                     <span className="text-sm font-semibold text-navy tabular-nums">{hours.toString().padStart(2, '0')}</span>
                     <span>hours</span>
@@ -118,7 +113,7 @@ const PhoneMockup = () => {
 
               {/* Personal Message */}
               <div className="px-5 pb-6 pt-2">
-                <p className="text-center text-xs italic text-muted-foreground">
+                <p className="text-center text-xs italic text-gray-500">
                   "Every day with you is my favourite day"
                 </p>
               </div>

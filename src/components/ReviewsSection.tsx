@@ -21,7 +21,7 @@ const ReviewsSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-muted">
+    <section className="py-16 md:py-24 bg-background">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -34,7 +34,7 @@ const ReviewsSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-background rounded-2xl p-6 shadow-subtle card-hover"
+              className="bg-card rounded-2xl p-6 shadow-subtle card-hover border border-foreground/10"
             >
               {/* Stars */}
               <div className="flex gap-0.5 text-coral mb-4">
@@ -44,12 +44,12 @@ const ReviewsSection = () => {
               </div>
 
               {/* Quote */}
-              <p className="text-navy mb-6 leading-relaxed">"{review.text}"</p>
+              <p className="text-foreground mb-6 leading-relaxed">"{review.text}"</p>
 
               {/* Author */}
-              <div className="border-t border-border pt-4">
-                <p className="font-semibold text-navy">{review.author}</p>
-                <p className="text-sm text-muted-foreground">{review.meta}</p>
+              <div className="border-t border-foreground/10 pt-4">
+                <p className="font-semibold text-foreground">{review.author}</p>
+                <p className="text-sm text-foreground/60">{review.meta}</p>
               </div>
             </div>
           ))}

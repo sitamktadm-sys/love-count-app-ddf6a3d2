@@ -18,19 +18,19 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-16 md:py-24 scroll-mt-20">
+    <section id="pricing" className="py-16 md:py-24 bg-pink scroll-mt-20">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="section-label">Simple pricing</p>
-          <h2 className="section-title">Everything included</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Simple pricing</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">Everything included</h2>
         </div>
 
         {/* Pricing Card */}
         <div className="max-w-md mx-auto">
-          <div className="relative bg-background rounded-3xl shadow-card overflow-hidden">
+          <div className="relative bg-white rounded-3xl shadow-card overflow-hidden">
             {/* Popular Badge */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-coral text-background text-xs font-semibold px-4 py-1.5 rounded-b-lg">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-coral text-white text-xs font-semibold px-4 py-1.5 rounded-b-lg">
               Most Popular
             </div>
 
@@ -39,7 +39,7 @@ const PricingSection = () => {
               <h3 className="text-2xl font-bold text-navy text-center mb-2">
                 LoveCount Keychain
               </h3>
-              <p className="text-muted-foreground text-center mb-6">
+              <p className="text-navy/60 text-center mb-6">
                 The complete love package
               </p>
 
@@ -47,7 +47,7 @@ const PricingSection = () => {
               <div className="text-center mb-2">
                 <span className="text-5xl font-bold text-navy">£34.99</span>
               </div>
-              <p className="text-sm text-muted-foreground text-center mb-8">
+              <p className="text-sm text-navy/60 text-center mb-8">
                 Then £9.99/year to keep your page active
               </p>
 
@@ -55,7 +55,7 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-8">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-pink/30 flex items-center justify-center flex-shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-pink/50 flex items-center justify-center flex-shrink-0">
                       <Check className="w-3 h-3 text-coral" />
                     </div>
                     <span className="text-navy">{feature}</span>
@@ -75,11 +75,11 @@ const PricingSection = () => {
             {upsells.map((upsell, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full text-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-white/50 rounded-full text-sm"
               >
                 <span className="text-coral">{upsell.icon}</span>
                 <span className="text-navy">{upsell.text}</span>
-                <span className="text-muted-foreground">{upsell.price}</span>
+                <span className="text-navy/60">{upsell.price}</span>
               </div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,13 +25,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-coral flex items-center justify-center">
-              <span className="text-primary-foreground text-lg">♥</span>
-            </div>
-            <span className="text-xl font-bold">
-              <span className="text-navy">Love</span>
-              <span className="text-coral">Count</span>
-            </span>
+            <img src={logo} alt="LoveCount" className="h-10 md:h-12 w-auto" />
           </a>
 
           {/* CTA Button */}
