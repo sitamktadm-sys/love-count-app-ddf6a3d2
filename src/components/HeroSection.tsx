@@ -12,6 +12,11 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div className="text-center lg:text-left">
+            {/* Tag */}
+            <p className="text-sm text-coral font-medium mb-4">
+              🎁 The perfect gift to your other half
+            </p>
+
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
               Celebrate Every Day Together
