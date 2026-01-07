@@ -62,8 +62,8 @@ const BenefitsSection = () => {
 
         {/* Demo Button */}
         <div className="text-center mt-12">
-          <Button className="bg-navy hover:bg-navy/90 text-white px-8 py-3">
-            Check a demo
+          <Button variant="ctaLarge" size="xl" className="bg-navy hover:bg-navy/90">
+            Check A Demo
           </Button>
         </div>
       </div>
