@@ -34,7 +34,7 @@ const ReviewsSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-card rounded-2xl p-6 shadow-subtle card-hover border border-foreground/10"
+              className="bg-card rounded-2xl p-6 shadow-subtle card-hover border border-foreground/10 flex flex-col"
             >
               {/* Stars */}
               <div className="flex gap-0.5 text-coral mb-4">
@@ -44,10 +44,10 @@ const ReviewsSection = () => {
               </div>
 
               {/* Quote */}
-              <p className="text-foreground mb-6 leading-relaxed">"{review.text}"</p>
+              <p className="text-foreground leading-relaxed flex-1">"{review.text}"</p>
 
               {/* Author */}
-              <div className="border-t border-foreground/10 pt-4">
+              <div className="border-t border-foreground/10 pt-4 mt-6">
                 <p className="font-semibold text-foreground">{review.author}</p>
                 <p className="text-sm text-foreground/60">{review.meta}</p>
               </div>
