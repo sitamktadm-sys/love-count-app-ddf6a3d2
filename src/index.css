@@ -6,17 +6,17 @@
 
 @layer base {
   :root {
-    /* LoveCount Brand Colors */
-    --background: 0 0% 100%;
-    --foreground: 240 28% 14%;
+    /* LoveCount Brand Colors - Dark Premium Theme */
+    --background: 240 28% 14%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 28% 14%;
+    --card: 240 28% 18%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 28% 14%;
+    --popover: 240 28% 18%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Navy - Primary brand color for backgrounds and text */
+    /* Navy - Primary brand color */
     --primary: 240 28% 14%;
     --primary-foreground: 0 0% 100%;
 
@@ -24,19 +24,19 @@
     --secondary: 352 77% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Light grey for alternate sections */
-    --muted: 210 17% 98%;
-    --muted-foreground: 0 0% 40%;
+    /* Pink for alternate sections */
+    --muted: 353 62% 83%;
+    --muted-foreground: 240 28% 14%;
 
     /* Pink - Soft accents */
     --accent: 353 62% 83%;
     --accent-foreground: 240 28% 14%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 210 17% 90%;
-    --input: 210 17% 90%;
+    --border: 240 28% 25%;
+    --input: 240 28% 25%;
     --ring: 352 77% 60%;
 
     --radius: 0.5rem;
@@ -46,28 +46,28 @@
     --navy: 240 28% 14%;
     --pink: 353 62% 83%;
     --light-grey: 210 17% 98%;
-    --text-grey: 0 0% 40%;
+    --text-grey: 0 0% 70%;
 
-    /* Shadows */
-    --shadow-subtle: 0 2px 8px -2px hsl(240 28% 14% / 0.08);
-    --shadow-card: 0 4px 24px -4px hsl(240 28% 14% / 0.12);
-    --shadow-hover: 0 8px 32px -8px hsl(240 28% 14% / 0.16);
-    --shadow-cta: 0 4px 16px -4px hsl(352 77% 60% / 0.4);
+    /* Shadows - adjusted for dark theme */
+    --shadow-subtle: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
+    --shadow-hover: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+    --shadow-cta: 0 4px 16px -4px hsl(352 77% 60% / 0.5);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 240 28% 12%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 240 28% 14%;
+    --sidebar-accent: 240 28% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 28% 25%;
+    --sidebar-ring: 352 77% 60%;
   }
 
   .dark {
-    --background: 240 28% 14%;
+    --background: 240 28% 10%;
     --foreground: 0 0% 100%;
-    --card: 240 28% 18%;
+    --card: 240 28% 14%;
     --card-foreground: 0 0% 100%;
     --popover: 240 28% 14%;
     --popover-foreground: 0 0% 100%;
@@ -75,14 +75,14 @@
     --primary-foreground: 240 28% 14%;
     --secondary: 352 77% 60%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 240 28% 20%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 353 62% 83%;
+    --muted-foreground: 240 28% 14%;
     --accent: 353 62% 83%;
     --accent-foreground: 240 28% 14%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 240 28% 25%;
-    --input: 240 28% 25%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 28% 20%;
+    --input: 240 28% 20%;
     --ring: 352 77% 60%;
   }
 }
@@ -102,7 +102,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-navy;
+    @apply font-bold tracking-tight text-foreground;
   }
 
   p {
@@ -116,7 +116,7 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-navy mb-6;
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-6;
   }
 
   .container-narrow {
@@ -136,7 +136,7 @@
   }
 
   .trust-badge {
-    @apply flex items-center gap-2 text-sm text-muted-foreground;
+    @apply flex items-center gap-2 text-sm text-foreground/70;
   }
 
   .icon-circle {

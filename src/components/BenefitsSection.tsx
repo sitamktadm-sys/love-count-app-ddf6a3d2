@@ -26,12 +26,12 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-24 bg-pink">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="section-label">Why couples love it</p>
-          <h2 className="section-title">A gift that means more every day</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Why couples love it</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">A gift that means more every day</h2>
         </div>
 
         {/* Benefits Grid */}
@@ -39,10 +39,10 @@ const BenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="text-center p-6 rounded-2xl bg-background card-hover"
+              className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm card-hover"
             >
               {/* Icon */}
-              <div className="icon-circle mx-auto mb-5">
+              <div className="w-12 h-12 rounded-full bg-coral/20 flex items-center justify-center text-xl mx-auto mb-5">
                 <span className="text-2xl">{benefit.emoji}</span>
               </div>
 
@@ -52,7 +52,7 @@ const BenefitsSection = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-navy/70 leading-relaxed">
                 {benefit.description}
               </p>
             </div>

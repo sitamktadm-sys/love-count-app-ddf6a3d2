@@ -35,12 +35,12 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-24 bg-pink">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="section-label">Questions</p>
-          <h2 className="section-title">Got questions?</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Questions</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">Got questions?</h2>
         </div>
 
         {/* FAQ Accordion */}
@@ -50,12 +50,12 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-muted rounded-xl px-6 border-none"
+                className="bg-white/50 rounded-xl px-6 border-none"
               >
                 <AccordionTrigger className="text-left text-navy font-semibold hover:no-underline py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">
+                <AccordionContent className="text-navy/70 pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

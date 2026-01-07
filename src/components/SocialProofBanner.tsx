@@ -1,6 +1,6 @@
 const SocialProofBanner = () => {
   return (
-    <section className="py-10 md:py-14 bg-muted">
+    <section className="py-10 md:py-14 bg-pink">
       <div className="container-narrow">
         <div className="text-center max-w-2xl mx-auto">
           {/* Stars */}
@@ -17,7 +17,7 @@ const SocialProofBanner = () => {
           </blockquote>
           
           {/* Author */}
-          <p className="text-muted-foreground">
+          <p className="text-navy/70">
             — Emma T., London
           </p>
         </div>
