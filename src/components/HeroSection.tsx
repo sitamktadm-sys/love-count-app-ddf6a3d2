@@ -63,7 +63,7 @@ const HeroSection = () => {
                 size="xl"
                 onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Create yours →
+                Get yours →
               </Button>
               <div className="flex flex-col items-center sm:items-start">
                 <span className="text-2xl font-bold text-foreground">£34.99</span>

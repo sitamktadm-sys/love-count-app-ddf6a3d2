@@ -65,7 +65,7 @@ const PricingSection = () => {
 
               {/* CTA Button */}
               <Button variant="ctaLarge" size="xl" className="w-full">
-                Create your LoveCount
+                Get your LoveCount
               </Button>
             </div>
           </div>
