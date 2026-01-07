@@ -22,7 +22,7 @@ const WhatYouGetSection = () => {
             {/* Keychain Mockup */}
             <div className="h-36 flex items-center justify-center mb-6">
               <div className="w-24 h-24 rounded-2xl bg-navy border-2 border-pink/30 flex items-center justify-center transform rotate-12 shadow-lg relative overflow-hidden">
-                <img src={keychainLogo} alt="LoveCount" className="w-20 h-20 object-contain" />
+                <img src={keychainLogo} alt="LoveCount" className="w-full h-full object-cover" />
                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-coral border-2 border-white" />
               </div>
             </div>
