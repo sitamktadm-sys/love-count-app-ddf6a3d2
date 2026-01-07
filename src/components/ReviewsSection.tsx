@@ -26,7 +26,7 @@ const ReviewsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <p className="section-label">Customer love</p>
-          <h2 className="section-title">What couples are saying</h2>
+          <h2 className="section-title">What Couples Are Saying</h2>
         </div>
 
         {/* Reviews Grid */}

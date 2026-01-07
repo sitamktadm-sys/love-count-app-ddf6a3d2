@@ -40,7 +40,7 @@ const FAQSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Questions</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">Got questions?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">Got Questions?</h2>
         </div>
 
         {/* FAQ Accordion */}

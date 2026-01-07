@@ -17,7 +17,7 @@ const HowItWorksSection = () => {
             How it works
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready in minutes, lasts forever
+            Ready In Minutes, Lasts Forever
           </h2>
         </div>
 
