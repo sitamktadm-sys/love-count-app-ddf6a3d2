@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 
 const PhoneMockup = () => {
   const [days, setDays] = useState(1247);
@@ -54,9 +54,9 @@ const PhoneMockup = () => {
             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
             
             {/* Screen content */}
-            <div className="relative bg-white rounded-[2.25rem] overflow-hidden aspect-[9/19.5] flex flex-col">
+            <div className="relative bg-navy rounded-[2.25rem] overflow-hidden aspect-[9/19.5] flex flex-col">
               {/* App Header */}
-              <div className="pt-10 pb-4 px-5 bg-navy">
+              <div className="pt-10 pb-4 px-5">
                 <div className="flex items-center justify-center gap-2">
                   <img src={logo} alt="LoveCount" className="h-6 w-auto" />
                 </div>
@@ -64,8 +64,8 @@ const PhoneMockup = () => {
 
               {/* Names */}
               <div className="text-center py-4 px-4">
-                <p className="text-lg font-semibold text-navy">Sarah & James</p>
-                <p className="text-xs text-gray-500 mt-1">Together since June 15, 2021</p>
+                <p className="text-lg font-semibold text-white">Sarah & James</p>
+                <p className="text-xs text-white/60 mt-1">Together since June 15, 2021</p>
               </div>
 
               {/* Counter Display */}
@@ -74,17 +74,17 @@ const PhoneMockup = () => {
                   <span className="text-5xl md:text-6xl font-bold text-coral tabular-nums">
                     {days.toLocaleString()}
                   </span>
-                  <span className="text-lg font-medium text-gray-500">days</span>
+                  <span className="text-lg font-medium text-white/60">days</span>
                 </div>
                 
                 {/* Detailed time */}
-                <div className="flex justify-center gap-4 mt-3 text-xs text-gray-500">
+                <div className="flex justify-center gap-4 mt-3 text-xs text-white/60">
                   <div className="flex flex-col items-center">
-                    <span className="text-sm font-semibold text-navy tabular-nums">{hours.toString().padStart(2, '0')}</span>
+                    <span className="text-sm font-semibold text-white tabular-nums">{hours.toString().padStart(2, '0')}</span>
                     <span>hours</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <span className="text-sm font-semibold text-navy tabular-nums">{minutes.toString().padStart(2, '0')}</span>
+                    <span className="text-sm font-semibold text-white tabular-nums">{minutes.toString().padStart(2, '0')}</span>
                     <span>mins</span>
                   </div>
                   <div className="flex flex-col items-center">
@@ -113,7 +113,7 @@ const PhoneMockup = () => {
 
               {/* Personal Message */}
               <div className="px-5 pb-6 pt-2">
-                <p className="text-center text-xs italic text-gray-500">
+                <p className="text-center text-xs italic text-white/70">
                   "Every day with you is my favourite day"
                 </p>
               </div>
