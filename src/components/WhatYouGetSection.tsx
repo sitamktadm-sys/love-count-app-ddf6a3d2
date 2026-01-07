@@ -17,10 +17,10 @@ const WhatYouGetSection = () => {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {/* Card 1: The Keychain */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center shadow-card">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center shadow-card flex flex-col">
             {/* Keychain Mockup */}
-            <div className="mb-6 flex justify-center">
-              <div className="w-24 h-24 rounded-2xl bg-pink flex items-center justify-center transform rotate-12 shadow-lg">
+            <div className="h-36 flex items-center justify-center mb-6">
+              <div className="w-24 h-24 rounded-2xl bg-pink flex items-center justify-center transform rotate-12 shadow-lg relative">
                 <span className="text-4xl">💝</span>
                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-coral border-2 border-white" />
               </div>
@@ -34,9 +34,9 @@ const WhatYouGetSection = () => {
           </div>
 
           {/* Card 2: Your Love Page */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center shadow-card">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center shadow-card flex flex-col">
             {/* Phone Mockup */}
-            <div className="mb-6 flex justify-center">
+            <div className="h-36 flex items-center justify-center mb-6">
               <div className="w-20 h-36 bg-navy border-4 border-white/30 rounded-2xl flex flex-col items-center justify-center p-2 shadow-lg">
                 <div className="w-full h-2 bg-white/20 rounded mb-2" />
                 <span className="text-coral text-xl font-bold">1,247</span>
@@ -57,9 +57,9 @@ const WhatYouGetSection = () => {
           </div>
 
           {/* Card 3: Story Image */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center shadow-card">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center shadow-card flex flex-col">
             {/* Instagram Story Mockup */}
-            <div className="mb-6 flex justify-center">
+            <div className="h-36 flex items-center justify-center mb-6">
               <div className="w-16 h-28 bg-gradient-to-b from-pink to-coral rounded-xl flex flex-col items-center justify-center p-2 shadow-lg border-2 border-white/20">
                 <span className="text-white text-[8px] font-semibold mb-1">Sarah & James</span>
                 <span className="text-white text-lg font-bold">1,247</span>
