@@ -52,8 +52,7 @@ const HeroSection = () => {
 
             {/* Subtitle */}
             <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0">
-              Give them a gift that grows every day. An NFC keychain that opens
-              your personal love page — counting every moment you've shared.
+              Give them a gift that grows every day. One tap opens your personal love page — counting every moment you've shared.
             </p>
 
             {/* CTA Group */}
