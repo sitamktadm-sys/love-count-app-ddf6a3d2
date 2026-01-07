@@ -1,4 +1,5 @@
 import { Smartphone, Heart, Camera } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const BenefitsSection = () => {
   const benefits = [
@@ -57,6 +58,13 @@ const BenefitsSection = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Demo Button */}
+        <div className="text-center mt-12">
+          <Button className="bg-navy hover:bg-navy/90 text-white px-8 py-3">
+            Check a demo
+          </Button>
         </div>
       </div>
     </section>
