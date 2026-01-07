@@ -12,13 +12,13 @@ const SocialProofBanner = () => {
           
           {/* Quote */}
           <blockquote className="text-lg md:text-xl text-navy font-medium mb-4 italic">
-            "He cried when he tapped it and saw our page. Best anniversary gift
+            "She cried when she tapped it and saw our page. Best anniversary gift
             I've ever given."
           </blockquote>
           
           {/* Author */}
           <p className="text-navy/70">
-            — Emma T., London
+            — Rob T., London
           </p>
         </div>
       </div>

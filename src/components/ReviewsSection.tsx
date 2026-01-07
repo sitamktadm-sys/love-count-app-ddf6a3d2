@@ -2,7 +2,7 @@ const ReviewsSection = () => {
   const reviews = [
     {
       stars: 5,
-      text: "She taps it every morning to see our counter go up. It's become a little ritual. So sweet.",
+      text: "This is such a special gift. My wife loved it.",
       author: "James M.",
       meta: "Bought for 2nd anniversary",
     },
