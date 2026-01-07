@@ -1,96 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
+    /* LoveCount Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 28% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 28% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 28% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Navy - Primary brand color for backgrounds and text */
+    --primary: 240 28% 14%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Coral - CTA and accent color */
+    --secondary: 352 77% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Light grey for alternate sections */
+    --muted: 210 17% 98%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Pink - Soft accents */
+    --accent: 353 62% 83%;
+    --accent-foreground: 240 28% 14%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 17% 90%;
+    --input: 210 17% 90%;
+    --ring: 352 77% 60%;
 
     --radius: 0.5rem;
 
+    /* Custom LoveCount tokens */
+    --coral: 352 77% 60%;
+    --navy: 240 28% 14%;
+    --pink: 353 62% 83%;
+    --light-grey: 210 17% 98%;
+    --text-grey: 0 0% 40%;
+
+    /* Shadows */
+    --shadow-subtle: 0 2px 8px -2px hsl(240 28% 14% / 0.08);
+    --shadow-card: 0 4px 24px -4px hsl(240 28% 14% / 0.12);
+    --shadow-hover: 0 8px 32px -8px hsl(240 28% 14% / 0.16);
+    --shadow-cta: 0 4px 16px -4px hsl(352 77% 60% / 0.4);
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 240 28% 14%;
+    --foreground: 0 0% 100%;
+    --card: 240 28% 18%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 28% 14%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 240 28% 14%;
+    --secondary: 352 77% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 28% 20%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 353 62% 83%;
+    --accent-foreground: 240 28% 14%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 240 28% 25%;
+    --input: 240 28% 25%;
+    --ring: 352 77% 60%;
   }
 }
 
@@ -99,7 +92,72 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-montserrat antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-navy;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-coral mb-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-navy mb-6;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-hover;
+  }
+
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-coral text-white font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-cta;
+  }
+
+  .btn-cta-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-coral text-coral font-semibold rounded-lg transition-all duration-200 hover:bg-coral hover:text-white;
+  }
+
+  .trust-badge {
+    @apply flex items-center gap-2 text-sm text-muted-foreground;
+  }
+
+  .icon-circle {
+    @apply w-12 h-12 rounded-full bg-pink/30 flex items-center justify-center text-xl;
+  }
+
+  .step-number {
+    @apply w-10 h-10 rounded-full bg-coral text-white font-bold flex items-center justify-center text-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(240 28% 20%) 100%);
+  }
+
+  .gradient-coral-soft {
+    background: linear-gradient(135deg, hsl(var(--coral)) 0%, hsl(352 77% 65%) 100%);
   }
 }

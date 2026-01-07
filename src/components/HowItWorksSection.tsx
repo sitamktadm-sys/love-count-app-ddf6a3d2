@@ -1,0 +1,49 @@
+import { ArrowRight } from "lucide-react";
+
+const HowItWorksSection = () => {
+  const steps = [
+    { number: 1, title: "Order", description: "Pick your keychain" },
+    { number: 2, title: "Personalise", description: "Add your photos & date" },
+    { number: 3, title: "Receive", description: "Arrives in 3-5 days" },
+    { number: 4, title: "Gift", description: "Watch them smile" },
+  ];
+
+  return (
+    <section className="py-16 md:py-24 gradient-navy">
+      <div className="container-narrow">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-xs font-semibold uppercase tracking-widest text-pink mb-3">
+            How it works
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-background mb-6">
+            Ready in minutes, lasts forever
+          </h2>
+        </div>
+
+        {/* Steps */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4">
+          {steps.map((step, index) => (
+            <div key={index} className="flex items-center gap-4 md:gap-2">
+              {/* Step Content */}
+              <div className="flex flex-col items-center text-center min-w-[120px]">
+                <div className="step-number mb-3">{step.number}</div>
+                <h3 className="text-lg font-semibold text-background mb-1">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-background/70">{step.description}</p>
+              </div>
+
+              {/* Arrow (not after last item) */}
+              {index < steps.length - 1 && (
+                <ArrowRight className="hidden md:block w-6 h-6 text-pink mx-2 flex-shrink-0" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HowItWorksSection;
