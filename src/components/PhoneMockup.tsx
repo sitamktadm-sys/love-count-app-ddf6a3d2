@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo.svg";
+import keychainLogo from "@/assets/keychain-logo.png";
 
 const PhoneMockup = () => {
   const [days, setDays] = useState(1247);
@@ -123,8 +124,8 @@ const PhoneMockup = () => {
 
         {/* Floating Keychain */}
         <div className="absolute -bottom-4 -right-4 md:-right-8 animate-float">
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-pink shadow-card flex items-center justify-center transform rotate-12">
-            <span className="text-3xl md:text-4xl">💝</span>
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-navy border-2 border-pink/30 shadow-card flex items-center justify-center transform rotate-12 overflow-hidden">
+            <img src={keychainLogo} alt="LoveCount" className="w-full h-full object-cover" />
           </div>
           <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-coral border-2 border-background" />
         </div>
