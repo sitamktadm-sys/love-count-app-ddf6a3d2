@@ -7,7 +7,7 @@ const WhatYouGetSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-widest text-pink mb-3">
-            What You Get
+            Your Personalised Couple Gift
           </p>
           <h2 id="what-you-get-heading" className="text-3xl md:text-4xl font-bold text-white mb-6">
             Everything In The Box
@@ -23,7 +23,7 @@ const WhatYouGetSection = () => {
               <div className="w-24 h-24 rounded-2xl bg-navy border-2 border-pink/30 flex items-center justify-center transform rotate-12 shadow-lg relative overflow-hidden">
                 <img 
                   src={keychainLogo} 
-                  alt="Premium NFC silicone keychain with LoveCount heart logo" 
+                  alt="NFC keychain personalised Valentine gift for boyfriend girlfriend UK" 
                   width={96} 
                   height={96} 
                   loading="lazy" 

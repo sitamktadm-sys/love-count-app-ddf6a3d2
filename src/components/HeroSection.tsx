@@ -19,12 +19,12 @@ const HeroSection = () => {
 
             {/* Headline */}
             <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Celebrate Every Day Together
+              The Perfect Anniversary Gift That Counts Every Day Together
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0">
-              Give them a gift that grows every day. One tap opens your personal love page — counting every second you've shared.
+              Looking for a unique anniversary or Valentine's gift? This personalised keychain opens your love page — counting every day you've been together.
             </p>
 
             {/* CTA Group */}
