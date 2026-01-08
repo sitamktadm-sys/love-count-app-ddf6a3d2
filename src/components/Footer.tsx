@@ -7,18 +7,18 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo and Links */}
           <div className="flex items-center gap-6">
-            <a href="#" className="flex items-center gap-2">
-              <img src={logo} alt="LoveCount" className="h-8 w-auto" />
+            <a href="/" className="flex items-center gap-2" aria-label="LoveCount home">
+              <img src={logo} alt="LoveCount logo" width={32} height={32} className="h-8 w-auto" />
             </a>
-            <nav className="flex items-center gap-4 text-sm text-foreground/60">
-              <a href="#" className="hover:text-foreground transition-colors">
+            <nav className="flex items-center gap-4 text-sm text-foreground/60" aria-label="Footer navigation">
+              <a href="/contact" className="hover:text-foreground transition-colors">
                 Contact
               </a>
-              <a href="#" className="hover:text-foreground transition-colors">
-                Privacy
+              <a href="/privacy" className="hover:text-foreground transition-colors">
+                Privacy Policy
               </a>
-              <a href="#" className="hover:text-foreground transition-colors">
-                Terms
+              <a href="/terms" className="hover:text-foreground transition-colors">
+                Terms of Service
               </a>
             </nav>
           </div>
@@ -29,13 +29,14 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-foreground/60 hover:text-foreground transition-colors"
+            aria-label="Follow LoveCount on Instagram"
           >
             @lovecount.uk
           </a>
 
           {/* Copyright */}
           <p className="text-sm text-foreground/60">
-            © 2026 LoveCount. Made with love in the UK.
+            © 2026 LoveCount. Made with 💕 in the UK
           </p>
         </div>
       </div>

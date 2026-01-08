@@ -46,12 +46,12 @@ const ReviewsSection = () => {
   const duplicatedReviews = [...reviews, ...reviews];
 
   return (
-    <section className="py-16 md:py-24 bg-background overflow-hidden">
+    <section className="py-16 md:py-24 bg-background overflow-hidden" aria-labelledby="reviews-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <p className="section-label">Customer love</p>
-          <h2 className="section-title">What Couples Are Saying</h2>
+          <h2 id="reviews-heading" className="section-title">What Couples Are Saying</h2>
         </div>
       </div>
 
@@ -60,32 +60,34 @@ const ReviewsSection = () => {
         className="flex gap-6 overflow-x-hidden px-6"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        role="region"
+        aria-label="Customer reviews carousel"
       >
         <div 
           className={`flex gap-6 animate-carousel-slide ${isPaused ? '[animation-play-state:paused]' : ''}`}
           style={{ width: 'max-content' }}
         >
           {duplicatedReviews.map((review, index) => (
-          <div
+          <article
             key={index}
             className="bg-card rounded-2xl p-6 shadow-subtle border border-foreground/10 flex flex-col flex-shrink-0 w-[320px] md:w-[360px]"
           >
             {/* Stars */}
-            <div className="flex gap-0.5 text-coral mb-4">
+            <div className="flex gap-0.5 text-coral mb-4" aria-label={`${review.stars} out of 5 stars`}>
               {[...Array(review.stars)].map((_, i) => (
-                <span key={i}>★</span>
+                <span key={i} aria-hidden="true">★</span>
               ))}
             </div>
 
             {/* Quote */}
-            <p className="text-foreground leading-relaxed flex-1">"{review.text}"</p>
+            <blockquote className="text-foreground leading-relaxed flex-1">"{review.text}"</blockquote>
 
             {/* Author */}
-            <div className="border-t border-foreground/10 pt-4 mt-6">
+            <footer className="border-t border-foreground/10 pt-4 mt-6">
               <p className="font-semibold text-foreground">{review.author}</p>
               <p className="text-sm text-foreground/60">{review.meta}</p>
-            </div>
-          </div>
+            </footer>
+          </article>
         ))}
         </div>
       </div>
