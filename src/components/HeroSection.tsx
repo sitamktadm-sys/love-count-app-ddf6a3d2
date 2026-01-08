@@ -4,9 +4,9 @@ import { Clock, Truck, Smartphone } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
+    <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden" aria-labelledby="hero-heading">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-pink/10 to-transparent rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-pink/10 to-transparent rounded-full blur-3xl -z-10" aria-hidden="true" />
       
       <div className="container-narrow">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -18,7 +18,7 @@ const HeroSection = () => {
             </p>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+            <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
               Celebrate Every Day Together
             </h1>
 
@@ -33,6 +33,7 @@ const HeroSection = () => {
                 variant="ctaLarge" 
                 size="xl"
                 onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                aria-label="Get your LoveCount keychain for £34.99"
               >
                 Get yours →
               </Button>
@@ -45,15 +46,15 @@ const HeroSection = () => {
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6">
               <div className="trust-badge">
-                <Clock className="w-4 h-4 text-coral" />
+                <Clock className="w-4 h-4 text-coral" aria-hidden="true" />
                 <span>1 year hosting included</span>
               </div>
               <div className="trust-badge">
-                <Smartphone className="w-4 h-4 text-coral" />
+                <Smartphone className="w-4 h-4 text-coral" aria-hidden="true" />
                 <span>No app needed</span>
               </div>
               <div className="trust-badge">
-                <Truck className="w-4 h-4 text-coral" />
+                <Truck className="w-4 h-4 text-coral" aria-hidden="true" />
                 <span>Ships in 2-3 days</span>
               </div>
             </div>

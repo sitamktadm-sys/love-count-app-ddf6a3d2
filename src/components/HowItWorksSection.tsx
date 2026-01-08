@@ -9,25 +9,25 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-16 md:py-24 bg-background" aria-labelledby="how-it-works-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-widest text-pink mb-3">
             How it works
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <h2 id="how-it-works-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ready In Minutes, Lasts Forever
           </h2>
         </div>
 
         {/* Steps */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4">
+        <ol className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4" aria-label="Steps to get your LoveCount">
           {steps.map((step, index) => (
-            <div key={index} className="flex items-center gap-4 md:gap-2">
+            <li key={index} className="flex items-center gap-4 md:gap-2">
               {/* Step Content */}
               <div className="flex flex-col items-center text-center min-w-[120px]">
-                <div className="step-number mb-3">{step.number}</div>
+                <div className="step-number mb-3" aria-hidden="true">{step.number}</div>
                 <h3 className="text-lg font-semibold text-foreground mb-1">
                   {step.title}
                 </h3>
@@ -36,11 +36,11 @@ const HowItWorksSection = () => {
 
               {/* Arrow (not after last item) */}
               {index < steps.length - 1 && (
-                <ArrowRight className="hidden md:block w-6 h-6 text-pink mx-2 flex-shrink-0" />
+                <ArrowRight className="hidden md:block w-6 h-6 text-pink mx-2 flex-shrink-0" aria-hidden="true" />
               )}
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
