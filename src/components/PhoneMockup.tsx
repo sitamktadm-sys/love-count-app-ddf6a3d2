@@ -59,7 +59,7 @@ const PhoneMockup = () => {
               {/* App Header */}
               <div className="pt-10 pb-4 px-5">
                 <div className="flex items-center justify-center gap-2">
-                  <img src={logo} alt="LoveCount logo" width={24} height={24} className="h-6 w-auto" />
+                  <img src={logo} alt="Personalised anniversary gift showing days together counter for couples" width={24} height={24} className="h-6 w-auto" />
                 </div>
               </div>
 
@@ -129,7 +129,7 @@ const PhoneMockup = () => {
           <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-navy border-2 border-pink/30 shadow-card flex items-center justify-center transform rotate-12 overflow-hidden">
             <img 
               src={keychainLogo} 
-              alt="Premium NFC silicone keychain with LoveCount heart logo" 
+              alt="NFC keychain personalised Valentine gift for boyfriend girlfriend UK" 
               width={80} 
               height={80} 
               loading="lazy" 

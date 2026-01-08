@@ -6,14 +6,14 @@ const BenefitsSection = () => {
       emoji: "📱",
       title: "Tap to relive memories",
       description:
-        "Just tap the keychain on any phone. Your page opens instantly — no app, no QR codes, pure magic.",
+        "Just tap this unique relationship gift on any phone. Your page opens instantly — no app, no QR codes, pure magic.",
       ariaLabel: "Tap phone to relive memories icon",
     },
     {
       emoji: "💝",
       title: "Watch your love grow",
       description:
-        "The counter updates every single day. 1,247 days... 1,248 days... Your love story keeps counting.",
+        "The counter updates every single day. 1,247 days... 1,248 days... The perfect anniversary present that keeps counting your love story.",
       ariaLabel: "Heart growing love counter icon",
     },
     {
@@ -30,7 +30,7 @@ const BenefitsSection = () => {
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Why couples love it</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Why couples love this unique relationship gift</p>
           <h2 id="benefits-heading" className="text-3xl md:text-4xl font-bold text-navy mb-6">A Gift That Means More Every Day</h2>
         </div>
 

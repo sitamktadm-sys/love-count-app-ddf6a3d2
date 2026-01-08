@@ -22,7 +22,7 @@ const PricingSection = () => {
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Simple pricing</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">The perfect Valentine's gift for him or her</p>
           <h2 id="pricing-heading" className="text-3xl md:text-4xl font-bold text-navy mb-6">Everything Included</h2>
         </div>
 
