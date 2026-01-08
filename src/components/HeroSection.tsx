@@ -14,7 +14,7 @@ const HeroSection = () => {
           <div className="text-center lg:text-left">
             {/* Tag */}
             <p className="text-sm text-coral font-medium mb-4">
-              🎁 The perfect gift to your other half
+              🎁 The perfect Valentine's gift
             </p>
 
             {/* Headline */}
