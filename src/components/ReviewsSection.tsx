@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const ReviewsSection = () => {
   const reviews = [
@@ -40,36 +40,7 @@ const ReviewsSection = () => {
     },
   ];
 
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
-
-    const scroll = () => {
-      if (!isPaused && scrollContainer) {
-        scrollPosition += scrollSpeed;
-        
-        // Reset scroll position when we've scrolled half the content (since we duplicate it)
-        const halfWidth = scrollContainer.scrollWidth / 2;
-        if (scrollPosition >= halfWidth) {
-          scrollPosition = 0;
-        }
-        
-        scrollContainer.scrollLeft = scrollPosition;
-      }
-      animationId = requestAnimationFrame(scroll);
-    };
-
-    animationId = requestAnimationFrame(scroll);
-
-    return () => cancelAnimationFrame(animationId);
-  }, [isPaused]);
 
   // Duplicate reviews for seamless loop
   const duplicatedReviews = [...reviews, ...reviews];
@@ -84,14 +55,17 @@ const ReviewsSection = () => {
         </div>
       </div>
 
-      {/* Reviews Carousel */}
+      {/* Reviews Carousel - CSS animation instead of JS for better performance */}
       <div
-        ref={scrollRef}
         className="flex gap-6 overflow-x-hidden px-6"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {duplicatedReviews.map((review, index) => (
+        <div 
+          className={`flex gap-6 animate-carousel-slide ${isPaused ? '[animation-play-state:paused]' : ''}`}
+          style={{ width: 'max-content' }}
+        >
+          {duplicatedReviews.map((review, index) => (
           <div
             key={index}
             className="bg-card rounded-2xl p-6 shadow-subtle border border-foreground/10 flex flex-col flex-shrink-0 w-[320px] md:w-[360px]"
@@ -113,6 +87,7 @@ const ReviewsSection = () => {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );
