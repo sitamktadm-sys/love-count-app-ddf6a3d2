@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 const MessageBox = () => {
   return (
     <div className="bg-card rounded-2xl p-6 md:p-8 border-l-4 border-coral animate-fade-in" style={{ animationDelay: '0.3s' }}>
-      <h3 className="text-lg md:text-xl font-semibold text-white mb-4 flex items-center gap-2">
+      <h3 className="text-lg md:text-xl font-semibold text-white mb-4 flex items-center justify-center gap-2">
         <span>📧</span> What happens next?
       </h3>
       
