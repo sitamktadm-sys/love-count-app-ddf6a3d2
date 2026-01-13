@@ -231,10 +231,10 @@ export function CustomerPage() {
       <main className="max-w-lg mx-auto px-4 pb-12 space-y-8 relative z-10">
         {/* Couple Names */}
         <div className="text-center animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3">
-            {data.name_1}
-            <Heart className="inline-block w-6 h-6 sm:w-8 sm:h-8 mx-3 text-primary fill-primary animate-pulse" />
-            {data.name_2}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-3">
+            <span className="text-gradient-names">{data.name_1}</span>
+            <Heart className="inline-block w-6 h-6 sm:w-8 sm:h-8 mx-3 animate-pulse" style={{ color: '#E84A5F', fill: '#E84A5F' }} />
+            <span className="text-gradient-names">{data.name_2}</span>
           </h1>
           <p className="text-white/60 text-sm sm:text-base flex items-center justify-center gap-2">
             <span>📅</span>
@@ -279,7 +279,7 @@ export function CustomerPage() {
 
         {/* Personal Message */}
         {data.message && (
-          <div className="glass-card p-6 sm:p-8 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="glass-card-glow p-6 sm:p-8 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <p className="text-white/90 text-lg sm:text-xl font-light italic leading-relaxed">
               "{data.message}"
             </p>

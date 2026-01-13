@@ -158,9 +158,10 @@ export function PhotoCarousel({ photos }: PhotoCarouselProps) {
                 onClick={() => goToSlide(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-primary w-6 shadow-[0_0_10px_rgba(232,74,95,0.5)]'
+                    ? 'w-6 shadow-[0_0_10px_rgba(232,74,95,0.5)]'
                     : 'bg-white/30 w-2 hover:bg-white/50'
                 }`}
+                style={index === currentIndex ? { backgroundColor: '#E84A5F' } : undefined}
                 aria-label={`Go to photo ${index + 1}`}
               />
             ))}

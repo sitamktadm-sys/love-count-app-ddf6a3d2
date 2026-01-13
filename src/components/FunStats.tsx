@@ -65,7 +65,7 @@ export function FunStats({ startDate }: FunStatsProps) {
         {visibleStats.map((stat, index) => (
           <div key={index} className="stat-box group">
             <span className="text-2xl sm:text-3xl mb-2 block">{stat.emoji}</span>
-            <span className="text-2xl sm:text-3xl font-bold text-primary block leading-tight">
+            <span className="text-2xl sm:text-3xl font-bold block leading-tight" style={{ color: '#E84A5F' }}>
               {typeof stat.value === 'number' ? stat.value.toLocaleString() : stat.value}
             </span>
             <span className="text-xs uppercase tracking-wide text-white/50 mt-1 block">
