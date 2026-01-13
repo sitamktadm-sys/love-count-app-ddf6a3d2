@@ -22,7 +22,7 @@ const ThankYou = () => {
           {/* Thank You Message */}
           <div className="text-center space-y-2 animate-fade-in">
             <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-              Thank you for your order!
+              Thank you for your order! 💕
             </h1>
             <p className="text-muted-foreground text-base md:text-lg">
               We're so excited to help you celebrate your love story.
