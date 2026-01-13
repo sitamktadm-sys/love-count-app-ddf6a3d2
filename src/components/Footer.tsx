@@ -35,7 +35,7 @@ const Footer = () => {
           </a>
 
           {/* Copyright */}
-          <p className="text-sm text-foreground/60">
+          <p className="text-sm text-white/60">
             © 2026 Made with 💕 by LoveCount
           </p>
         </div>
