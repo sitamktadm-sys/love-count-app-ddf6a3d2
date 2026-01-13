@@ -12,7 +12,7 @@ const SocialLinks = () => {
       <div className="w-16 h-px bg-border"></div>
       
       <p className="text-muted-foreground text-sm">
-        Follow us for love stories & inspiration 💕
+        Follow us for love stories & inspiration
       </p>
       
       <div className="flex items-center gap-6">
