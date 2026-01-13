@@ -33,14 +33,14 @@ const ThankYou = () => {
           <MessageBox />
 
           {/* Spam Notice */}
-          <p className="text-center text-muted-foreground text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
             💡 Can't find the email? Check your spam or junk folder.
           </p>
 
           {/* Support Info */}
-          <div className="text-center text-muted-foreground text-sm animate-fade-in" style={{ animationDelay: '0.45s' }}>
+          <div className="text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.45s' }}>
             <p>Questions or problems? We're here to help:</p>
-            <a href="mailto:support@lovecount.co.uk" className="text-primary hover:underline font-medium">
+            <a href="mailto:support@lovecount.co.uk" className="text-coral hover:underline font-medium">
               support@lovecount.co.uk
             </a>
           </div>
@@ -51,8 +51,8 @@ const ThankYou = () => {
           {/* Footer Logo */}
           <div className="flex justify-center pt-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <div className="text-xl font-bold">
-              <span className="text-primary">Love</span>
-              <span className="text-foreground">Count</span>
+              <span className="text-white">Love</span>
+              <span className="text-coral">Count</span>
             </div>
           </div>
         </div>
