@@ -203,11 +203,8 @@ export function CustomerPage() {
 
         {/* Footer */}
         <div className="p-4 text-center z-10">
-          <p className="text-white/40 text-sm">
-            Made with 💕 by{' '}
-            <Link to="/" className="text-primary hover:underline">
-              LoveCount
-            </Link>
+          <p className="text-white/60 text-sm">
+            © 2026 Made with 💕 by LoveCount
           </p>
         </div>
       </div>
@@ -294,11 +291,8 @@ export function CustomerPage() {
 
         {/* Footer */}
         <div className="pt-8 text-center">
-          <p className="text-white/40 text-sm">
-            Made with 💕 by{' '}
-            <Link to="/" className="text-primary hover:underline">
-              LoveCount
-            </Link>
+          <p className="text-white/60 text-sm">
+            © 2026 Made with 💕 by LoveCount
           </p>
         </div>
       </main>
