@@ -36,7 +36,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-sm text-foreground/60">
-            © 2026 LoveCount. Made with 💕 in the UK
+            © 2026 Made with 💕 by LoveCount
           </p>
         </div>
       </div>
