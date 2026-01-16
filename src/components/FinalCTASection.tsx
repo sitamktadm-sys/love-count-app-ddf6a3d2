@@ -10,13 +10,19 @@ const FinalCTASection = () => {
         <p className="text-pink text-lg mb-8 max-w-md mx-auto">
           Get your LoveCount and celebrate every moment together
         </p>
-        <Button 
-          variant="cta" 
-          size="xl"
-          aria-label="Get your LoveCount keychain now"
+        <a
+          href="https://buy.stripe.com/5kQbJ3fF1alfceU0WycbC02"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Get yours
-        </Button>
+          <Button 
+            variant="cta" 
+            size="xl"
+            aria-label="Get your LoveCount keychain now"
+          >
+            Get yours
+          </Button>
+        </a>
       </div>
     </section>
   );

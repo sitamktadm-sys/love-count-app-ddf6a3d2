@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const BenefitsSection = () => {
   const benefits = [
@@ -65,14 +66,16 @@ const BenefitsSection = () => {
 
         {/* Demo Button */}
         <div className="text-center mt-12">
-          <Button 
-            variant="ctaLarge" 
-            size="xl" 
-            className="bg-navy hover:bg-navy/90"
-            aria-label="Check a demo of the LoveCount page"
-          >
-            Check A Demo
-          </Button>
+          <Link to="/p/LC-DEMO">
+            <Button 
+              variant="ctaLarge" 
+              size="xl" 
+              className="bg-navy hover:bg-navy/90"
+              aria-label="Check a demo of the LoveCount page"
+            >
+              Check A Demo
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

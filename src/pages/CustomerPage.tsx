@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Camera, Loader2, Heart } from 'lucide-react';
+import { Camera, Heart, Loader2 } from 'lucide-react';
 import { Logo } from '@/components/Logo';
 import { LoveCounter } from '@/components/LoveCounter';
 import { PhotoCarousel } from '@/components/PhotoCarousel';
@@ -44,7 +44,6 @@ export function CustomerPage() {
   const { pageId } = useParams<{ pageId: string }>();
   const [pageState, setPageState] = useState<PageState>('loading');
   const [data, setData] = useState<PageData | null>(null);
-  const [isGeneratingStory, setIsGeneratingStory] = useState(false);
 
   useEffect(() => {
     // Set page title and meta
@@ -91,30 +90,8 @@ export function CustomerPage() {
     fetchPageData();
   }, [pageId]);
 
-  const handleDownloadStory = async () => {
-    if (!data) return;
-    
-    setIsGeneratingStory(true);
-    
-    try {
-      // TODO: Replace with actual n8n API call
-      // const response = await fetch(`https://[n8n-url]/webhook/story/${pageId}`, {
-      //   method: 'POST'
-      // });
-      // const result = await response.json();
-      
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // For demo, just alert
-      alert('Story generation would happen here! The image would be downloaded automatically.');
-      
-    } catch (error) {
-      console.error('Failed to generate story:', error);
-      alert('Failed to generate story. Please try again.');
-    }
-    
-    setIsGeneratingStory(false);
+  const handleDownloadStory = () => {
+    alert('Coming soon!');
   };
 
   // Loading State
@@ -252,20 +229,10 @@ export function CustomerPage() {
         <div className="text-center">
           <button
             onClick={handleDownloadStory}
-            disabled={isGeneratingStory}
-            className="btn-secondary inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-secondary inline-flex items-center gap-2"
           >
-            {isGeneratingStory ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Generating...
-              </>
-            ) : (
-              <>
-                <Camera className="w-5 h-5" />
-                Download Story
-              </>
-            )}
+            <Camera className="w-5 h-5" />
+            Download Story
           </button>
         </div>
 

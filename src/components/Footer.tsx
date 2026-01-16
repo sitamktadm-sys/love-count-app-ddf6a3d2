@@ -23,16 +23,27 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Instagram - Centered */}
-          <a
-            href="https://www.instagram.com/lovecount.uk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-            aria-label="Follow LoveCount on Instagram"
-          >
-            @lovecount.uk
-          </a>
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://instagram.com/lovecount.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-foreground/60 hover:text-foreground transition-colors"
+              aria-label="Follow LoveCount on Instagram"
+            >
+              @lovecount.uk
+            </a>
+            <a
+              href="https://tiktok.com/@lovecountuk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-foreground/60 hover:text-foreground transition-colors"
+              aria-label="Follow LoveCount on TikTok"
+            >
+              TikTok
+            </a>
+          </div>
 
           {/* Copyright */}
           <p className="text-sm text-white/60">
