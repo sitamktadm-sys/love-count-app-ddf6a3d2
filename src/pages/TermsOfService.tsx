@@ -20,162 +20,225 @@ const TermsOfService = () => {
         <div className="container-narrow max-w-3xl">
           <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">Terms of Service</h1>
           
-          <div className="prose prose-invert max-w-none space-y-6 text-foreground/80">
-            <p className="text-sm text-foreground/60">Last updated: January 2026</p>
+          <div className="prose prose-invert max-w-none space-y-8 text-foreground/80">
+            <p className="text-sm text-foreground/60 italic">Last updated: January 16, 2026</p>
 
+            {/* Product Description */}
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">1. Introduction</h2>
-              <p>
-                Welcome to LoveCount. These Terms of Service ("Terms") govern your use of our website and the purchase of our products and services. By placing an order with us, you agree to be bound by these Terms.
-              </p>
-              <p>
-                LoveCount is a UK-based company. These Terms are governed by the laws of England and Wales.
-              </p>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">2. Products and Services</h2>
-              <p>LoveCount offers:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>NFC Keychain:</strong> A physical keychain with embedded NFC technology</li>
-                <li><strong>Personalized Digital Page:</strong> A custom webpage accessible via the NFC keychain, featuring your photos and relationship counter</li>
-                <li><strong>1 Year Hosting:</strong> Your digital page is hosted for one year from the date of creation</li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">3. Pricing</h2>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Product Price:</strong> £34.99 (plus applicable shipping costs)</li>
-                <li><strong>Annual Renewal:</strong> £9.99 per year to continue hosting your digital page after the first year</li>
-              </ul>
-              <p>
-                All prices are in British Pounds (GBP) and include VAT where applicable. Shipping costs are calculated at checkout based on your delivery location.
-              </p>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">4. Order Process</h2>
+              <h2 className="text-xl font-semibold text-foreground">Product Description</h2>
+              <p>LoveCount sells a combined product package consisting of:</p>
               <ol className="list-decimal pl-6 space-y-2">
-                <li>Place your order and complete payment</li>
-                <li>Receive a personalisation form via email within 24 hours</li>
-                <li>Complete the form with your photos and relationship details</li>
-                <li>Your digital page is created within 24-48 hours of form completion</li>
-                <li>Your NFC keychain is shipped to your provided address</li>
+                <li><strong>Physical Product:</strong> Premium NFC keychain (silicone, waterproof)</li>
+                <li><strong>Digital Content:</strong> Personalized love page with photo carousel and day counter</li>
+                <li><strong>Digital Asset:</strong> Downloadable Instagram Story image (renewable)</li>
               </ol>
+              <p><strong>Price:</strong> £34.99 + shipping</p>
+              <p><strong>Annual hosting renewal:</strong> £9.99/year</p>
             </section>
 
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">5. Personalisation Form Deadline</h2>
-              <p>
-                You must complete the personalisation form within <strong>10 days</strong> of receiving it. If you fail to complete the form within this timeframe, your order will be automatically cancelled and a full refund will be issued.
-              </p>
-              <p>
-                This policy ensures timely delivery and allows us to manage our production efficiently.
-              </p>
+            {/* Returns & Refunds Policy */}
+            <section className="space-y-6">
+              <h2 className="text-xl font-semibold text-foreground">Returns & Refunds Policy</h2>
+              
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Physical Product (NFC Keychain)</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>14-day return right:</strong> You can return the unopened keychain within 14 days of delivery</li>
+                  <li><strong>30-day warranty:</strong> Free replacement if keychain is defective or NFC doesn't work</li>
+                  <li><strong>Return shipping:</strong> Customer pays return postage unless item is defective</li>
+                  <li><strong>Refund processing:</strong> 3-5 business days after we receive returned item</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Digital Content (Love Page & Story)</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Immediate delivery waiver:</strong> By submitting your personalization form, you consent to immediate digital content creation and waive your 14-day cancellation right for digital content</li>
+                  <li><strong>Personalization deadline:</strong> You must complete your personalization form within 10 days of purchase, or we will automatically process a full refund</li>
+                  <li><strong>Technical faults:</strong> Full refund if your love page doesn't load or function correctly</li>
+                  <li><strong>No refunds after creation:</strong> Once your personalized page is created, digital content cannot be returned</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Combined Product Scenarios</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Before personalization:</strong> Full refund available for any reason</li>
+                  <li><strong>After personalization:</strong> Physical keychain returnable for 14 days, digital content non-returnable</li>
+                  <li><strong>Technical issues:</strong> Full refund or replacement for any technical problems</li>
+                  <li><strong>Quality issues:</strong> Free replacement keychain + page recreation if quality doesn't meet standards</li>
+                </ul>
+              </div>
             </section>
 
+            {/* Delivery & Performance */}
+            <section className="space-y-6">
+              <h2 className="text-xl font-semibold text-foreground">Delivery & Performance</h2>
+              
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Physical Product</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Delivery timeframe:</strong> 3-7 business days (UK)</li>
+                  <li><strong>Tracking provided:</strong> Email with tracking number when shipped</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Digital Content</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Page hosting:</strong> Minimum 1 year included, renewable at £9.99/year</li>
+                  <li><strong>Digital delivery:</strong> Love page live within 24-48 hours of form completion</li>
+                  <li><strong>Story downloads:</strong> Unlimited downloads with updated day counter</li>
+                  <li><strong>Photo storage:</strong> Your photos stored securely, deleted after page expiry unless renewed</li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Customer Responsibilities */}
+            <section className="space-y-6">
+              <h2 className="text-xl font-semibold text-foreground">Customer Responsibilities</h2>
+              
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Personalization Form</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Complete within 10 days:</strong> Automatic refund if not completed</li>
+                  <li><strong>Accurate information:</strong> Provide correct names, dates, and contact details</li>
+                  <li><strong>Photo quality:</strong> Upload high-resolution photos (minimum 720px)</li>
+                  <li><strong>Appropriate content:</strong> No offensive, inappropriate, or copyrighted content</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Usage Rights</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Your photos:</strong> You retain ownership and responsibility for all uploaded photos</li>
+                  <li><strong>Page content:</strong> You own your personalized page content</li>
+                  <li><strong>Sharing permission:</strong> You grant LoveCount permission to feature your page in marketing if you tag us on social media (revocable on request)</li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Annual Renewal Terms */}
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">6. Refund Policy</h2>
-              <p>Our refund policy is as follows:</p>
+              <h2 className="text-xl font-semibold text-foreground">Annual Renewal Terms</h2>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Before Form Submission:</strong> Full refund available. Contact us to cancel your order.</li>
-                <li><strong>After Page Created:</strong> No refunds are available once your personalized digital page has been created, as this is a custom digital product made specifically for you.</li>
-                <li><strong>Faulty Products:</strong> If your NFC keychain is faulty or damaged upon arrival, contact us within 14 days for a replacement.</li>
+                <li><strong>Auto-renewal:</strong> Annual hosting renewal unless cancelled with 30 days notice</li>
+                <li><strong>Price changes:</strong> 60 days notice for any price increases</li>
+                <li><strong>Payment failure:</strong> 30-day grace period before page deactivation</li>
               </ul>
             </section>
 
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">7. Delivery</h2>
-              <p>
-                <strong>Digital Page:</strong> Your personalized digital page will be created and accessible within 24-48 hours of completing the personalisation form.
-              </p>
-              <p>
-                <strong>Physical Keychain:</strong> Shipping times vary based on your location. UK delivery typically takes 3-5 business days. International delivery may take 7-14 business days.
-              </p>
+            {/* Data Protection & Privacy */}
+            <section className="space-y-6">
+              <h2 className="text-xl font-semibold text-foreground">Data Protection & Privacy</h2>
+              
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Information We Collect</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Personal:</strong> Names, email, shipping address, relationship dates</li>
+                  <li><strong>Content:</strong> Photos you upload, personal messages</li>
+                  <li><strong>Usage:</strong> Page views, download activity (anonymized)</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">How We Use Data</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Service delivery:</strong> Create and host your personalized page</li>
+                  <li><strong>Communication:</strong> Order updates, renewal reminders</li>
+                  <li><strong>Marketing:</strong> Only with your consent, unsubscribe anytime</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Data Storage</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Location:</strong> EU/UK servers (GDPR compliant)</li>
+                  <li><strong>Retention:</strong> Photos deleted 1 year after page expiry</li>
+                  <li><strong>Security:</strong> Industry-standard encryption and security measures</li>
+                </ul>
+              </div>
             </section>
 
+            {/* Limitation of Liability */}
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">8. Intellectual Property and Photo Rights</h2>
-              <p>
-                <strong>Your Content:</strong> You retain full ownership of any photos you upload to LoveCount. By uploading photos, you grant LoveCount a non-exclusive, worldwide license to display your photos on your personalized digital page for the duration of your subscription.
-              </p>
-              <p>
-                <strong>Our Content:</strong> The LoveCount website, branding, and digital page templates are the intellectual property of LoveCount and may not be copied or reproduced without permission.
-              </p>
-              <p>
-                <strong>Warranty:</strong> By uploading photos, you confirm that you have the right to use them and that they do not infringe on any third party's rights.
-              </p>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">9. Acceptable Use</h2>
-              <p>You agree not to upload content that:</p>
+              <h2 className="text-xl font-semibold text-foreground">Limitation of Liability</h2>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Is illegal, harmful, or offensive</li>
-                <li>Infringes on intellectual property rights</li>
-                <li>Contains malware or harmful code</li>
-                <li>Violates the privacy of others</li>
+                <li><strong>Emotional outcomes:</strong> No guarantee of specific emotional reactions or relationship outcomes</li>
+                <li><strong>Technical limitations:</strong> Occasional downtime for maintenance</li>
+                <li><strong>Photo quality:</strong> Final result depends on quality of photos you provide</li>
+                <li><strong>NFC compatibility:</strong> Most modern phones (2018+) compatible, older phones may vary</li>
               </ul>
-              <p>
-                We reserve the right to remove content and terminate accounts that violate these terms.
-              </p>
             </section>
 
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">10. Subscription Renewal</h2>
-              <p>
-                Your digital page hosting is included for one year from the date of creation. Before your subscription expires, we will send you a reminder email with the option to renew for £9.99 per year.
-              </p>
-              <p>
-                If you choose not to renew, your digital page will be deactivated and your NFC keychain will no longer link to your personalized content.
-              </p>
+            {/* Dispute Resolution */}
+            <section className="space-y-6">
+              <h2 className="text-xl font-semibold text-foreground">Dispute Resolution</h2>
+              
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Customer Service</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Contact:</strong> support@lovecount.co.uk</li>
+                  <li><strong>Response time:</strong> Within 24 hours</li>
+                  <li><strong>Escalation:</strong> Manager review for unresolved issues</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-foreground">Formal Disputes</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>UK Law:</strong> These terms governed by English law</li>
+                  <li><strong>Jurisdiction:</strong> Courts of England and Wales</li>
+                </ul>
+              </div>
             </section>
 
+            {/* Changes to Terms */}
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">11. Limitation of Liability</h2>
-              <p>
-                To the fullest extent permitted by law, LoveCount shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our products or services.
-              </p>
-              <p>
-                Our total liability shall not exceed the amount you paid for the product or service in question.
-              </p>
+              <h2 className="text-xl font-semibold text-foreground">Changes to Terms</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Notification:</strong> 30 days notice for material changes</li>
+                <li><strong>Acceptance:</strong> Continued use constitutes acceptance</li>
+              </ul>
             </section>
 
+            {/* Contact Information */}
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">12. Governing Law</h2>
+              <h2 className="text-xl font-semibold text-foreground">Contact Information</h2>
+              <p><strong>LoveCount UK</strong></p>
               <p>
-                These Terms are governed by and construed in accordance with the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.
-              </p>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">13. Changes to Terms</h2>
-              <p>
-                We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our services after changes constitutes acceptance of the new Terms.
-              </p>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">14. Contact Us</h2>
-              <p>
-                If you have any questions about these Terms, please contact us at:
-              </p>
-              <p>
-                <strong>Email:</strong>{" "}
+                Email:{" "}
                 <a href="mailto:support@lovecount.co.uk" className="text-primary hover:underline">
                   support@lovecount.co.uk
                 </a>
               </p>
+              <p>Website: lovecount.co.uk</p>
             </section>
+
+            <p className="text-sm text-foreground/60 italic border-t border-foreground/10 pt-6">
+              These terms comply with UK Consumer Rights Act 2015, GDPR, and Distance Selling Regulations.
+            </p>
           </div>
         </div>
       </main>
 
       {/* Footer */}
       <footer className="py-8 border-t border-foreground/10">
-        <div className="container-narrow flex flex-col items-center gap-4">
-          <div className="flex items-center gap-4">
+        <div className="container-narrow flex flex-col md:flex-row items-center justify-between gap-6 relative">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/60">
+            <a 
+              href="mailto:support@lovecount.co.uk" 
+              className="hover:text-foreground transition-colors"
+            >
+              Contact
+            </a>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-foreground">Terms of Service</span>
+          </div>
+          
+          <div className="flex items-center gap-4 absolute left-1/2 -translate-x-1/2">
             <a
               href="https://instagram.com/lovecount.uk"
               target="_blank"
@@ -195,6 +258,7 @@ const TermsOfService = () => {
               <img src={tiktokIcon} alt="TikTok" className="h-5 w-5" />
             </a>
           </div>
+          
           <p className="text-sm text-foreground/60">© 2026 Made with 💕 by LoveCount</p>
         </div>
       </footer>
