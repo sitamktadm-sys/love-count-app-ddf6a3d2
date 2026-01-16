@@ -29,14 +29,19 @@ const HeroSection = () => {
 
             {/* CTA Group */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
-              <Button 
-                variant="ctaLarge" 
-                size="xl"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-                aria-label="Get your LoveCount keychain for £34.99"
+              <a
+                href="https://buy.stripe.com/5kQbJ3fF1alfceU0WycbC02"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Get yours →
-              </Button>
+                <Button 
+                  variant="ctaLarge" 
+                  size="xl"
+                  aria-label="Get your LoveCount keychain for £34.99"
+                >
+                  Get yours →
+                </Button>
+              </a>
               <div className="flex flex-col items-center sm:items-start">
                 <span className="text-2xl font-bold text-foreground">£34.99</span>
                 <span className="text-sm text-foreground/60">Free UK delivery</span>

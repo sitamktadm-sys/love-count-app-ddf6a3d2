@@ -17,7 +17,7 @@ const SocialLinks = () => {
       
       <div className="flex items-center gap-6">
         <a 
-          href="https://instagram.com/lovecountuk" 
+          href="https://instagram.com/lovecount.uk" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-foreground hover:text-primary transition-colors duration-200"

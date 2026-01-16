@@ -25,29 +25,33 @@ const Navbar = () => {
       <div className="container-narrow">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <img src={logo} alt="LoveCount" className="h-10 md:h-12 w-auto" />
             <img src={lovecountText} alt="LoveCount" className="h-4 md:h-5 w-auto" />
           </a>
 
           {/* CTA Button */}
-          <Button
-            variant="cta"
-            size="sm"
+          <a
+            href="https://buy.stripe.com/5kQbJ3fF1alfceU0WycbC02"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex"
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Get Started
-          </Button>
+            <Button variant="cta" size="sm">
+              Get Started
+            </Button>
+          </a>
           
-          <Button
-            variant="cta"
-            size="sm"
-            className="sm:hidden text-sm px-4"
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+          <a
+            href="https://buy.stripe.com/5kQbJ3fF1alfceU0WycbC02"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:hidden"
           >
-            Get Started
-          </Button>
+            <Button variant="cta" size="sm" className="text-sm px-4">
+              Get Started
+            </Button>
+          </a>
         </div>
       </div>
     </nav>

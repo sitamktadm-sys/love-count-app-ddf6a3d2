@@ -8,7 +8,7 @@ const ThankYou = () => {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="py-4 px-6 border-b border-border flex justify-center">
-        <Logo />
+        <Logo linkToHome />
       </header>
 
       {/* Main Content */}

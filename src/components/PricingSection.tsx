@@ -59,14 +59,21 @@ const PricingSection = () => {
               </ul>
 
               {/* CTA Button */}
-              <Button 
-                variant="ctaLarge" 
-                size="xl" 
+              <a
+                href="https://buy.stripe.com/5kQbJ3fF1alfceU0WycbC02"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full"
-                aria-label="Start your LoveCount and order now"
               >
-                Start Your LoveCount
-              </Button>
+                <Button 
+                  variant="ctaLarge" 
+                  size="xl" 
+                  className="w-full"
+                  aria-label="Start your LoveCount and order now"
+                >
+                  Start Your LoveCount
+                </Button>
+              </a>
             </div>
           </article>
 
