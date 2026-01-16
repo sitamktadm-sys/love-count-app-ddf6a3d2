@@ -1,4 +1,6 @@
 import logo from "@/assets/logo.svg";
+import instagramIcon from "@/assets/instagram-icon.png";
+import tiktokIcon from "@/assets/tiktok-icon.png";
 
 const Footer = () => {
   return (
@@ -29,19 +31,19 @@ const Footer = () => {
               href="https://instagram.com/lovecount.uk"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-foreground/60 hover:text-foreground transition-colors"
+              className="opacity-60 hover:opacity-100 transition-opacity"
               aria-label="Follow LoveCount on Instagram"
             >
-              @lovecount.uk
+              <img src={instagramIcon} alt="Instagram" className="h-5 w-5" />
             </a>
             <a
               href="https://tiktok.com/@lovecountuk"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-foreground/60 hover:text-foreground transition-colors"
+              className="opacity-60 hover:opacity-100 transition-opacity"
               aria-label="Follow LoveCount on TikTok"
             >
-              TikTok
+              <img src={tiktokIcon} alt="TikTok" className="h-5 w-5" />
             </a>
           </div>
 
