@@ -13,7 +13,7 @@ const Footer = () => {
               <img src={logo} alt="LoveCount logo" width={32} height={32} className="h-8 w-auto" />
             </a>
             <nav className="flex items-center gap-4 text-sm text-foreground/60" aria-label="Footer navigation">
-              <a href="/contact" className="hover:text-foreground transition-colors">
+              <a href="mailto:support@lovecount.co.uk" className="hover:text-foreground transition-colors">
                 Contact
               </a>
               <a href="/privacy" className="hover:text-foreground transition-colors">
