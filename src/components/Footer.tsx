@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="py-8 border-t border-foreground/10 bg-background">
       <div className="container-narrow">
-        <div className="flex flex-col items-center gap-6 text-center">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative">
           {/* Logo and Links */}
           <div className="flex items-center gap-6">
             <a href="/" className="flex items-center gap-2" aria-label="LoveCount home">
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 absolute left-1/2 -translate-x-1/2">
             <a
               href="https://instagram.com/lovecount.uk"
               target="_blank"
