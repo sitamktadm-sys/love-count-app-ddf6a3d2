@@ -7,7 +7,7 @@ const MessageBox = () => {
         <span>📧</span> What happens next?
       </h3>
       
-      <p className="text-white/90 text-sm md:text-base mb-4">
+      <p className="text-white/90 text-sm md:text-base mb-4 text-center">
         You'll receive an email shortly with:
       </p>
       
