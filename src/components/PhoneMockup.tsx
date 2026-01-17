@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo.svg";
 import keychainLogo from "@/assets/keychain-logo.png";
+import couplePhoto1 from "@/assets/couple-photo-1.png";
+import couplePhoto2 from "@/assets/couple-photo-2.png";
+import couplePhoto3 from "@/assets/couple-photo-3.png";
 
 const PhoneMockup = () => {
   const [days, setDays] = useState(1247);
   const [hours, setHours] = useState(14);
   const [minutes, setMinutes] = useState(32);
   const [seconds, setSeconds] = useState(0);
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+
+  const photos = [couplePhoto1, couplePhoto2, couplePhoto3];
 
   // Update the counter every second
   useEffect(() => {
@@ -34,14 +40,13 @@ const PhoneMockup = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Couple photo placeholders with gradients
-  const photos = [
-    "linear-gradient(135deg, hsl(352 77% 60%) 0%, hsl(353 62% 83%) 100%)",
-    "linear-gradient(135deg, hsl(240 28% 14%) 0%, hsl(240 28% 30%) 100%)",
-    "linear-gradient(135deg, hsl(353 62% 83%) 0%, hsl(352 77% 70%) 100%)",
-    "linear-gradient(135deg, hsl(352 77% 55%) 0%, hsl(240 28% 25%) 100%)",
-    "linear-gradient(135deg, hsl(240 28% 20%) 0%, hsl(353 62% 83%) 100%)",
-  ];
+  // Auto-scroll photos every 3 seconds
+  useEffect(() => {
+    const photoInterval = setInterval(() => {
+      setCurrentPhoto((prev) => (prev + 1) % photos.length);
+    }, 3000);
+    return () => clearInterval(photoInterval);
+  }, [photos.length]);
 
   return (
     <div className="relative">
@@ -98,17 +103,25 @@ const PhoneMockup = () => {
               {/* Photo Carousel */}
               <div className="flex-1 px-4 py-4 overflow-hidden">
                 <div className="relative h-full rounded-xl overflow-hidden">
-                  <div className="flex gap-3 animate-carousel-slide h-full">
-                    {[...photos, ...photos].map((gradient, i) => (
+                  {photos.map((photo, i) => (
+                    <img
+                      key={i}
+                      src={photo}
+                      alt={`Couple memory photo ${i + 1}`}
+                      className={`absolute inset-0 w-full h-full object-cover rounded-lg transition-opacity duration-700 ease-in-out ${
+                        i === currentPhoto ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                  {/* Carousel dots */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                    {photos.map((_, i) => (
                       <div
                         key={i}
-                        className="flex-shrink-0 w-24 h-full rounded-lg flex items-center justify-center"
-                        style={{ background: gradient }}
-                        role="img"
-                        aria-label={`Couple memory photo ${(i % photos.length) + 1}`}
-                      >
-                        <span className="text-3xl opacity-50">💑</span>
-                      </div>
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                          i === currentPhoto ? 'bg-coral w-3' : 'bg-white/50'
+                        }`}
+                      />
                     ))}
                   </div>
                 </div>
