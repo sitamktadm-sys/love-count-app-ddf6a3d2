@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ConsumerRightsSection = () => {
   return (
-    <div className="bg-card rounded-2xl p-6 md:p-8 border-l-4 border-coral animate-fade-in" style={{ animationDelay: '0.35s' }}>
+    <div className="bg-card rounded-2xl p-6 md:p-8 border-l-4 border-r-4 border-coral animate-fade-in" style={{ animationDelay: '0.35s' }}>
       <h3 className="text-lg md:text-xl font-semibold text-white mb-4 flex items-center justify-center gap-2">
         <Shield className="text-coral" size={20} />
         <span>Your Consumer Rights</span>
