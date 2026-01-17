@@ -9,41 +9,35 @@ const ConsumerRightsSection = () => {
         <span>Your Consumer Rights</span>
       </h3>
       
-      <ul className="space-y-3 text-sm md:text-base text-white/90 flex flex-col items-center">
-        <li className="flex items-start gap-2">
-          <span className="text-coral">•</span>
-          <span>You have 14 days from delivery to return your LoveCount for a full refund</span>
+      <ul className="space-y-3 text-sm md:text-base text-white/90">
+        <li className="text-center">
+          <span className="text-coral">•</span> You have 14 days from delivery to return your LoveCount for a full refund
         </li>
-        <li className="flex items-start gap-2">
-          <span className="text-coral">•</span>
-          <span>Physical products: Return the keychain in original condition</span>
+        <li className="text-center">
+          <span className="text-coral">•</span> Physical products: Return the keychain in original condition
         </li>
-        <li className="flex items-start gap-2">
-          <span className="text-coral">•</span>
-          <span>Digital content: Access revoked upon return request</span>
+        <li className="text-center">
+          <span className="text-coral">•</span> Digital content: Access revoked upon return request
         </li>
-        <li className="flex items-start gap-2">
-          <span className="text-coral">•</span>
-          <span>
-            View our complete{" "}
-            <Link 
-              to="/terms" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-coral hover:underline font-medium"
-            >
-              Terms of Service
-            </Link>
-            {" "}and{" "}
-            <Link 
-              to="/privacy" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-coral hover:underline font-medium"
-            >
-              Privacy Policy
-            </Link>
-          </span>
+        <li className="text-center">
+          <span className="text-coral">•</span> View our complete{" "}
+          <Link 
+            to="/terms" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-coral hover:underline font-medium"
+          >
+            Terms of Service
+          </Link>
+          {" "}and{" "}
+          <Link 
+            to="/privacy" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-coral hover:underline font-medium"
+          >
+            Privacy Policy
+          </Link>
         </li>
       </ul>
     </div>
