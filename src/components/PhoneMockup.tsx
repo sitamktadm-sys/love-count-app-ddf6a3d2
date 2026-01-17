@@ -4,6 +4,12 @@ import keychainLogo from "@/assets/keychain-logo.png";
 import couplePhoto1 from "@/assets/couple-photo-1.png";
 import couplePhoto2 from "@/assets/couple-photo-2.png";
 import couplePhoto3 from "@/assets/couple-photo-3.png";
+import couplePhoto4 from "@/assets/couple-photo-4.png";
+import couplePhoto5 from "@/assets/couple-photo-5.png";
+import couplePhoto6 from "@/assets/couple-photo-6.png";
+import couplePhoto7 from "@/assets/couple-photo-7.png";
+import couplePhoto8 from "@/assets/couple-photo-8.png";
+import couplePhoto9 from "@/assets/couple-photo-9.png";
 
 const PhoneMockup = () => {
   const [days, setDays] = useState(1247);
@@ -12,7 +18,7 @@ const PhoneMockup = () => {
   const [seconds, setSeconds] = useState(0);
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
-  const photos = [couplePhoto1, couplePhoto2, couplePhoto3];
+  const photos = [couplePhoto1, couplePhoto2, couplePhoto3, couplePhoto4, couplePhoto5, couplePhoto6, couplePhoto7, couplePhoto8, couplePhoto9];
 
   // Update the counter every second
   useEffect(() => {
