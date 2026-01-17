@@ -1,6 +1,7 @@
 import Logo from "@/components/Logo";
 import SuccessIcon from "@/components/SuccessIcon";
 import MessageBox from "@/components/MessageBox";
+import ConsumerRightsSection from "@/components/ConsumerRightsSection";
 import SocialLinks from "@/components/SocialLinks";
 
 const ThankYou = () => {
@@ -31,6 +32,9 @@ const ThankYou = () => {
 
           {/* Message Box */}
           <MessageBox />
+
+          {/* Consumer Rights */}
+          <ConsumerRightsSection />
 
           {/* Spam Notice */}
           <p className="text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
