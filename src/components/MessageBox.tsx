@@ -11,7 +11,7 @@ const MessageBox = () => {
         You'll receive an email shortly with:
       </p>
       
-      <ul className="space-y-3 mb-6 text-sm md:text-base">
+      <ul className="space-y-3 mb-6 text-sm md:text-base flex flex-col items-center">
         <li className="flex items-start gap-3">
           <Check className="text-coral mt-0.5 flex-shrink-0" size={20} strokeWidth={3} />
           <span className="text-white">Your order confirmation</span>

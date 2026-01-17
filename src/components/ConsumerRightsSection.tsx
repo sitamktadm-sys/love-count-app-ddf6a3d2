@@ -9,7 +9,7 @@ const ConsumerRightsSection = () => {
         <span>Your Consumer Rights</span>
       </h3>
       
-      <ul className="space-y-3 text-sm md:text-base text-white/90">
+      <ul className="space-y-3 text-sm md:text-base text-white/90 flex flex-col items-center">
         <li className="flex items-start gap-2">
           <span className="text-coral">•</span>
           <span>You have 14 days from delivery to return your LoveCount for a full refund</span>
