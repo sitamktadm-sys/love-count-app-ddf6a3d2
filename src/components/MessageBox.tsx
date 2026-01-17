@@ -26,11 +26,11 @@ const MessageBox = () => {
         </li>
       </ul>
       
-      <p className="text-white/90 text-sm md:text-base mb-4">
+      <p className="text-white/90 text-sm md:text-base mb-4 text-center">
         Please complete the personalisation form within <span className="text-white font-medium">7 days</span> so we can start creating your unique love page.
       </p>
       
-      <p className="text-pink/80 text-xs md:text-sm italic">
+      <p className="text-pink/80 text-xs md:text-sm italic text-center">
         We're already working on your order and will keep you updated on its progress!
       </p>
     </div>
