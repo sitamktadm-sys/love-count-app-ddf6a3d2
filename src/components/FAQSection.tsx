@@ -35,12 +35,12 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-pink" aria-labelledby="faq-heading">
+    <section className="py-16 md:py-24 bg-background" aria-labelledby="faq-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Questions about your anniversary gift</p>
-          <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-navy mb-6">Got Questions?</h2>
+          <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-6">Got Questions?</h2>
         </div>
 
         {/* FAQ Accordion */}
@@ -50,12 +50,12 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-white/50 rounded-xl px-6 border-none"
+                className="bg-foreground/5 rounded-xl px-6 border-none"
               >
-                <AccordionTrigger className="text-left text-navy font-semibold hover:no-underline py-5">
+                <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-navy/70 pb-5">
+                <AccordionContent className="text-foreground/70 pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
