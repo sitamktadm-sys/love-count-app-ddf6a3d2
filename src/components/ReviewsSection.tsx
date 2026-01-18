@@ -46,12 +46,12 @@ const ReviewsSection = () => {
   const duplicatedReviews = [...reviews, ...reviews];
 
   return (
-    <section className="py-16 md:py-24 bg-background overflow-hidden" aria-labelledby="reviews-heading">
+    <section className="py-16 md:py-24 bg-pink overflow-hidden" aria-labelledby="reviews-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="section-label">Customer love</p>
-          <h2 id="reviews-heading" className="section-title">What Couples Are Saying</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">Customer love</p>
+          <h2 id="reviews-heading" className="text-3xl md:text-4xl font-bold text-navy mb-6">What Couples Are Saying</h2>
         </div>
       </div>
 
@@ -70,7 +70,7 @@ const ReviewsSection = () => {
           {duplicatedReviews.map((review, index) => (
           <article
             key={index}
-            className="bg-card rounded-2xl p-6 shadow-subtle border border-foreground/10 flex flex-col flex-shrink-0 w-[320px] md:w-[360px]"
+            className="bg-white/50 rounded-2xl p-6 shadow-subtle border border-navy/10 flex flex-col flex-shrink-0 w-[320px] md:w-[360px]"
           >
             {/* Stars */}
             <div className="flex gap-0.5 text-coral mb-4" aria-label={`${review.stars} out of 5 stars`}>
@@ -80,12 +80,12 @@ const ReviewsSection = () => {
             </div>
 
             {/* Quote */}
-            <blockquote className="text-foreground leading-relaxed flex-1">"{review.text}"</blockquote>
+            <blockquote className="text-navy leading-relaxed flex-1">"{review.text}"</blockquote>
 
             {/* Author */}
-            <footer className="border-t border-foreground/10 pt-4 mt-6">
-              <p className="font-semibold text-foreground">{review.author}</p>
-              <p className="text-sm text-foreground/60">{review.meta}</p>
+            <footer className="border-t border-navy/10 pt-4 mt-6">
+              <p className="font-semibold text-navy">{review.author}</p>
+              <p className="text-sm text-navy/60">{review.meta}</p>
             </footer>
           </article>
         ))}
