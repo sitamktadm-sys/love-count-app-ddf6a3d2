@@ -6,13 +6,13 @@ const Footer = () => {
   return (
     <footer className="py-8 border-t border-foreground/10 bg-background">
       <div className="container-narrow">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo and Links */}
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             <a href="/" className="flex items-center gap-2" aria-label="LoveCount home">
               <img src={logo} alt="LoveCount logo" width={32} height={32} className="h-8 w-auto" />
             </a>
-            <nav className="flex items-center gap-4 text-sm text-foreground/60" aria-label="Footer navigation">
+            <nav className="flex flex-wrap items-center justify-center gap-4 text-sm text-foreground/60" aria-label="Footer navigation">
               <a href="mailto:support@lovecount.co.uk" className="hover:text-foreground transition-colors">
                 Contact
               </a>
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4 absolute left-1/2 -translate-x-1/2">
+          <div className="flex items-center gap-4 order-first md:order-none md:absolute md:left-1/2 md:-translate-x-1/2">
             <a
               href="https://instagram.com/lovecount.uk"
               target="_blank"
