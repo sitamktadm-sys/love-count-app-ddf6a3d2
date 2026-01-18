@@ -66,7 +66,12 @@ const PhoneMockup = () => {
             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
             
             {/* Screen content */}
-            <div className="relative bg-navy rounded-[2.25rem] overflow-hidden aspect-[9/19.5] flex flex-col">
+            <div 
+              className="relative rounded-[2.25rem] overflow-hidden aspect-[9/19.5] flex flex-col"
+              style={{
+                background: 'linear-gradient(180deg, hsl(280 30% 12%) 0%, hsl(260 25% 10%) 50%, hsl(240 28% 8%) 100%)'
+              }}
+            >
               {/* App Header */}
               <div className="pt-10 pb-4 px-5">
                 <div className="flex items-center justify-center gap-2">
