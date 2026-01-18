@@ -28,7 +28,7 @@ const PricingSection = () => {
 
         {/* Pricing Card */}
         <div className="max-w-md mx-auto">
-          <article className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-card overflow-hidden">
+          <article className="relative bg-white/75 backdrop-blur-sm rounded-3xl shadow-card overflow-hidden">
             <div className="p-8">
               {/* Title */}
               <h3 className="text-2xl font-bold text-navy text-center mb-2">
