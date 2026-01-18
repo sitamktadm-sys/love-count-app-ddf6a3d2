@@ -2,7 +2,7 @@ import keychainLogo from "@/assets/keychain-logo.png";
 
 const WhatYouGetSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-navy" aria-labelledby="what-you-get-heading">
+    <section className="py-16 md:py-24" aria-labelledby="what-you-get-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
