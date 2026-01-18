@@ -4,6 +4,7 @@ import SocialProofBanner from "@/components/SocialProofBanner";
 import WhatYouGetSection from "@/components/WhatYouGetSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import ShareYourStorySection from "@/components/ShareYourStorySection";
 import PricingSection from "@/components/PricingSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import FAQSection from "@/components/FAQSection";
@@ -20,6 +21,7 @@ const Index = () => {
         <WhatYouGetSection />
         <BenefitsSection />
         <HowItWorksSection />
+        <ShareYourStorySection />
         <PricingSection />
         <ReviewsSection />
         <FAQSection />
