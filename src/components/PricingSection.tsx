@@ -18,7 +18,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-background scroll-mt-20" aria-labelledby="pricing-heading">
+    <section id="pricing" className="py-16 md:py-24 scroll-mt-20" aria-labelledby="pricing-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12">

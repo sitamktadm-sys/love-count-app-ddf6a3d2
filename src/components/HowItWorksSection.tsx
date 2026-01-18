@@ -9,7 +9,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-background" aria-labelledby="how-it-works-heading">
+    <section className="py-16 md:py-24" aria-labelledby="how-it-works-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
