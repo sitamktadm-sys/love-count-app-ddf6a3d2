@@ -117,7 +117,7 @@ const ShareYourStorySection = () => {
               Share Your Love Story
             </h2>
             <p className="text-navy/80 text-lg mb-4 leading-relaxed">
-              Download your personalized story image anytime and share your journey on Instagram
+              Download your personalized story image anytime and share your journey on your socials
             </p>
             <p className="text-navy/60 text-sm mb-6">
               Always updated with current day count
