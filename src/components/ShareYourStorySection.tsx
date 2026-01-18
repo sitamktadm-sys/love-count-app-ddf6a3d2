@@ -119,13 +119,9 @@ const ShareYourStorySection = () => {
             <p className="text-navy/80 text-lg mb-4 leading-relaxed">
               Download your personalized story image anytime and share your journey on your socials
             </p>
-            <p className="text-navy/60 text-sm mb-6">
+            <p className="text-navy/60 text-sm">
               Always updated with current day count
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/50 rounded-full">
-              <span className="text-coral text-sm font-medium">Get yours at</span>
-              <span className="text-navy font-semibold text-sm">@lovecount.uk</span>
-            </div>
           </div>
         </div>
       </div>
