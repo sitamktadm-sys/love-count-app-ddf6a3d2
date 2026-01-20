@@ -27,12 +27,12 @@ const PrivacyPolicy = () => {
             <section className="space-y-4">
               <h2 className="text-xl font-semibold text-foreground">Who We Are</h2>
               <p>
-                LoveCount UK is an e-commerce business that creates personalized NFC keychains with digital love pages for couples. Our website address is: lovecount.co.uk
+                LoveCount UK is an e-commerce business that creates personalized NFC keychains with digital love pages for couples. Our website address is: lovecount.uk
               </p>
               <p>
                 <strong>Contact:</strong>{" "}
-                <a href="mailto:support@lovecount.co.uk" className="text-primary hover:underline">
-                  support@lovecount.co.uk
+                <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                  support@lovecount.uk
                 </a>
               </p>
             </section>
@@ -263,8 +263,8 @@ const PrivacyPolicy = () => {
                 <h3 className="text-lg font-medium text-foreground">How to Exercise Your Rights</h3>
                 <p>
                   Email us at:{" "}
-                  <a href="mailto:support@lovecount.co.uk" className="text-primary hover:underline">
-                    support@lovecount.co.uk
+                  <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                    support@lovecount.uk
                   </a>{" "}
                   with "Data Request" in the subject line
                 </p>
@@ -389,8 +389,8 @@ const PrivacyPolicy = () => {
                 <h3 className="text-lg font-medium text-foreground">Contact Us</h3>
                 <p>
                   <strong>Email:</strong>{" "}
-                  <a href="mailto:support@lovecount.co.uk" className="text-primary hover:underline">
-                    support@lovecount.co.uk
+                  <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                    support@lovecount.uk
                   </a>
                 </p>
                 <p><strong>Subject line:</strong> Use "Privacy" for data protection queries</p>
@@ -421,7 +421,7 @@ const PrivacyPolicy = () => {
         <div className="container-narrow flex flex-col md:flex-row items-center justify-between gap-6 relative">
           <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/60">
             <a 
-              href="mailto:support@lovecount.co.uk" 
+              href="mailto:support@lovecount.uk" 
               className="hover:text-foreground transition-colors"
             >
               Contact

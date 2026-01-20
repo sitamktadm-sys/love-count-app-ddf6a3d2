@@ -178,7 +178,7 @@ const TermsOfService = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-medium text-foreground">Customer Service</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Contact:</strong> support@lovecount.co.uk</li>
+                  <li><strong>Contact:</strong> support@lovecount.uk</li>
                   <li><strong>Response time:</strong> Within 24 hours</li>
                   <li><strong>Escalation:</strong> Manager review for unresolved issues</li>
                 </ul>
@@ -208,11 +208,11 @@ const TermsOfService = () => {
               <p><strong>LoveCount UK</strong></p>
               <p>
                 Email:{" "}
-                <a href="mailto:support@lovecount.co.uk" className="text-primary hover:underline">
-                  support@lovecount.co.uk
+                <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                  support@lovecount.uk
                 </a>
               </p>
-              <p>Website: lovecount.co.uk</p>
+              <p>Website: lovecount.uk</p>
             </section>
 
             <p className="text-sm text-foreground/60 italic border-t border-foreground/10 pt-6">
@@ -227,7 +227,7 @@ const TermsOfService = () => {
         <div className="container-narrow flex flex-col md:flex-row items-center justify-between gap-6 relative">
           <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/60">
             <a 
-              href="mailto:support@lovecount.co.uk" 
+              href="mailto:support@lovecount.uk" 
               className="hover:text-foreground transition-colors"
             >
               Contact
