@@ -9,6 +9,17 @@ import { Milestones } from '@/components/Milestones';
 import { FloatingHearts } from '@/components/FloatingHearts';
 import { GradientOverlay } from '@/components/GradientOverlay';
 
+// Import the same couple photos used in PhoneMockup
+import couplePhoto1 from "@/assets/couple-photo-1.png";
+import couplePhoto2 from "@/assets/couple-photo-2.png";
+import couplePhoto3 from "@/assets/couple-photo-3.png";
+import couplePhoto4 from "@/assets/couple-photo-4.png";
+import couplePhoto5 from "@/assets/couple-photo-5.png";
+import couplePhoto6 from "@/assets/couple-photo-6.png";
+import couplePhoto7 from "@/assets/couple-photo-7.png";
+import couplePhoto8 from "@/assets/couple-photo-8.png";
+import couplePhoto9 from "@/assets/couple-photo-9.png";
+
 // Types
 interface PageData {
   page_id: string;
@@ -23,6 +34,9 @@ interface PageData {
 
 type PageState = 'loading' | 'active' | 'expired' | 'error';
 
+// Same photos as PhoneMockup for consistency
+const demoPhotos = [couplePhoto1, couplePhoto2, couplePhoto3, couplePhoto4, couplePhoto5, couplePhoto6, couplePhoto7, couplePhoto8, couplePhoto9];
+
 // Mock data for development
 const mockData: PageData = {
   page_id: "LC-DEMO",
@@ -31,12 +45,7 @@ const mockData: PageData = {
   name_2: "James",
   relationship_start_date: "2022-05-15",
   message: "Every day with you is a gift. Here's to a thousand more adventures together. I love you more than words can say. 💕",
-  photos: [
-    "https://images.unsplash.com/photo-1529634597503-139d3726fed5?w=500&h=625&fit=crop",
-    "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500&h=625&fit=crop",
-    "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&h=625&fit=crop",
-    "https://images.unsplash.com/photo-1529519195486-16945e80e093?w=500&h=625&fit=crop"
-  ],
+  photos: demoPhotos,
   page_expiry_date: "2027-01-15"
 };
 
@@ -131,10 +140,10 @@ export function CustomerPage() {
             <p className="text-white/50 text-sm mt-6">
               Need help?{' '}
               <a 
-                href="mailto:support@lovecount.co.uk" 
+                href="mailto:support@lovecount.uk" 
                 className="text-primary hover:underline"
               >
-                support@lovecount.co.uk
+                support@lovecount.uk
               </a>
             </p>
           </div>
@@ -169,10 +178,10 @@ export function CustomerPage() {
             <p className="text-white/50 text-sm mt-6">
               Questions? Contact us at:{' '}
               <a 
-                href="mailto:support@lovecount.co.uk" 
+                href="mailto:support@lovecount.uk" 
                 className="text-primary hover:underline"
               >
-                support@lovecount.co.uk
+                support@lovecount.uk
               </a>
             </p>
           </div>

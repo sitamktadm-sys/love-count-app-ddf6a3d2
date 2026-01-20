@@ -44,8 +44,8 @@ const ThankYou = () => {
           {/* Support Info */}
           <div className="text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.45s' }}>
             <p>Questions or problems? We're here to help:</p>
-            <a href="mailto:support@lovecount.co.uk" className="text-coral hover:underline font-medium">
-              support@lovecount.co.uk
+            <a href="mailto:support@lovecount.uk" className="text-coral hover:underline font-medium">
+              support@lovecount.uk
             </a>
           </div>
 
