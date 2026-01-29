@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
               </p>
               <p>
                 <strong>Contact:</strong>{" "}
-                <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                <a href="mailto:support@lovecount.uk" className="text-foreground hover:underline">
                   support@lovecount.uk
                 </a>
               </p>
@@ -263,7 +263,7 @@ const PrivacyPolicy = () => {
                 <h3 className="text-lg font-medium text-foreground">How to Exercise Your Rights</h3>
                 <p>
                   Email us at:{" "}
-                  <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                  <a href="mailto:support@lovecount.uk" className="text-foreground hover:underline">
                     support@lovecount.uk
                   </a>{" "}
                   with "Data Request" in the subject line
@@ -389,7 +389,7 @@ const PrivacyPolicy = () => {
                 <h3 className="text-lg font-medium text-foreground">Contact Us</h3>
                 <p>
                   <strong>Email:</strong>{" "}
-                  <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                  <a href="mailto:support@lovecount.uk" className="text-foreground hover:underline">
                     support@lovecount.uk
                   </a>
                 </p>
