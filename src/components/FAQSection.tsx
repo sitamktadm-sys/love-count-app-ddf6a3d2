@@ -32,6 +32,11 @@ const FAQSection = () => {
       answer:
         "Yes! The silicone keychain is IP65 rated — safe for rain, splashes, and everyday life. Perfect for an anniversary gift that lasts.",
     },
+    {
+      question: "Can I order an additional keychain for my partner or as a replacement?",
+      answer:
+        "Absolutely! If you need an additional keychain for your partner, as a replacement for a lost keychain, or for any other reason, simply contact us at support@lovecount.uk. Additional keychains cost £14.99 and will link to your existing LoveCount page — no setup required. Just let us know your existing page ID (LC-XXX) when you contact us, and we'll arrange your additional keychain order.",
+    },
   ];
 
   return (

@@ -36,6 +36,21 @@ const TermsOfService = () => {
               <p><strong>Annual hosting renewal:</strong> £9.99/year</p>
             </section>
 
+            {/* Additional Keychains */}
+            <section className="space-y-4">
+              <h2 className="text-xl font-semibold text-foreground">Additional Keychains</h2>
+              <p>Existing customers may purchase additional keychains for £14.99 that link to their current LoveCount page. Additional keychain purchases are subject to the following terms:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Requires an active LoveCount page with current hosting subscription</li>
+                <li>Additional keychains link to the same existing page as the original purchase</li>
+                <li>No new page creation, personalization, or additional hosting included</li>
+                <li>Same 14-day return policy applies to physical keychain only</li>
+                <li>Digital page access remains tied to original purchase and renewal schedule</li>
+                <li>Additional keychains are shipped to the same address as original order unless otherwise specified</li>
+                <li>NFC functionality links to existing page - no setup required</li>
+              </ul>
+            </section>
+
             {/* Returns & Refunds Policy */}
             <section className="space-y-6">
               <h2 className="text-xl font-semibold text-foreground">Returns & Refunds Policy</h2>

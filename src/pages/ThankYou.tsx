@@ -36,6 +36,19 @@ const ThankYou = () => {
           {/* Consumer Rights */}
           <ConsumerRightsSection />
 
+          {/* Matching Keychain Upsell */}
+          <div className="bg-foreground/5 rounded-xl p-6 space-y-3 animate-fade-in" style={{ animationDelay: '0.35s' }}>
+            <h3 className="text-lg font-semibold text-foreground text-center">
+              💕 Want a Matching One?
+            </h3>
+            <p className="text-muted-foreground text-sm text-center">
+              Get a second keychain for your partner for just <span className="text-coral font-semibold">£14.99</span>! It will link to your same personalized page once it's created. Perfect for sharing your love story together.
+            </p>
+            <p className="text-muted-foreground/70 text-xs text-center">
+              The option to add a second keychain was available during checkout, but you can always order additional keychains later from your customer page.
+            </p>
+          </div>
+
           {/* Spam Notice */}
           <p className="text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
             💡 Can't find the email? Check your spam or junk folder.
