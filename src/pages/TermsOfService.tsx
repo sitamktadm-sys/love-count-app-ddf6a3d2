@@ -223,7 +223,7 @@ const TermsOfService = () => {
               <p><strong>LoveCount UK</strong></p>
               <p>
                 Email:{" "}
-                <a href="mailto:support@lovecount.uk" className="text-primary hover:underline">
+                <a href="mailto:support@lovecount.uk" className="text-foreground hover:underline">
                   support@lovecount.uk
                 </a>
               </p>
