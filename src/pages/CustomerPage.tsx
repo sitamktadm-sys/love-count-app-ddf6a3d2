@@ -142,10 +142,10 @@ export function CustomerPage() {
 
   if (pageState === "loading") {
     return (
-      <div className="min-h-screen customer-page-bg flex items-center justify-center">
+      <div className="min-h-screen customer-page-bg flex flex-col items-center justify-center">
         <GradientOverlay />
         <FloatingHearts />
-        <div className="text-center z-10">
+        <div className="text-center z-10 flex flex-col items-center justify-center">
           {/* Beating Heart Loader */}
           <motion.div
             animate={{
