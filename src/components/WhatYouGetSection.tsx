@@ -10,7 +10,7 @@ const WhatYouGetSection = () => {
             Your Personalised Couple Gift
           </p>
           <h2 id="what-you-get-heading" className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Everything In The Box
+            Everything You Get
           </h2>
         </div>
 
