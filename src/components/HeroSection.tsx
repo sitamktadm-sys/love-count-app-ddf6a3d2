@@ -76,7 +76,7 @@ const HeroSection = () => {
 
             {/* Subtitle */}
             <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0">
-              Looking for a unique anniversary or Valentine's gift? This personalised keychain opens your love page — counting every day you've been together.
+              Looking for a unique anniversary or Valentine's gift? Your personalised love page — counting every day you've been together.
             </p>
 
             {/* CTA Group */}
