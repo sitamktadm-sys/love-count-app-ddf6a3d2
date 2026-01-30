@@ -14,6 +14,21 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const navLinks = [
+    { label: "Features", id: "features" },
+    { label: "Pricing", id: "pricing" },
+    { label: "Reviews", id: "reviews" },
+    { label: "FAQ", id: "faq" },
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -29,6 +44,20 @@ const Navbar = () => {
             <img src={logo} alt="LoveCount" className="h-10 md:h-12 w-auto" />
             <img src={lovecountText} alt="LoveCount" className="h-4 md:h-5 w-auto" />
           </a>
+
+          {/* Navigation Links - Desktop */}
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(e, link.id)}
+                className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
           {/* CTA Button */}
           <a

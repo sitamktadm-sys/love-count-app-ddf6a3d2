@@ -46,7 +46,7 @@ const ReviewsSection = () => {
   const duplicatedReviews = [...reviews, ...reviews];
 
   return (
-    <section className="py-16 md:py-24 bg-pink overflow-hidden" aria-labelledby="reviews-heading">
+    <section id="reviews" className="py-16 md:py-24 bg-pink overflow-hidden scroll-mt-20" aria-labelledby="reviews-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">

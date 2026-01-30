@@ -40,7 +40,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24" aria-labelledby="faq-heading">
+    <section id="faq" className="py-16 md:py-24 scroll-mt-20" aria-labelledby="faq-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12">
