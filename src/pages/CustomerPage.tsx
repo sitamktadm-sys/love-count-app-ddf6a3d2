@@ -149,10 +149,10 @@ export function CustomerPage() {
           {/* Beating Heart Loader */}
           <motion.div
             animate={{
-              scale: [1, 1.2, 1, 1.2, 1],
+              scale: [1, 1.15, 1, 1.15, 1],
             }}
             transition={{
-              duration: 1,
+              duration: 2.5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
