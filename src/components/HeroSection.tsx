@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 import PhoneMockup from "./PhoneMockup";
-import { Clock, Truck, Smartphone, Heart } from "lucide-react";
+import { Clock, Truck, Smartphone, Heart, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
+
+// Trust badge configuration
+const trustBadges: { icon: LucideIcon; text: string }[] = [
+  { icon: Clock, text: "1 year hosting included" },
+  { icon: Smartphone, text: "No app needed" },
+  { icon: Truck, text: "Ships in 2-3 days" },
+];
 
 const HeroSection = () => {
   // Floating hearts configuration
@@ -117,35 +124,34 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Trust Badges with hover animation */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6">
-              <div className="trust-badge group cursor-default">
-                <motion.div
-                  whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Clock className="w-4 h-4 text-coral" aria-hidden="true" />
-                </motion.div>
-                <span>1 year hosting included</span>
-              </div>
-              <div className="trust-badge group cursor-default">
-                <motion.div
-                  whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Smartphone className="w-4 h-4 text-coral" aria-hidden="true" />
-                </motion.div>
-                <span>No app needed</span>
-              </div>
-              <div className="trust-badge group cursor-default">
-                <motion.div
-                  whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Truck className="w-4 h-4 text-coral" aria-hidden="true" />
-                </motion.div>
-                <span>Ships in 2-3 days</span>
-              </div>
+            {/* Trust Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 md:gap-4">
+              {trustBadges.map((badge, index) => {
+                const IconComponent = badge.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-coral/10 border border-coral/20 text-sm text-foreground/80 cursor-default transition-all duration-300 hover:scale-105 hover:bg-coral/15 hover:border-coral/30"
+                    whileHover={{ y: -2 }}
+                  >
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 3, -3, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.3,
+                      }}
+                    >
+                      <IconComponent className="w-4 h-4 text-coral" aria-hidden="true" />
+                    </motion.div>
+                    <span>{badge.text}</span>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
