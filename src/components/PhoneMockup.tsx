@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.svg";
 import keychainLogo from "@/assets/keychain-logo.png";
 
@@ -15,23 +16,59 @@ const photos = [
   "https://i.postimg.cc/MGc4s7g0/Chat-GPT-Image-Jan-17-2026-09-40-39-PM.png",
 ];
 
+const TARGET_DAYS = 1247;
+
 const PhoneMockup = () => {
-  const [days, setDays] = useState(1247);
+  const [displayDays, setDisplayDays] = useState(0);
   const [hours, setHours] = useState(14);
   const [minutes, setMinutes] = useState(32);
   const [seconds, setSeconds] = useState(0);
   const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [islandPulse, setIslandPulse] = useState(false);
+  const hasAnimated = useRef(false);
+
+  // Count-up animation for days on mount
+  useEffect(() => {
+    if (hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const increment = TARGET_DAYS / steps;
+    let current = 0;
+    let step = 0;
+
+    const timer = setInterval(() => {
+      step++;
+      // Easing: slow down towards the end
+      const progress = step / steps;
+      const eased = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+      current = Math.round(eased * TARGET_DAYS);
+      setDisplayDays(current);
+
+      if (step >= steps) {
+        setDisplayDays(TARGET_DAYS);
+        clearInterval(timer);
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Update the counter every second
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((prev) => {
         if (prev === 59) {
+          // Trigger Dynamic Island pulse when seconds reset
+          setIslandPulse(true);
+          setTimeout(() => setIslandPulse(false), 500);
+          
           setMinutes((m) => {
             if (m === 59) {
               setHours((h) => {
                 if (h === 23) {
-                  setDays((d) => d + 1);
+                  setDisplayDays((d) => d + 1);
                   return 0;
                 }
                 return h + 1;
@@ -54,18 +91,42 @@ const PhoneMockup = () => {
       setCurrentPhoto((prev) => (prev + 1) % photos.length);
     }, 3000);
     return () => clearInterval(photoInterval);
-  }, []); // Dependence on photos.length removed because photos is a global constant
+  }, []);
 
   return (
     <div className="relative">
       {/* iPhone Frame */}
       <div className="relative w-[280px] md:w-[320px] mx-auto">
-        {/* Phone outer frame */}
-        <div className="relative bg-foreground/10 rounded-[3rem] p-3 shadow-hover border border-foreground/20">
+        {/* Phone outer frame with enhanced glassmorphism */}
+        <div 
+          className="relative rounded-[3rem] p-3 shadow-hover border border-white/20"
+          style={{
+            background: "rgba(255, 255, 255, 0.08)",
+            backdropFilter: "blur(20px)",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+          }}
+        >
           {/* Phone screen bezel */}
-          <div className="relative bg-foreground/5 rounded-[2.5rem] overflow-hidden">
-            {/* Dynamic Island / Notch */}
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
+          <div className="relative bg-black/90 rounded-[2.5rem] overflow-hidden">
+            {/* Dynamic Island / Notch - Interactive */}
+            <motion.div 
+              className="absolute top-2 left-1/2 -translate-x-1/2 bg-black rounded-full z-20"
+              animate={{
+                width: islandPulse ? 110 : 96,
+                height: islandPulse ? 28 : 24,
+                scale: islandPulse ? 1.05 : 1,
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              style={{ boxShadow: islandPulse ? "0 0 15px rgba(232, 74, 95, 0.4)" : "none" }}
+            />
+
+            {/* Glass reflection overlay */}
+            <div 
+              className="absolute inset-0 z-10 pointer-events-none rounded-[2.5rem]"
+              style={{
+                background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.05) 100%)",
+              }}
+            />
 
             {/* Screen content */}
             <div
@@ -87,12 +148,15 @@ const PhoneMockup = () => {
                 <p className="text-xs text-white/60 mt-1">Together since June 15, 2021</p>
               </div>
 
-              {/* Counter Display */}
+              {/* Counter Display with count-up animation */}
               <div className="text-center px-4 py-2">
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-5xl md:text-6xl font-bold text-coral tabular-nums">
-                    {days.toLocaleString()}
-                  </span>
+                  <motion.span 
+                    className="text-5xl md:text-6xl font-bold text-coral tabular-nums"
+                    key={displayDays}
+                  >
+                    {displayDays.toLocaleString()}
+                  </motion.span>
                   <span className="text-lg font-medium text-white/60">days</span>
                 </div>
 
@@ -119,27 +183,32 @@ const PhoneMockup = () => {
                 </div>
               </div>
 
-              {/* Photo Carousel */}
+              {/* Photo Carousel with Framer Motion */}
               <div className="flex-1 px-4 py-4 overflow-hidden">
                 <div className="relative h-full rounded-xl overflow-hidden">
-                  {photos.map((photo, i) => (
-                    <img
-                      key={i}
-                      src={photo}
-                      alt={`Couple memory photo ${i + 1}`}
-                      className={`absolute inset-0 w-full h-full object-cover rounded-lg transition-opacity duration-700 ease-in-out ${
-                        i === currentPhoto ? "opacity-100" : "opacity-0"
-                      }`}
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentPhoto}
+                      src={photos[currentPhoto]}
+                      alt={`Couple memory photo ${currentPhoto + 1}`}
+                      className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                      initial={{ opacity: 0, scale: 1.1, x: 20 }}
+                      animate={{ opacity: 1, scale: 1, x: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, x: -20 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
                     />
-                  ))}
+                  </AnimatePresence>
                   {/* Carousel dots */}
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
                     {photos.map((_, i) => (
-                      <div
+                      <motion.div
                         key={i}
-                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                          i === currentPhoto ? "bg-coral w-3" : "bg-white/50"
-                        }`}
+                        className="h-1.5 rounded-full bg-white/50"
+                        animate={{
+                          width: i === currentPhoto ? 12 : 6,
+                          backgroundColor: i === currentPhoto ? "rgb(232, 74, 95)" : "rgba(255, 255, 255, 0.5)",
+                        }}
+                        transition={{ duration: 0.3 }}
                       />
                     ))}
                   </div>
@@ -154,9 +223,25 @@ const PhoneMockup = () => {
           </div>
         </div>
 
-        {/* Floating Keychain */}
-        <div className="absolute -bottom-4 -right-4 md:-right-8 animate-float">
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-navy border-2 border-pink/30 shadow-card flex items-center justify-center transform rotate-12 overflow-hidden">
+        {/* Floating Keychain with rotational sway */}
+        <motion.div 
+          className="absolute -bottom-4 -right-4 md:-right-8"
+          animate={{
+            y: [0, -8, 0],
+            rotate: [12, 18, 12, 6, 12],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <div 
+            className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-navy border-2 border-pink/30 flex items-center justify-center overflow-hidden"
+            style={{
+              boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(232, 74, 95, 0.15)",
+            }}
+          >
             <img
               src={keychainLogo}
               alt="LoveCount Keychain"
@@ -167,7 +252,7 @@ const PhoneMockup = () => {
             />
           </div>
           <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-coral border-2 border-background" />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
