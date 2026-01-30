@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 import PhoneMockup from "./PhoneMockup";
-import { Clock, Truck, Smartphone, Heart } from "lucide-react";
+import { Clock, Truck, Smartphone, Heart, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
+
+// Trust badge configuration
+const trustBadges: { icon: LucideIcon; text: string }[] = [
+  { icon: Clock, text: "1 year hosting included" },
+  { icon: Smartphone, text: "No app needed" },
+  { icon: Truck, text: "Ships in 2-3 days" },
+];
 
 const HeroSection = () => {
   // Floating hearts configuration
