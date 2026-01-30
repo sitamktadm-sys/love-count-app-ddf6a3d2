@@ -1,29 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Camera, Heart, Loader2 } from 'lucide-react';
-import { Logo } from '@/components/Logo';
-import { LoveCounter } from '@/components/LoveCounter';
-import { PhotoCarousel } from '@/components/PhotoCarousel';
-import { FunStats } from '@/components/FunStats';
-import { Milestones } from '@/components/Milestones';
-import { FloatingHearts } from '@/components/FloatingHearts';
-import { GradientOverlay } from '@/components/GradientOverlay';
-
-// Import the same couple photos used in PhoneMockup
-import couplePhoto1 from "@/assets/couple-photo-1.png";
-import couplePhoto2 from "@/assets/couple-photo-2.png";
-import couplePhoto3 from "@/assets/couple-photo-3.png";
-import couplePhoto4 from "@/assets/couple-photo-4.png";
-import couplePhoto5 from "@/assets/couple-photo-5.png";
-import couplePhoto6 from "@/assets/couple-photo-6.png";
-import couplePhoto7 from "@/assets/couple-photo-7.png";
-import couplePhoto8 from "@/assets/couple-photo-8.png";
-import couplePhoto9 from "@/assets/couple-photo-9.png";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Camera, Heart, Loader2 } from "lucide-react";
+import { Logo } from "@/components/Logo";
+import { LoveCounter } from "@/components/LoveCounter";
+import { PhotoCarousel } from "@/components/PhotoCarousel";
+import { FunStats } from "@/components/FunStats";
+import { Milestones } from "@/components/Milestones";
+import { FloatingHearts } from "@/components/FloatingHearts";
+import { GradientOverlay } from "@/components/GradientOverlay";
 
 // Types
 interface PageData {
   page_id: string;
-  page_status: 'Active' | 'Expiring Soon' | 'Expired';
+  page_status: "Active" | "Expiring Soon" | "Expired";
   name_1: string;
   name_2: string;
   relationship_start_date: string;
@@ -32,10 +21,14 @@ interface PageData {
   page_expiry_date: string;
 }
 
-type PageState = 'loading' | 'active' | 'expired' | 'error';
+type PageState = "loading" | "active" | "expired" | "error";
 
-// Same photos as PhoneMockup for consistency
-const demoPhotos = [couplePhoto1, couplePhoto2, couplePhoto3, couplePhoto4, couplePhoto5, couplePhoto6, couplePhoto7, couplePhoto8, couplePhoto9];
+// Placeholder Photos (Lightweight Unsplash URLs)
+const demoPhotos = [
+  "https://images.unsplash.com/photo-1516589174184-c68526674fd6?w=800",
+  "https://images.unsplash.com/photo-1522673607200-1648832cee98?w=800",
+  "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=800",
+];
 
 // Mock data for development
 const mockData: PageData = {
@@ -44,26 +37,22 @@ const mockData: PageData = {
   name_1: "Sarah",
   name_2: "James",
   relationship_start_date: "2022-05-15",
-  message: "Every day with you is a gift. Here's to a thousand more adventures together. I love you more than words can say. 💕",
+  message: "Every day with you is a gift. Here's to a thousand more adventures together.💕",
   photos: demoPhotos,
-  page_expiry_date: "2027-01-15"
+  page_expiry_date: "2027-01-15",
 };
 
 export function CustomerPage() {
   const { pageId } = useParams<{ pageId: string }>();
-  const [pageState, setPageState] = useState<PageState>('loading');
+  const [pageState, setPageState] = useState<PageState>("loading");
   const [data, setData] = useState<PageData | null>(null);
 
   useEffect(() => {
-    // Set page title and meta
-    document.title = 'Loading... | LoveCount';
-    
-    // Add noindex meta tag for privacy
-    const metaRobots = document.createElement('meta');
-    metaRobots.name = 'robots';
-    metaRobots.content = 'noindex, nofollow';
+    document.title = "Loading... | LoveCount";
+    const metaRobots = document.createElement("meta");
+    metaRobots.name = "robots";
+    metaRobots.content = "noindex, nofollow";
     document.head.appendChild(metaRobots);
-
     return () => {
       document.head.removeChild(metaRobots);
     };
@@ -72,39 +61,29 @@ export function CustomerPage() {
   useEffect(() => {
     async function fetchPageData() {
       try {
-        // TODO: Replace with actual n8n API call
-        // const response = await fetch(`https://[n8n-url]/webhook/page/${pageId}`);
-        // const data = await response.json();
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 800));
-        
-        // Use mock data for development
-        const fetchedData = { ...mockData, page_id: pageId || 'LC-DEMO' };
-        
+        await new Promise((resolve) => setTimeout(resolve, 800));
+        const fetchedData = { ...mockData, page_id: pageId || "LC-DEMO" };
         setData(fetchedData);
         document.title = `${fetchedData.name_1} & ${fetchedData.name_2} | LoveCount`;
-        
-        if (fetchedData.page_status === 'Expired') {
-          setPageState('expired');
+
+        if (fetchedData.page_status === "Expired") {
+          setPageState("expired");
         } else {
-          setPageState('active');
+          setPageState("active");
         }
       } catch (error) {
-        console.error('Failed to fetch page data:', error);
-        setPageState('error');
+        console.error("Failed to fetch page data:", error);
+        setPageState("error");
       }
     }
-
     fetchPageData();
   }, [pageId]);
 
   const handleDownloadStory = () => {
-    alert('Coming soon!');
+    alert("Coming soon!");
   };
 
-  // Loading State
-  if (pageState === 'loading') {
+  if (pageState === "loading") {
     return (
       <div className="min-h-screen customer-page-bg flex items-center justify-center">
         <GradientOverlay />
@@ -117,159 +96,102 @@ export function CustomerPage() {
     );
   }
 
-  // Error State
-  if (pageState === 'error') {
+  if (pageState === "error") {
     return (
       <div className="min-h-screen customer-page-bg flex flex-col">
         <GradientOverlay />
-        {/* Top Bar */}
         <div className="p-4 sm:p-6 flex justify-center z-10">
           <Logo linkToHome />
         </div>
-        
         <div className="flex-1 flex items-center justify-center px-4 z-10">
           <div className="text-center glass-card p-8 sm:p-12 max-w-md">
             <span className="text-6xl mb-6 block">💔</span>
             <h1 className="text-2xl font-bold text-white mb-4">Page not found</h1>
-            <p className="text-white/70 mb-6">
-              This love page doesn't exist or the link may be incorrect.
-            </p>
+            <p className="text-white/70 mb-6">This love page doesn't exist or the link may be incorrect.</p>
             <Link to="/" className="btn-primary inline-block">
               Go to Homepage
             </Link>
-            <p className="text-white/50 text-sm mt-6">
-              Need help?{' '}
-              <a 
-                href="mailto:support@lovecount.uk" 
-                className="text-primary hover:underline"
-              >
-                support@lovecount.uk
-              </a>
-            </p>
           </div>
         </div>
       </div>
     );
   }
 
-  // Expired State
-  if (pageState === 'expired' && data) {
+  if (pageState === "expired" && data) {
     return (
       <div className="min-h-screen customer-page-bg flex flex-col">
         <GradientOverlay />
-        {/* Top Bar */}
         <div className="p-4 sm:p-6 flex justify-center z-10">
           <Logo linkToHome />
         </div>
-        
         <div className="flex-1 flex items-center justify-center px-4 z-10">
           <div className="text-center glass-card p-8 sm:p-12 max-w-md">
             <span className="text-6xl mb-6 block">⏰</span>
-            <h1 className="text-2xl font-bold text-white mb-4">
-              This love page has expired
-            </h1>
-            <p className="text-white/70 mb-6">
-              Your LoveCount page subscription has ended. Renew now to keep celebrating your love story!
-            </p>
+            <h1 className="text-2xl font-bold text-white mb-4">This love page has expired</h1>
+            <p className="text-white/70 mb-6">Your LoveCount page subscription has ended.</p>
             <a href="/" className="btn-primary inline-block">
               💕 Renew for £9.99
             </a>
-            
-            <p className="text-white/50 text-sm mt-6">
-              Questions? Contact us at:{' '}
-              <a 
-                href="mailto:support@lovecount.uk" 
-                className="text-primary hover:underline"
-              >
-                support@lovecount.uk
-              </a>
-            </p>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div className="p-4 text-center z-10">
-          <p className="text-white/60 text-sm">
-            © 2026 Made with 💕 by LoveCount
-          </p>
         </div>
       </div>
     );
   }
 
-  // Active State
   if (!data) return null;
 
   return (
     <div className="min-h-screen customer-page-bg">
       <GradientOverlay />
       <FloatingHearts />
-      
-      {/* Top Bar */}
       <div className="p-4 sm:p-6 flex justify-center relative z-10">
         <Logo linkToHome />
       </div>
 
-      {/* Main Content */}
       <main className="max-w-lg mx-auto px-4 pb-12 space-y-8 relative z-10">
-        {/* Couple Names */}
         <div className="text-center animate-fade-in">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-3">
             <span className="text-gradient-names">{data.name_1}</span>
-            <Heart className="inline-block w-6 h-6 sm:w-8 sm:h-8 mx-3 animate-pulse" style={{ color: '#E84A5F', fill: '#E84A5F' }} />
+            <Heart
+              className="inline-block w-6 h-6 sm:w-8 sm:h-8 mx-3 animate-pulse"
+              style={{ color: "#E84A5F", fill: "#E84A5F" }}
+            />
             <span className="text-gradient-names">{data.name_2}</span>
           </h1>
-          <p className="text-white/60 text-sm sm:text-base flex items-center justify-center gap-2">
-            <span>📅</span>
-            Since {new Date(data.relationship_start_date).toLocaleDateString('en-GB', { 
-              day: 'numeric', 
-              month: 'long', 
-              year: 'numeric' 
+          <p className="text-white/60 text-sm sm:text-base">
+            📅 Since{" "}
+            {new Date(data.relationship_start_date).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
             })}
           </p>
         </div>
 
-        {/* Day Counter */}
         <div className="glass-card p-6 sm:p-8">
           <LoveCounter startDate={data.relationship_start_date} />
         </div>
 
-        {/* Download Story Button */}
         <div className="text-center">
-          <button
-            onClick={handleDownloadStory}
-            className="btn-secondary inline-flex items-center gap-2"
-          >
+          <button onClick={handleDownloadStory} className="btn-secondary inline-flex items-center gap-2">
             <Camera className="w-5 h-5" />
             Download Story
           </button>
         </div>
 
-        {/* Photo Carousel */}
-        {data.photos.length > 0 && (
-          <PhotoCarousel photos={data.photos} />
-        )}
+        {data.photos.length > 0 && <PhotoCarousel photos={data.photos} />}
 
-        {/* Personal Message */}
         {data.message && (
-          <div className="glass-card-glow p-6 sm:p-8 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <p className="text-white/90 text-lg sm:text-xl font-light italic leading-relaxed">
-              "{data.message}"
-            </p>
+          <div className="glass-card-glow p-6 sm:p-8 text-center animate-fade-in">
+            <p className="text-white/90 text-lg sm:text-xl font-light italic leading-relaxed">"{data.message}"</p>
           </div>
         )}
 
-        {/* Fun Stats */}
         <FunStats startDate={data.relationship_start_date} />
-
-        {/* Milestones */}
         <Milestones startDate={data.relationship_start_date} />
 
-        {/* Footer */}
         <div className="pt-8 text-center">
-          <p className="text-white/60 text-sm">
-            © 2026 Made with 💕 by LoveCount
-          </p>
+          <p className="text-white/60 text-sm">© 2026 Made with 💕 by LoveCount</p>
         </div>
       </main>
     </div>
