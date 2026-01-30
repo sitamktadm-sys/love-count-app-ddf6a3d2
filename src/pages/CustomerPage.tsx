@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Camera, Heart, Loader2 } from "lucide-react";
+import { Camera, Heart, Gift } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import confetti from "canvas-confetti";
 import { Logo } from "@/components/Logo";
 import { LoveCounter } from "@/components/LoveCounter";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
@@ -22,6 +24,15 @@ interface PageData {
 }
 
 type PageState = "loading" | "active" | "expired" | "error";
+
+// Romantic loading phrases
+const loadingPhrases = [
+  "Gathering your memories...",
+  "Counting the moments...",
+  "Finding your love story...",
+  "Collecting precious memories...",
+  "Unwrapping your journey...",
+];
 
 // Using your optimized PostImages direct links
 const demoPhotos = [
@@ -52,6 +63,16 @@ export function CustomerPage() {
   const { pageId } = useParams<{ pageId: string }>();
   const [pageState, setPageState] = useState<PageState>("loading");
   const [data, setData] = useState<PageData | null>(null);
+  const [loadingPhrase, setLoadingPhrase] = useState(0);
+
+  // Cycle through loading phrases
+  useEffect(() => {
+    if (pageState !== "loading") return;
+    const interval = setInterval(() => {
+      setLoadingPhrase((prev) => (prev + 1) % loadingPhrases.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [pageState]);
 
   useEffect(() => {
     document.title = "Loading... | LoveCount";
@@ -68,7 +89,7 @@ export function CustomerPage() {
     async function fetchPageData() {
       try {
         // Simulate API delay for n8n future integration
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         const fetchedData = { ...mockData, page_id: pageId || "LC-DEMO" };
         setData(fetchedData);
         document.title = `${fetchedData.name_1} & ${fetchedData.name_2} | LoveCount`;
@@ -87,7 +108,36 @@ export function CustomerPage() {
   }, [pageId]);
 
   const handleDownloadStory = () => {
-    alert("Coming soon!");
+    // Trigger confetti burst
+    const duration = 2000;
+    const end = Date.now() + duration;
+
+    const colors = ["#E84A5F", "#F2B5BC", "#FFD700", "#FF69B4"];
+
+    (function frame() {
+      confetti({
+        particleCount: 4,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: colors,
+      });
+      confetti({
+        particleCount: 4,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: colors,
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+
+    setTimeout(() => {
+      alert("Coming soon!");
+    }, 500);
   };
 
   if (pageState === "loading") {
@@ -96,8 +146,36 @@ export function CustomerPage() {
         <GradientOverlay />
         <FloatingHearts />
         <div className="text-center z-10">
-          <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-          <p className="text-white/70">Loading your love story...</p>
+          {/* Beating Heart Loader */}
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1, 1.2, 1],
+            }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="mx-auto mb-6"
+          >
+            <Heart 
+              className="w-16 h-16 text-coral" 
+              fill="currentColor"
+              style={{ filter: "drop-shadow(0 0 20px rgba(232, 74, 95, 0.5))" }}
+            />
+          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={loadingPhrase}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="text-white/70 text-lg"
+            >
+              {loadingPhrases[loadingPhrase]}
+            </motion.p>
+          </AnimatePresence>
         </div>
       </div>
     );
@@ -133,12 +211,29 @@ export function CustomerPage() {
         </div>
         <div className="flex-1 flex items-center justify-center px-4 z-10">
           <div className="text-center glass-card p-8 sm:p-12 max-w-md">
-            <span className="text-6xl mb-6 block">⏰</span>
+            <span className="text-6xl mb-6 block">🎁</span>
             <h1 className="text-2xl font-bold text-white mb-4">This love page has expired</h1>
-            <p className="text-white/70 mb-6">Your LoveCount page subscription has ended.</p>
-            <a href="/" className="btn-primary inline-block">
-              💕 Renew for £9.99
-            </a>
+            <p className="text-white/70 mb-6">Your LoveCount page subscription has ended. Renew now to preserve your precious memories.</p>
+            <motion.a 
+              href="/" 
+              className="btn-primary inline-block"
+              animate={{
+                scale: [1, 1.03, 1],
+                boxShadow: [
+                  "0 4px 20px rgba(232, 74, 95, 0.4)",
+                  "0 6px 30px rgba(232, 74, 95, 0.6)",
+                  "0 4px 20px rgba(232, 74, 95, 0.4)",
+                ],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Gift className="w-5 h-5 inline-block mr-2" />
+              Renew for £9.99
+            </motion.a>
           </div>
         </div>
       </div>
@@ -159,10 +254,24 @@ export function CustomerPage() {
         <div className="text-center animate-fade-in">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-3">
             <span className="text-gradient-names">{data.name_1}</span>
-            <Heart
-              className="inline-block w-6 h-6 sm:w-8 sm:h-8 mx-3 animate-pulse"
-              style={{ color: "#E84A5F", fill: "#E84A5F" }}
-            />
+            {/* Floating Heart between names */}
+            <motion.span
+              className="inline-block mx-3"
+              animate={{
+                y: [0, -4, 0],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Heart
+                className="inline-block w-6 h-6 sm:w-8 sm:h-8"
+                style={{ color: "#E84A5F", fill: "#E84A5F" }}
+              />
+            </motion.span>
             <span className="text-gradient-names">{data.name_2}</span>
           </h1>
           <p className="text-white/60 text-sm sm:text-base">
@@ -180,18 +289,30 @@ export function CustomerPage() {
         </div>
 
         <div className="text-center">
-          <button onClick={handleDownloadStory} className="btn-secondary inline-flex items-center gap-2">
+          <motion.button 
+            onClick={handleDownloadStory} 
+            className="btn-secondary inline-flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
             <Camera className="w-5 h-5" />
             Download Story
-          </button>
+          </motion.button>
         </div>
 
         {data.photos.length > 0 && <PhotoCarousel photos={data.photos} />}
 
         {data.message && (
-          <div className="glass-card-glow p-6 sm:p-8 text-center animate-fade-in">
-            <p className="text-white/90 text-lg sm:text-xl font-light italic leading-relaxed">"{data.message}"</p>
-          </div>
+          <motion.div 
+            className="message-card-glow p-6 sm:p-8 text-center animate-fade-in"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <p className="text-white/90 text-lg sm:text-xl leading-relaxed message-text">
+              "{data.message}"
+            </p>
+          </motion.div>
         )}
 
         <FunStats startDate={data.relationship_start_date} />
