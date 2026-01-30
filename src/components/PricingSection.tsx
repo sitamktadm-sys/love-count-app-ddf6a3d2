@@ -23,7 +23,7 @@ const PricingSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">The perfect Valentine's gift for him or her</p>
-          <h2 id="pricing-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-6">Everything Included</h2>
+          <h2 id="pricing-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-6">Everything You Get</h2>
         </div>
 
         {/* Pricing Card */}
