@@ -23,11 +23,17 @@ interface PageData {
 
 type PageState = "loading" | "active" | "expired" | "error";
 
-// Placeholder Photos (Lightweight Unsplash URLs)
+// Using your optimized PostImages direct links
 const demoPhotos = [
-  "https://images.unsplash.com/photo-1516589174184-c68526674fd6?w=800",
-  "https://images.unsplash.com/photo-1522673607200-1648832cee98?w=800",
-  "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=800",
+  "https://i.postimg.cc/P5V9z3Vx/Chat-GPT-Image-Jan-17-2026-09-03-40-PM.png",
+  "https://i.postimg.cc/25qJHQgS/Chat-GPT-Image-Jan-17-2026-09-05-08-PM.png",
+  "https://i.postimg.cc/YS4VX6TS/Chat-GPT-Image-Jan-17-2026-09-09-07-PM.png",
+  "https://i.postimg.cc/pd970f3X/Chat-GPT-Image-Jan-17-2026-09-19-53-PM.png",
+  "https://i.postimg.cc/VNST7q2s/Chat-GPT-Image-Jan-17-2026-09-20-03-PM.png",
+  "https://i.postimg.cc/YS4VX6TL/Chat-GPT-Image-Jan-17-2026-09-25-23-PM.png",
+  "https://i.postimg.cc/GpBNMF6G/Chat-GPT-Image-Jan-17-2026-09-33-15-PM.png",
+  "https://i.postimg.cc/6Q7SHrFr/Chat-GPT-Image-Jan-17-2026-09-36-30-PM.png",
+  "https://i.postimg.cc/MGc4s7g0/Chat-GPT-Image-Jan-17-2026-09-40-39-PM.png",
 ];
 
 // Mock data for development
@@ -61,6 +67,7 @@ export function CustomerPage() {
   useEffect(() => {
     async function fetchPageData() {
       try {
+        // Simulate API delay for n8n future integration
         await new Promise((resolve) => setTimeout(resolve, 800));
         const fetchedData = { ...mockData, page_id: pageId || "LC-DEMO" };
         setData(fetchedData);
