@@ -9,7 +9,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24" aria-labelledby="how-it-works-heading">
+    <section id="how-it-works" className="py-16 md:py-24 scroll-mt-20" aria-labelledby="how-it-works-heading">
       <div className="container-narrow">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
