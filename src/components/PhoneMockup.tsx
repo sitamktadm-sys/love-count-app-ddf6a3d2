@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import logo from "@/assets/logo.svg";
 import keychainLogo from "@/assets/keychain-logo.png";
 
-// Placeholder Photos (Lightweight Unsplash URLs to prevent bundle errors)
+// Optimized external links to prevent Internal Build Errors
 const photos = [
-  "https://images.unsplash.com/photo-1516589174184-c68526674fd6?w=800",
-  "https://images.unsplash.com/photo-1522673607200-1648832cee98?w=800",
-  "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=800",
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800",
+  "https://i.postimg.cc/P5V9z3Vx/Chat-GPT-Image-Jan-17-2026-09-03-40-PM.png",
+  "https://i.postimg.cc/25qJHQgS/Chat-GPT-Image-Jan-17-2026-09-05-08-PM.png",
+  "https://i.postimg.cc/YS4VX6TS/Chat-GPT-Image-Jan-17-2026-09-09-07-PM.png",
+  "https://i.postimg.cc/pd970f3X/Chat-GPT-Image-Jan-17-2026-09-19-53-PM.png",
+  "https://i.postimg.cc/VNST7q2s/Chat-GPT-Image-Jan-17-2026-09-20-03-PM.png",
+  "https://i.postimg.cc/YS4VX6TL/Chat-GPT-Image-Jan-17-2026-09-25-23-PM.png",
+  "https://i.postimg.cc/GpBNMF6G/Chat-GPT-Image-Jan-17-2026-09-33-15-PM.png",
+  "https://i.postimg.cc/6Q7SHrFr/Chat-GPT-Image-Jan-17-2026-09-36-30-PM.png",
+  "https://i.postimg.cc/MGc4s7g0/Chat-GPT-Image-Jan-17-2026-09-40-39-PM.png",
 ];
 
 const PhoneMockup = () => {
@@ -49,32 +54,40 @@ const PhoneMockup = () => {
       setCurrentPhoto((prev) => (prev + 1) % photos.length);
     }, 3000);
     return () => clearInterval(photoInterval);
-  }, []);
+  }, []); // Dependence on photos.length removed because photos is a global constant
 
   return (
     <div className="relative">
+      {/* iPhone Frame */}
       <div className="relative w-[280px] md:w-[320px] mx-auto">
+        {/* Phone outer frame */}
         <div className="relative bg-foreground/10 rounded-[3rem] p-3 shadow-hover border border-foreground/20">
+          {/* Phone screen bezel */}
           <div className="relative bg-foreground/5 rounded-[2.5rem] overflow-hidden">
+            {/* Dynamic Island / Notch */}
             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
 
+            {/* Screen content */}
             <div
               className="relative rounded-[2.25rem] overflow-hidden aspect-[9/19.5] flex flex-col"
               style={{
                 background: "linear-gradient(180deg, hsl(280 30% 12%) 0%, hsl(260 25% 10%) 50%, hsl(240 28% 8%) 100%)",
               }}
             >
+              {/* App Header */}
               <div className="pt-10 pb-4 px-5">
                 <div className="flex items-center justify-center gap-2">
                   <img src={logo} alt="LoveCount Logo" width={24} height={24} className="h-6 w-auto" />
                 </div>
               </div>
 
+              {/* Names */}
               <div className="text-center py-4 px-4">
                 <p className="text-lg font-semibold text-white">Sarah & James</p>
                 <p className="text-xs text-white/60 mt-1">Together since June 15, 2021</p>
               </div>
 
+              {/* Counter Display */}
               <div className="text-center px-4 py-2">
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-5xl md:text-6xl font-bold text-coral tabular-nums">
@@ -83,6 +96,7 @@ const PhoneMockup = () => {
                   <span className="text-lg font-medium text-white/60">days</span>
                 </div>
 
+                {/* Detailed time */}
                 <div className="flex justify-center gap-4 mt-3 text-xs text-white/60">
                   <div className="flex flex-col items-center">
                     <span className="text-sm font-semibold text-white tabular-nums">
@@ -105,6 +119,7 @@ const PhoneMockup = () => {
                 </div>
               </div>
 
+              {/* Photo Carousel */}
               <div className="flex-1 px-4 py-4 overflow-hidden">
                 <div className="relative h-full rounded-xl overflow-hidden">
                   {photos.map((photo, i) => (
@@ -117,6 +132,7 @@ const PhoneMockup = () => {
                       }`}
                     />
                   ))}
+                  {/* Carousel dots */}
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
                     {photos.map((_, i) => (
                       <div
@@ -130,6 +146,7 @@ const PhoneMockup = () => {
                 </div>
               </div>
 
+              {/* Personal Message */}
               <div className="px-5 pb-6 pt-2">
                 <p className="text-center text-xs italic text-white/70">"Every day with you is my favourite day"</p>
               </div>
@@ -137,6 +154,7 @@ const PhoneMockup = () => {
           </div>
         </div>
 
+        {/* Floating Keychain */}
         <div className="absolute -bottom-4 -right-4 md:-right-8 animate-float">
           <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-navy border-2 border-pink/30 shadow-card flex items-center justify-center transform rotate-12 overflow-hidden">
             <img
@@ -144,6 +162,7 @@ const PhoneMockup = () => {
               alt="LoveCount Keychain"
               width={80}
               height={80}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>
