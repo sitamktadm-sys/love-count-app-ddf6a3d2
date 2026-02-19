@@ -18,6 +18,7 @@ interface PageData {
   name_1: string;
   name_2: string;
   relationship_start_date: string;
+  days_together?: number;
   message?: string;
   photos: string[];
   page_expiry_date: string;
@@ -86,11 +87,9 @@ export function CustomerPage() {
   }, []);
 
   useEffect(() => {
-    async function fetchPageData() {
+    async function loadPage() {
       try {
-        // Simulate API delay for n8n future integration
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        const fetchedData = { ...mockData, page_id: pageId || "LC-DEMO" };
+        const fetchedData = await fetchPageData(pageId || "");
         setData(fetchedData);
         document.title = `${fetchedData.name_1} & ${fetchedData.name_2} | LoveCount`;
 
@@ -104,40 +103,30 @@ export function CustomerPage() {
         setPageState("error");
       }
     }
-    fetchPageData();
+    loadPage();
   }, [pageId]);
 
-  const handleDownloadStory = () => {
-    // Trigger confetti burst
-    const duration = 2000;
-    const end = Date.now() + duration;
+  const handleDownloadStory = async () => {
+    if (!data) return;
 
-    const colors = ["#E84A5F", "#F2B5BC", "#FFD700", "#FF69B4"];
+    try {
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
-    (function frame() {
-      confetti({
-        particleCount: 4,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-        colors: colors,
-      });
-      confetti({
-        particleCount: 4,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-        colors: colors,
-      });
+      const response = await fetch(
+        `https://n8n.sitalabs.co.uk/webhook/story/${data.page_id}`,
+        { method: 'POST' }
+      );
 
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
+      if (!response.ok) {
+        throw new Error('Failed to generate story');
       }
-    })();
 
-    setTimeout(() => {
-      alert("Coming soon!");
-    }, 500);
+      const result = await response.json();
+      window.open(result.data?.story_image_url || result.url, '_blank');
+    } catch (error) {
+      console.error('Story generation failed:', error);
+      alert('Sorry, story generation failed. Please try again.');
+    }
   };
 
   if (pageState === "loading") {
