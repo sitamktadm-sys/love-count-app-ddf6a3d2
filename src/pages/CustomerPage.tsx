@@ -79,6 +79,7 @@ export function CustomerPage() {
   const [pageState, setPageState] = useState<PageState>("loading");
   const [data, setData] = useState<PageData | null>(null);
   const [loadingPhrase, setLoadingPhrase] = useState(0);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   // Cycle through loading phrases
   useEffect(() => {
@@ -121,10 +122,11 @@ export function CustomerPage() {
   }, [pageId]);
 
   const handleDownloadStory = async () => {
-    if (!data) return;
+    if (!data || isGenerating) return;
+
+    setIsGenerating(true);
 
     try {
-      // Fire confetti immediately for instant feedback
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
       const response = await fetch(
@@ -132,18 +134,13 @@ export function CustomerPage() {
         { method: 'POST' }
       );
 
-      if (!response.ok) {
-        throw new Error('Failed to generate story');
-      }
+      if (!response.ok) throw new Error('Failed to generate story');
 
       const result = await response.json();
       const imageUrl = result.data?.story_image_url || result.url;
 
-      if (!imageUrl) {
-        throw new Error('No image URL returned');
-      }
+      if (!imageUrl) throw new Error('No image URL returned');
 
-      // Create a temporary link to trigger download
       const link = document.createElement('a');
       link.href = imageUrl;
       link.target = '_blank';
@@ -154,6 +151,9 @@ export function CustomerPage() {
     } catch (error) {
       console.error('Story generation failed:', error);
       alert('Sorry, story generation failed. Please try again.');
+    } finally {
+      // Re-enable after 30 seconds
+      setTimeout(() => setIsGenerating(false), 30000);
     }
   };
 
@@ -306,14 +306,15 @@ export function CustomerPage() {
         </div>
 
         <div className="text-center">
-          <motion.button 
+        <motion.button 
             onClick={handleDownloadStory} 
-            className="btn-secondary inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
+            disabled={isGenerating}
+            className="btn-secondary inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+            whileHover={isGenerating ? {} : { scale: 1.05 }}
+            whileTap={isGenerating ? {} : { scale: 0.98 }}
           >
             <Camera className="w-5 h-5" />
-            Download Story
+            {isGenerating ? "Generating..." : "Download Story"}
           </motion.button>
         </div>
 
