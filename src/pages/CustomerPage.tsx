@@ -306,16 +306,14 @@ export function CustomerPage() {
         </div>
 
         <div className="text-center">
-        <motion.button 
-            onClick={handleDownloadStory} 
+          <button
+            onClick={handleDownloadStory}
             disabled={isGenerating}
-            className="btn-secondary inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-            whileHover={isGenerating ? {} : { scale: 1.05 }}
-            whileTap={isGenerating ? {} : { scale: 0.98 }}
+            className="btn-secondary inline-flex items-center gap-2"
+            style={{ opacity: isGenerating ? 0.6 : 1, cursor: isGenerating ? 'not-allowed' : 'pointer' }}
           >
-            <Camera className="w-5 h-5" />
-            {isGenerating ? "Generating..." : "Download Story"}
-          </motion.button>
+            {isGenerating ? 'Generating...' : '📸 Download Story'}
+          </button>
         </div>
 
         {data.photos.length > 0 && <PhotoCarousel photos={data.photos} />}
