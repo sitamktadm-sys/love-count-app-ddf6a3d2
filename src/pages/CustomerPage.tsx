@@ -38,7 +38,7 @@ const loadingPhrases = [
 // Fetch page data from API
 const fetchPageData = async (pageId: string): Promise<PageData> => {
   const response = await fetch(
-    `https://n8n.sitalabs.co.uk/webhook/page/${pageId}`
+    `https://n8n.sitalabs.co.uk/webhook/page?id=${pageId}`
   );
 
   if (!response.ok) {
