@@ -122,10 +122,11 @@ export function CustomerPage() {
   }, [pageId]);
 
   const handleDownloadStory = async () => {
-    if (!data) return;
+    if (!data || isGenerating) return;
+
+    setIsGenerating(true);
 
     try {
-      // Fire confetti immediately for instant feedback
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
       const response = await fetch(
@@ -133,18 +134,13 @@ export function CustomerPage() {
         { method: 'POST' }
       );
 
-      if (!response.ok) {
-        throw new Error('Failed to generate story');
-      }
+      if (!response.ok) throw new Error('Failed to generate story');
 
       const result = await response.json();
       const imageUrl = result.data?.story_image_url || result.url;
 
-      if (!imageUrl) {
-        throw new Error('No image URL returned');
-      }
+      if (!imageUrl) throw new Error('No image URL returned');
 
-      // Create a temporary link to trigger download
       const link = document.createElement('a');
       link.href = imageUrl;
       link.target = '_blank';
@@ -155,6 +151,9 @@ export function CustomerPage() {
     } catch (error) {
       console.error('Story generation failed:', error);
       alert('Sorry, story generation failed. Please try again.');
+    } finally {
+      // Re-enable after 30 seconds
+      setTimeout(() => setIsGenerating(false), 30000);
     }
   };
 
