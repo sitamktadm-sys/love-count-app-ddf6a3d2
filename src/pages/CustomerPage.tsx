@@ -306,14 +306,15 @@ export function CustomerPage() {
         </div>
 
         <div className="text-center">
-          <motion.button 
+        <motion.button 
             onClick={handleDownloadStory} 
-            className="btn-secondary inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
+            disabled={isGenerating}
+            className="btn-secondary inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+            whileHover={isGenerating ? {} : { scale: 1.05 }}
+            whileTap={isGenerating ? {} : { scale: 0.98 }}
           >
             <Camera className="w-5 h-5" />
-            Download Story
+            {isGenerating ? "Generating..." : "Download Story"}
           </motion.button>
         </div>
 
