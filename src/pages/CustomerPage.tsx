@@ -79,6 +79,7 @@ export function CustomerPage() {
   const [pageState, setPageState] = useState<PageState>("loading");
   const [data, setData] = useState<PageData | null>(null);
   const [loadingPhrase, setLoadingPhrase] = useState(0);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   // Cycle through loading phrases
   useEffect(() => {
