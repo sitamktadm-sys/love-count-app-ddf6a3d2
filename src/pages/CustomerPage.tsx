@@ -124,6 +124,7 @@ export function CustomerPage() {
     if (!data) return;
 
     try {
+      // Fire confetti immediately for instant feedback
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
       const response = await fetch(
@@ -136,7 +137,20 @@ export function CustomerPage() {
       }
 
       const result = await response.json();
-      window.open(result.data?.story_image_url || result.url, '_blank');
+      const imageUrl = result.data?.story_image_url || result.url;
+
+      if (!imageUrl) {
+        throw new Error('No image URL returned');
+      }
+
+      // Create a temporary link to trigger download
+      const link = document.createElement('a');
+      link.href = imageUrl;
+      link.target = '_blank';
+      link.download = `lovecount-story-${data.page_id}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } catch (error) {
       console.error('Story generation failed:', error);
       alert('Sorry, story generation failed. Please try again.');
