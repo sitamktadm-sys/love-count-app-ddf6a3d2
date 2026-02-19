@@ -18,6 +18,7 @@ interface PageData {
   name_1: string;
   name_2: string;
   relationship_start_date: string;
+  days_together?: number;
   message?: string;
   photos: string[];
   page_expiry_date: string;
@@ -34,29 +35,43 @@ const loadingPhrases = [
   "Unwrapping your journey...",
 ];
 
-// Using your optimized PostImages direct links
-const demoPhotos = [
-  "https://i.postimg.cc/P5V9z3Vx/Chat-GPT-Image-Jan-17-2026-09-03-40-PM.png",
-  "https://i.postimg.cc/25qJHQgS/Chat-GPT-Image-Jan-17-2026-09-05-08-PM.png",
-  "https://i.postimg.cc/YS4VX6TS/Chat-GPT-Image-Jan-17-2026-09-09-07-PM.png",
-  "https://i.postimg.cc/pd970f3X/Chat-GPT-Image-Jan-17-2026-09-19-53-PM.png",
-  "https://i.postimg.cc/VNST7q2s/Chat-GPT-Image-Jan-17-2026-09-20-03-PM.png",
-  "https://i.postimg.cc/YS4VX6TL/Chat-GPT-Image-Jan-17-2026-09-25-23-PM.png",
-  "https://i.postimg.cc/GpBNMF6G/Chat-GPT-Image-Jan-17-2026-09-33-15-PM.png",
-  "https://i.postimg.cc/6Q7SHrFr/Chat-GPT-Image-Jan-17-2026-09-36-30-PM.png",
-  "https://i.postimg.cc/MGc4s7g0/Chat-GPT-Image-Jan-17-2026-09-40-39-PM.png",
-];
+// Fetch page data from API
+const fetchPageData = async (pageId: string): Promise<PageData> => {
+  const response = await fetch(
+    `https://n8n.sitalabs.co.uk/webhook/page/${pageId}`
+  );
 
-// Mock data for development
-const mockData: PageData = {
-  page_id: "LC-DEMO",
-  page_status: "Active",
-  name_1: "Sarah",
-  name_2: "James",
-  relationship_start_date: "2022-05-15",
-  message: "Every day with you is a gift. Here's to a thousand more adventures together.💕",
-  photos: demoPhotos,
-  page_expiry_date: "2027-01-15",
+  if (!response.ok) {
+    throw new Error('Page not found');
+  }
+
+  const result = await response.json();
+
+  if (!result.success) {
+    throw new Error(result.error || 'Failed to load page');
+  }
+
+  const d = result.data;
+
+  const expiryDate = new Date(d.expires_at);
+  const today = new Date();
+  const daysUntilExpiry = Math.floor((expiryDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  
+  let page_status: "Active" | "Expiring Soon" | "Expired" = "Active";
+  if (daysUntilExpiry < 0) page_status = "Expired";
+  else if (daysUntilExpiry <= 30) page_status = "Expiring Soon";
+
+  return {
+    page_id: d.page_id,
+    page_status: page_status,
+    name_1: d.partner1_name,
+    name_2: d.partner2_name,
+    relationship_start_date: d.relationship_start,
+    days_together: d.days_together,
+    message: d.custom_message,
+    photos: d.photo_urls || [],
+    page_expiry_date: d.expires_at
+  };
 };
 
 export function CustomerPage() {
@@ -86,11 +101,9 @@ export function CustomerPage() {
   }, []);
 
   useEffect(() => {
-    async function fetchPageData() {
+    async function loadPage() {
       try {
-        // Simulate API delay for n8n future integration
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        const fetchedData = { ...mockData, page_id: pageId || "LC-DEMO" };
+        const fetchedData = await fetchPageData(pageId || "");
         setData(fetchedData);
         document.title = `${fetchedData.name_1} & ${fetchedData.name_2} | LoveCount`;
 
@@ -104,40 +117,30 @@ export function CustomerPage() {
         setPageState("error");
       }
     }
-    fetchPageData();
+    loadPage();
   }, [pageId]);
 
-  const handleDownloadStory = () => {
-    // Trigger confetti burst
-    const duration = 2000;
-    const end = Date.now() + duration;
+  const handleDownloadStory = async () => {
+    if (!data) return;
 
-    const colors = ["#E84A5F", "#F2B5BC", "#FFD700", "#FF69B4"];
+    try {
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
-    (function frame() {
-      confetti({
-        particleCount: 4,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-        colors: colors,
-      });
-      confetti({
-        particleCount: 4,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-        colors: colors,
-      });
+      const response = await fetch(
+        `https://n8n.sitalabs.co.uk/webhook/story/${data.page_id}`,
+        { method: 'POST' }
+      );
 
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
+      if (!response.ok) {
+        throw new Error('Failed to generate story');
       }
-    })();
 
-    setTimeout(() => {
-      alert("Coming soon!");
-    }, 500);
+      const result = await response.json();
+      window.open(result.data?.story_image_url || result.url, '_blank');
+    } catch (error) {
+      console.error('Story generation failed:', error);
+      alert('Sorry, story generation failed. Please try again.');
+    }
   };
 
   if (pageState === "loading") {
