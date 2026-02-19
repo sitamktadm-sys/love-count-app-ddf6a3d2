@@ -127,7 +127,7 @@ export function CustomerPage() {
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
       const response = await fetch(
-        `https://n8n.sitalabs.co.uk/webhook/story/${data.page_id}`,
+        `https://n8n.sitalabs.co.uk/webhook/story?id=${data.page_id}`,
         { method: 'POST' }
       );
 
