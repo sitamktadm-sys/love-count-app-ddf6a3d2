@@ -35,29 +35,43 @@ const loadingPhrases = [
   "Unwrapping your journey...",
 ];
 
-// Using your optimized PostImages direct links
-const demoPhotos = [
-  "https://i.postimg.cc/P5V9z3Vx/Chat-GPT-Image-Jan-17-2026-09-03-40-PM.png",
-  "https://i.postimg.cc/25qJHQgS/Chat-GPT-Image-Jan-17-2026-09-05-08-PM.png",
-  "https://i.postimg.cc/YS4VX6TS/Chat-GPT-Image-Jan-17-2026-09-09-07-PM.png",
-  "https://i.postimg.cc/pd970f3X/Chat-GPT-Image-Jan-17-2026-09-19-53-PM.png",
-  "https://i.postimg.cc/VNST7q2s/Chat-GPT-Image-Jan-17-2026-09-20-03-PM.png",
-  "https://i.postimg.cc/YS4VX6TL/Chat-GPT-Image-Jan-17-2026-09-25-23-PM.png",
-  "https://i.postimg.cc/GpBNMF6G/Chat-GPT-Image-Jan-17-2026-09-33-15-PM.png",
-  "https://i.postimg.cc/6Q7SHrFr/Chat-GPT-Image-Jan-17-2026-09-36-30-PM.png",
-  "https://i.postimg.cc/MGc4s7g0/Chat-GPT-Image-Jan-17-2026-09-40-39-PM.png",
-];
+// Fetch page data from API
+const fetchPageData = async (pageId: string): Promise<PageData> => {
+  const response = await fetch(
+    `https://n8n.sitalabs.co.uk/webhook/page/${pageId}`
+  );
 
-// Mock data for development
-const mockData: PageData = {
-  page_id: "LC-DEMO",
-  page_status: "Active",
-  name_1: "Sarah",
-  name_2: "James",
-  relationship_start_date: "2022-05-15",
-  message: "Every day with you is a gift. Here's to a thousand more adventures together.💕",
-  photos: demoPhotos,
-  page_expiry_date: "2027-01-15",
+  if (!response.ok) {
+    throw new Error('Page not found');
+  }
+
+  const result = await response.json();
+
+  if (!result.success) {
+    throw new Error(result.error || 'Failed to load page');
+  }
+
+  const d = result.data;
+
+  const expiryDate = new Date(d.expires_at);
+  const today = new Date();
+  const daysUntilExpiry = Math.floor((expiryDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  
+  let page_status: "Active" | "Expiring Soon" | "Expired" = "Active";
+  if (daysUntilExpiry < 0) page_status = "Expired";
+  else if (daysUntilExpiry <= 30) page_status = "Expiring Soon";
+
+  return {
+    page_id: d.page_id,
+    page_status: page_status,
+    name_1: d.partner1_name,
+    name_2: d.partner2_name,
+    relationship_start_date: d.relationship_start,
+    days_together: d.days_together,
+    message: d.custom_message,
+    photos: d.photo_urls || [],
+    page_expiry_date: d.expires_at
+  };
 };
 
 export function CustomerPage() {
