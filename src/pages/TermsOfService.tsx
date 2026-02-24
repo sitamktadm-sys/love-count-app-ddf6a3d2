@@ -39,7 +39,7 @@ const TermsOfService = () => {
             {/* Additional Keychains */}
             <section className="space-y-4">
               <h2 className="text-xl font-semibold text-foreground">Additional Keychains</h2>
-              <p>Existing customers may purchase additional keychains for £14.99 that link to their current LoveCount page. Additional keychain purchases are subject to the following terms:</p>
+              <p>Existing customers may purchase additional keychains for £19.99 that link to their current LoveCount page. Additional keychain purchases are subject to the following terms:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Requires an active LoveCount page with current hosting subscription</li>
                 <li>Additional keychains link to the same existing page as the original purchase</li>
