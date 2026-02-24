@@ -47,7 +47,7 @@ const TermsOfService = () => {
                 <li>Same 14-day return policy applies to physical keychain only</li>
                 <li>Digital page access remains tied to original purchase and renewal schedule</li>
                 <li>Additional keychains are shipped to the same address as original order unless otherwise specified</li>
-                <li>NFC functionality links to existing page - no setup required</li>
+                <li>LoveCount Keychain functionality links to existing page - no setup required</li>
               </ul>
             </section>
 
