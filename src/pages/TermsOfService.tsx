@@ -59,7 +59,7 @@ const TermsOfService = () => {
                 <h3 className="text-lg font-medium text-foreground">Physical Product (LoveCount Keychain)</h3>
                 <ul className="list-disc pl-6 space-y-2">
                   <li><strong>14-day return right:</strong> You can return the unopened keychain within 14 days of delivery</li>
-                  <li><strong>30-day warranty:</strong> Free replacement if keychain is defective or NFC doesn't work</li>
+                  <li><strong>30-day warranty:</strong> Free replacement if keychain is defective or doesn't work</li>
                   <li><strong>Return shipping:</strong> Customer pays return postage unless item is defective</li>
                   <li><strong>Refund processing:</strong> 3-5 business days after we receive returned item</li>
                 </ul>
