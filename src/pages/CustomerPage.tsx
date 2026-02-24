@@ -232,7 +232,7 @@ export function CustomerPage() {
             <h1 className="text-2xl font-bold text-white mb-4">This love page has expired</h1>
             <p className="text-white/70 mb-6">Your LoveCount page subscription has ended. Renew now to preserve your precious memories.</p>
             <motion.a 
-              href="/" 
+              href="https://buy.stripe.com/7sY9AVakH8d7fr6cFgcbC04" 
               className="btn-primary inline-block"
               animate={{
                 scale: [1, 1.03, 1],
