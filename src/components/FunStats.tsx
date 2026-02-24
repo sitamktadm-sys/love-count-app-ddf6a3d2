@@ -61,9 +61,9 @@ export function FunStats({ startDate }: FunStatsProps) {
       <h2 className="text-lg sm:text-xl font-serif font-semibold text-gradient-coral text-center mb-6">
         💕 Your Love in Numbers
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      <div className="flex flex-wrap justify-center gap-3">
         {visibleStats.map((stat, index) => (
-          <div key={index} className="stat-box group">
+          <div key={index} className="stat-box group w-[calc(50%-0.375rem)] sm:w-[calc(33.333%-0.5rem)]">
             <span className="text-2xl sm:text-3xl mb-2 block">{stat.emoji}</span>
             <span className="text-2xl sm:text-3xl font-bold block leading-tight" style={{ color: '#E84A5F' }}>
               {typeof stat.value === 'number' ? stat.value.toLocaleString() : stat.value}
