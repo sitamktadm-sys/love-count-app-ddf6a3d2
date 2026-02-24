@@ -12,8 +12,7 @@ const PricingSection = () => {
   ];
 
   const upsells = [
-    { icon: <Gift className="w-4 h-4" aria-hidden="true" />, text: "Gift wrap", price: "+£3.99" },
-    { icon: <Heart className="w-4 h-4" aria-hidden="true" />, text: "2nd keychain", price: "+£14.99" },
+    { icon: <Heart className="w-4 h-4" aria-hidden="true" />, text: "2nd keychain", price: "+£19.99" },
     { icon: <Zap className="w-4 h-4" aria-hidden="true" />, text: "Express", price: "+£3" },
   ];
 

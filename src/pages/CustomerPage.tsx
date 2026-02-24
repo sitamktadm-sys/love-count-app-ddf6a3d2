@@ -249,7 +249,7 @@ export function CustomerPage() {
               }}
             >
               <Gift className="w-5 h-5 inline-block mr-2" />
-              Renew for £9.99
+              Renew for £14.99
             </motion.a>
           </div>
         </div>

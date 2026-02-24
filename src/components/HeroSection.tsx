@@ -119,7 +119,7 @@ const HeroSection = () => {
                 </motion.div>
               </a>
               <div className="flex flex-col items-center sm:items-start">
-                <span className="text-2xl font-bold text-foreground">£34.99</span>
+                <span className="text-2xl font-bold text-foreground">£39.99</span>
                 <span className="text-sm text-foreground/60">Free UK delivery</span>
               </div>
             </div>
