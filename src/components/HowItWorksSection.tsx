@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 const HowItWorksSection = () => {
   const steps = [
-    { number: 1, title: "Order", description: "Pick your keychain" },
+    { number: 1, title: "Order", description: "Get yours today" },
     { number: 2, title: "Personalise", description: "Add your photos & date" },
     { number: 3, title: "Receive", description: "Arrives in 3-5 days" },
     { number: 4, title: "Gift", description: "Watch them smile" },
