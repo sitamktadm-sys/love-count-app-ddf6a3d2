@@ -40,7 +40,7 @@ const PricingSection = () => {
 
               {/* Price */}
               <div className="text-center mb-2">
-                <span className="text-5xl font-bold text-navy">£34.99</span>
+                <span className="text-5xl font-bold text-navy">£39.99</span>
               </div>
               <p className="text-sm text-navy/60 text-center mb-8">
                 Then £9.99/year to keep your page active
