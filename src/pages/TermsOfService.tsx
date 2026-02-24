@@ -28,7 +28,7 @@ const TermsOfService = () => {
               <h2 className="text-xl font-semibold text-foreground">Product Description</h2>
               <p>LoveCount sells a combined product package consisting of:</p>
               <ol className="list-decimal pl-6 space-y-2">
-                <li><strong>Physical Product:</strong> Premium NFC keychain (silicone, waterproof)</li>
+                <li><strong>Physical Product:</strong> Premium LoveCount Keychain (silicone, waterproof)</li>
                 <li><strong>Digital Content:</strong> Personalized love page with photo carousel and day counter</li>
                 <li><strong>Digital Asset:</strong> Downloadable Instagram Story image (renewable)</li>
               </ol>
