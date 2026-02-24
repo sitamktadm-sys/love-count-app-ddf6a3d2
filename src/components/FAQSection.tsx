@@ -30,7 +30,7 @@ const FAQSection = () => {
     {
       question: "What's the annual renewal?",
       answer:
-        "After the first year, it's £9.99/year to keep your page active. You can cancel anytime — we'll remind you before renewal.",
+        "After the first year, it's £14.99/year to keep your page active. You can cancel anytime — we'll remind you before renewal.",
     },
     {
       question: "Is the keychain waterproof?",
