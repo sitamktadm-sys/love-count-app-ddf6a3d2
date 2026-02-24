@@ -112,7 +112,7 @@ const HeroSection = () => {
                   <Button 
                     variant="ctaLarge" 
                     size="xl"
-                    aria-label="Get your LoveCount keychain for £34.99"
+                    aria-label="Get your LoveCount keychain for £39.99"
                   >
                     Get yours →
                   </Button>
