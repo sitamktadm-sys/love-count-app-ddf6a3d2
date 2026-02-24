@@ -23,7 +23,7 @@ const WhatYouGetSection = () => {
               <div className="w-24 h-24 rounded-2xl bg-navy border-2 border-pink/30 flex items-center justify-center transform rotate-12 shadow-lg relative overflow-hidden">
                 <img 
                   src={keychainLogo} 
-                  alt="NFC keychain personalised Valentine gift for boyfriend girlfriend UK" 
+                  alt="LoveCount Keychain personalised Valentine gift for boyfriend girlfriend UK" 
                   width={96} 
                   height={96} 
                   loading="lazy" 
