@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface PhotoCarouselProps {
@@ -6,163 +6,84 @@ interface PhotoCarouselProps {
 }
 
 export function PhotoCarousel({ photos }: PhotoCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [translateX, setTranslateX] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [current, setCurrent] = useState(0);
+  const touchStart = useRef(0);
+  const touchEnd = useRef(0);
 
-  const goToNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % photos.length);
-  }, [photos.length]);
+  if (!photos.length) return null;
 
-  const goToPrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
-  }, [photos.length]);
+  const goTo = (i: number) => setCurrent(i);
+  const prev = () => setCurrent((c) => (c - 1 + photos.length) % photos.length);
+  const next = () => setCurrent((c) => (c + 1) % photos.length);
 
-  const goToSlide = useCallback((index: number) => {
-    setCurrentIndex(index);
-  }, []);
-
-  const handleDragStart = (clientX: number) => {
-    setIsDragging(true);
-    setStartX(clientX);
-    setTranslateX(0);
+  const onTouchStart = (e: React.TouchEvent) => { touchStart.current = e.touches[0].clientX; };
+  const onTouchMove = (e: React.TouchEvent) => { touchEnd.current = e.touches[0].clientX; };
+  const onTouchEnd = () => {
+    const diff = touchStart.current - touchEnd.current;
+    if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
   };
-
-  const handleDragMove = (clientX: number) => {
-    if (!isDragging) return;
-    const diff = clientX - startX;
-    setTranslateX(diff);
-  };
-
-  const handleDragEnd = () => {
-    if (!isDragging) return;
-    setIsDragging(false);
-    
-    const threshold = 50;
-    if (translateX > threshold) {
-      goToPrev();
-    } else if (translateX < -threshold) {
-      goToNext();
-    }
-    setTranslateX(0);
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    e.preventDefault();
-    handleDragStart(e.clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    handleDragMove(e.clientX);
-  };
-
-  const handleMouseUp = () => {
-    handleDragEnd();
-  };
-
-  const handleMouseLeave = () => {
-    if (isDragging) {
-      handleDragEnd();
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    handleDragStart(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    handleDragMove(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    handleDragEnd();
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        goToPrev();
-      } else if (e.key === 'ArrowRight') {
-        goToNext();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [goToNext, goToPrev]);
-
-  if (photos.length === 0) return null;
 
   return (
     <div className="relative w-full max-w-md mx-auto">
       <div className="glass-card p-3 sm:p-4">
+        {/* Image area */}
         <div
-          ref={containerRef}
-          className="relative aspect-[4/5] overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          className="relative aspect-[4/5] overflow-hidden rounded-2xl"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
-          <div
-            className="flex h-full transition-transform duration-400 ease-out"
-            style={{
-              transform: `translateX(calc(-${currentIndex * 100}% + ${isDragging ? translateX : 0}px))`,
-              transition: isDragging ? 'none' : 'transform 0.4s ease-out',
-            }}
-          >
-            {photos.map((photo, index) => (
-              <div key={index} className="flex-shrink-0 w-full h-full relative">
-                <img
-                  src={photo}
-                  alt={`Couple photo ${index + 1} of ${photos.length}`}
-                  className="w-full h-full object-cover select-none rounded-xl"
-                  draggable={false}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-xl" />
-              </div>
-            ))}
-          </div>
+          {photos.map((photo, i) => (
+            <img
+              key={i}
+              src={photo}
+              alt={`Photo ${i + 1} of ${photos.length}`}
+              draggable={false}
+              className="absolute inset-0 w-full h-full object-cover rounded-2xl select-none"
+              style={{
+                opacity: i === current ? 1 : 0,
+                transition: 'opacity 0.4s ease-in-out',
+                zIndex: i === current ? 1 : 0,
+              }}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          ))}
+
+          {/* Arrows */}
+          {photos.length > 1 && (
+            <>
+              <button
+                onClick={prev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center glass-card text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                aria-label="Previous photo"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={next}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center glass-card text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                aria-label="Next photo"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
         </div>
 
-        {photos.length > 1 && (
-          <>
-            <button
-              onClick={goToPrev}
-              className="absolute left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-200 hidden sm:flex glass-card hover:bg-white/10"
-              aria-label="Previous photo"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-200 hidden sm:flex glass-card hover:bg-white/10"
-              aria-label="Next photo"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </>
-        )}
-
+        {/* Dots */}
         {photos.length > 1 && (
           <div className="flex justify-center gap-2 mt-4">
-            {photos.map((_, index) => (
+            {photos.map((_, i) => (
               <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'w-6 shadow-[0_0_10px_rgba(232,74,95,0.5)]'
-                    : 'bg-white/30 w-2 hover:bg-white/50'
-                }`}
-                style={index === currentIndex ? { backgroundColor: '#E84A5F' } : undefined}
-                aria-label={`Go to photo ${index + 1}`}
+                key={i}
+                onClick={() => goTo(i)}
+                className="h-2 rounded-full transition-all duration-300"
+                style={{
+                  width: i === current ? 24 : 8,
+                  backgroundColor: i === current ? '#E84A5F' : 'rgba(255,255,255,0.3)',
+                  boxShadow: i === current ? '0 0 10px rgba(232,74,95,0.5)' : 'none',
+                }}
+                aria-label={`Go to photo ${i + 1}`}
               />
             ))}
           </div>
