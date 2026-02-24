@@ -56,7 +56,7 @@ const TermsOfService = () => {
               <h2 className="text-xl font-semibold text-foreground">Returns & Refunds Policy</h2>
               
               <div className="space-y-4">
-                <h3 className="text-lg font-medium text-foreground">Physical Product (NFC Keychain)</h3>
+                <h3 className="text-lg font-medium text-foreground">Physical Product (LoveCount Keychain)</h3>
                 <ul className="list-disc pl-6 space-y-2">
                   <li><strong>14-day return right:</strong> You can return the unopened keychain within 14 days of delivery</li>
                   <li><strong>30-day warranty:</strong> Free replacement if keychain is defective or NFC doesn't work</li>
