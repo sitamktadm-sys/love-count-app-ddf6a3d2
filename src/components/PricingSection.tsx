@@ -12,8 +12,7 @@ const PricingSection = () => {
   ];
 
   const upsells = [
-    { icon: <Gift className="w-4 h-4" aria-hidden="true" />, text: "Gift wrap", price: "+£3.99" },
-    { icon: <Heart className="w-4 h-4" aria-hidden="true" />, text: "2nd keychain", price: "+£14.99" },
+    { icon: <Heart className="w-4 h-4" aria-hidden="true" />, text: "2nd keychain", price: "+£19.99" },
     { icon: <Zap className="w-4 h-4" aria-hidden="true" />, text: "Express", price: "+£3" },
   ];
 
@@ -40,10 +39,10 @@ const PricingSection = () => {
 
               {/* Price */}
               <div className="text-center mb-2">
-                <span className="text-5xl font-bold text-navy">£34.99</span>
+                <span className="text-5xl font-bold text-navy">£39.99</span>
               </div>
               <p className="text-sm text-navy/60 text-center mb-8">
-                Then £9.99/year to keep your page active
+                Then £14.99/year to keep your page active
               </p>
 
               {/* Features List */}

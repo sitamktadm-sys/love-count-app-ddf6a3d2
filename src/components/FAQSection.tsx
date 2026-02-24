@@ -20,7 +20,7 @@ const FAQSection = () => {
     {
       question: "Can I order an additional keychain for my partner or as a replacement?",
       answer:
-        "Absolutely! If you need an additional keychain for your partner, as a replacement for a lost keychain, or for any other reason, simply contact us at support@lovecount.uk. Additional keychains cost £14.99 and will link to your existing LoveCount page — no setup required. Just let us know your existing page ID (LC-XXX) when you contact us, and we'll arrange your additional keychain order.",
+        "Absolutely! If you need an additional keychain for your partner, as a replacement for a lost keychain, or for any other reason, simply contact us at support@lovecount.uk. Additional keychains cost £19.99 and will link to your existing LoveCount page — no setup required. Just let us know your existing page ID (LC-XXX) when you contact us, and we'll arrange your additional keychain order.",
     },
     {
       question: "Can I update my page later?",
@@ -30,7 +30,7 @@ const FAQSection = () => {
     {
       question: "What's the annual renewal?",
       answer:
-        "After the first year, it's £9.99/year to keep your page active. You can cancel anytime — we'll remind you before renewal.",
+        "After the first year, it's £14.99/year to keep your page active. You can cancel anytime — we'll remind you before renewal.",
     },
     {
       question: "Is the keychain waterproof?",

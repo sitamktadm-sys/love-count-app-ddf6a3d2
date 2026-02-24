@@ -32,14 +32,14 @@ const TermsOfService = () => {
                 <li><strong>Digital Content:</strong> Personalized love page with photo carousel and day counter</li>
                 <li><strong>Digital Asset:</strong> Downloadable Instagram Story image (renewable)</li>
               </ol>
-              <p><strong>Price:</strong> £34.99 + shipping</p>
-              <p><strong>Annual hosting renewal:</strong> £9.99/year</p>
+              <p><strong>Price:</strong> £39.99 + shipping</p>
+              <p><strong>Annual hosting renewal:</strong> £14.99/year</p>
             </section>
 
             {/* Additional Keychains */}
             <section className="space-y-4">
               <h2 className="text-xl font-semibold text-foreground">Additional Keychains</h2>
-              <p>Existing customers may purchase additional keychains for £14.99 that link to their current LoveCount page. Additional keychain purchases are subject to the following terms:</p>
+              <p>Existing customers may purchase additional keychains for £19.99 that link to their current LoveCount page. Additional keychain purchases are subject to the following terms:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Requires an active LoveCount page with current hosting subscription</li>
                 <li>Additional keychains link to the same existing page as the original purchase</li>
@@ -101,7 +101,7 @@ const TermsOfService = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-medium text-foreground">Digital Content</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Page hosting:</strong> Minimum 1 year included, renewable at £9.99/year</li>
+                  <li><strong>Page hosting:</strong> Minimum 1 year included, renewable at £14.99/year</li>
                   <li><strong>Digital delivery:</strong> Love page live within 24-48 hours of form completion</li>
                   <li><strong>Story downloads:</strong> Unlimited downloads with updated day counter</li>
                   <li><strong>Photo storage:</strong> Your photos stored securely, deleted after page expiry unless renewed</li>

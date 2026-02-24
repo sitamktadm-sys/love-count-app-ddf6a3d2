@@ -42,7 +42,7 @@ const ThankYou = () => {
               💕 Want a Matching One?
             </h3>
             <p className="text-white/80 text-sm text-center">
-              Get a second keychain for your partner for just <span className="text-coral font-semibold">£14.99</span>! It will link to your same personalized page once it's created. Perfect for sharing your love story together.
+              Get a second keychain for your partner for just <span className="text-coral font-semibold">£19.99</span>! It will link to your same personalized page once it's created. Perfect for sharing your love story together.
             </p>
             <p className="text-white/60 text-xs text-center">
               The option to add a second keychain was available during checkout, but you can always order additional keychains later by contact support.
