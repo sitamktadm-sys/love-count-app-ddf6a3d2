@@ -3,7 +3,7 @@ import { Check, Gift, Heart, Zap } from "lucide-react";
 
 const PricingSection = () => {
   const features = [
-    "Premium silicone NFC keychain",
+    "Premium silicone LoveCount Keychain",
     "Your personalised love page",
     "Real-time day counter",
     "Photo gallery (up to 15 photos)",

@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
             <section className="space-y-4">
               <h2 className="text-xl font-semibold text-foreground">Who We Are</h2>
               <p>
-                LoveCount UK is an e-commerce business that creates personalized NFC keychains with digital love pages for couples. Our website address is: lovecount.uk
+                LoveCount UK is an e-commerce business that creates personalized LoveCount Keychains with digital love pages for couples. Our website address is: lovecount.uk
               </p>
               <p>
                 <strong>Contact:</strong>{" "}
@@ -70,7 +70,7 @@ const PrivacyPolicy = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-medium text-foreground">Service Delivery (Legitimate Interest & Contract Performance)</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Create your personalized NFC keychain and digital love page</li>
+                  <li>Create your personalized LoveCount Keychain and digital love page</li>
                   <li>Process payments and manage orders</li>
                   <li>Send order confirmations, shipping updates, and renewal reminders</li>
                   <li>Provide customer support and handle returns/refunds</li>

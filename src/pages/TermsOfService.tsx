@@ -28,7 +28,7 @@ const TermsOfService = () => {
               <h2 className="text-xl font-semibold text-foreground">Product Description</h2>
               <p>LoveCount sells a combined product package consisting of:</p>
               <ol className="list-decimal pl-6 space-y-2">
-                <li><strong>Physical Product:</strong> Premium NFC keychain (silicone, waterproof)</li>
+                <li><strong>Physical Product:</strong> Premium LoveCount Keychain (silicone, waterproof)</li>
                 <li><strong>Digital Content:</strong> Personalized love page with photo carousel and day counter</li>
                 <li><strong>Digital Asset:</strong> Downloadable Instagram Story image (renewable)</li>
               </ol>
@@ -47,7 +47,7 @@ const TermsOfService = () => {
                 <li>Same 14-day return policy applies to physical keychain only</li>
                 <li>Digital page access remains tied to original purchase and renewal schedule</li>
                 <li>Additional keychains are shipped to the same address as original order unless otherwise specified</li>
-                <li>NFC functionality links to existing page - no setup required</li>
+                <li>LoveCount Keychain functionality links to existing page - no setup required</li>
               </ul>
             </section>
 
@@ -56,10 +56,10 @@ const TermsOfService = () => {
               <h2 className="text-xl font-semibold text-foreground">Returns & Refunds Policy</h2>
               
               <div className="space-y-4">
-                <h3 className="text-lg font-medium text-foreground">Physical Product (NFC Keychain)</h3>
+                <h3 className="text-lg font-medium text-foreground">Physical Product (LoveCount Keychain)</h3>
                 <ul className="list-disc pl-6 space-y-2">
                   <li><strong>14-day return right:</strong> You can return the unopened keychain within 14 days of delivery</li>
-                  <li><strong>30-day warranty:</strong> Free replacement if keychain is defective or NFC doesn't work</li>
+                  <li><strong>30-day warranty:</strong> Free replacement if keychain is defective or doesn't work</li>
                   <li><strong>Return shipping:</strong> Customer pays return postage unless item is defective</li>
                   <li><strong>Refund processing:</strong> 3-5 business days after we receive returned item</li>
                 </ul>
@@ -182,7 +182,7 @@ const TermsOfService = () => {
                 <li><strong>Emotional outcomes:</strong> No guarantee of specific emotional reactions or relationship outcomes</li>
                 <li><strong>Technical limitations:</strong> Occasional downtime for maintenance</li>
                 <li><strong>Photo quality:</strong> Final result depends on quality of photos you provide</li>
-                <li><strong>NFC compatibility:</strong> Most modern phones (2018+) compatible, older phones may vary</li>
+                <li><strong>Compatibility:</strong> Most modern phones (2018+) compatible, older phones may vary</li>
               </ul>
             </section>
 

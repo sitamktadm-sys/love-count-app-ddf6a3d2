@@ -22,7 +22,7 @@ const Index = () => {
         <title>LoveCount | The Perfect Anniversary Gift Keychain</title>
         <meta 
           name="description" 
-          content="Looking for a unique personalised anniversary gift? LoveCount is a beautiful NFC keychain that opens your custom love page – counting every day together. The perfect Valentine's or anniversary gift for him or her. £34.99 with free UK delivery." 
+          content="Looking for a unique personalised anniversary gift? LoveCount is a beautiful LoveCount Keychain that opens your custom love page – counting every day together. The perfect Valentine's or anniversary gift for him or her. £34.99 with free UK delivery." 
         />
         <link rel="canonical" href="https://lovecount.uk" />
       </Helmet>

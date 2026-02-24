@@ -23,7 +23,7 @@ const WhatYouGetSection = () => {
               <div className="w-24 h-24 rounded-2xl bg-navy border-2 border-pink/30 flex items-center justify-center transform rotate-12 shadow-lg relative overflow-hidden">
                 <img 
                   src={keychainLogo} 
-                  alt="NFC keychain personalised Valentine gift for boyfriend girlfriend UK" 
+                  alt="LoveCount Keychain personalised Valentine gift for boyfriend girlfriend UK" 
                   width={96} 
                   height={96} 
                   loading="lazy" 
@@ -33,7 +33,7 @@ const WhatYouGetSection = () => {
               </div>
             </div>
             <h3 className="text-xl font-semibold text-white mb-3">
-              Premium NFC Keychain
+              Premium LoveCount Keychain
             </h3>
             <p className="text-white/70 leading-relaxed">
               Soft silicone, waterproof, tap to open your page instantly
