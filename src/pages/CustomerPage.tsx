@@ -69,7 +69,7 @@ const fetchPageData = async (pageId: string): Promise<PageData> => {
     relationship_start_date: d.relationship_start,
     days_together: d.days_together,
     message: d.custom_message,
-    photos: d.photo_urls || [],
+    photos: typeof d.photo_urls === 'string' ? JSON.parse(d.photo_urls) : (d.photo_urls || []),
     page_expiry_date: d.expires_at
   };
 };
