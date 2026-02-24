@@ -1,103 +1,88 @@
-import { useState, useEffect } from "react";
 import logo from "@/assets/logo.png";
-import couplePhoto1 from "@/assets/couple-photo-1.png";
-import couplePhoto2 from "@/assets/couple-photo-2.png";
-import couplePhoto3 from "@/assets/couple-photo-3.png";
-import couplePhoto4 from "@/assets/couple-photo-4.png";
-import couplePhoto5 from "@/assets/couple-photo-5.png";
-import couplePhoto6 from "@/assets/couple-photo-6.png";
 
 const ShareYourStorySection = () => {
-  const [days, setDays] = useState(1344);
-
-  // Simulate counter updating
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDays((prev) => prev + 1);
-    }, 86400000); // Update daily
-    return () => clearInterval(interval);
-  }, []);
-
-  const photos = [
-    couplePhoto1,
-    couplePhoto2,
-    couplePhoto3,
-    couplePhoto4,
-    couplePhoto5,
-    couplePhoto6,
-  ];
-
   return (
     <section className="py-16 md:py-24 bg-pink" aria-labelledby="share-story-heading">
       <div className="container-narrow">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Left Side - Phone Mockup with Story (60% width on desktop) */}
+          {/* Left Side - Phone Mockup with Story */}
           <div className="w-full lg:w-3/5 flex justify-center">
-            {/* iPhone Frame - matching hero section style */}
             <div className="relative w-[260px] md:w-[300px]">
-              {/* Phone outer frame */}
               <div className="relative bg-foreground/10 rounded-[3rem] p-3 shadow-hover border border-foreground/20">
-                {/* Phone screen bezel */}
                 <div className="relative bg-foreground/5 rounded-[2.5rem] overflow-hidden">
-                  {/* Dynamic Island / Notch */}
                   <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10" />
                   
-                  {/* Screen content - 9:16 aspect ratio story */}
+                  {/* Screen content - realistic story image */}
                   <div 
-                    className="relative overflow-hidden aspect-[9/16] flex flex-col"
+                    className="relative overflow-hidden aspect-[9/16] flex flex-col items-center"
                     style={{
-                      background: 'linear-gradient(180deg, hsl(280 30% 12%) 0%, hsl(260 25% 10%) 50%, hsl(240 28% 8%) 100%)'
+                      background: 'radial-gradient(ellipse at center, #2d1b26 0%, #12090e 100%)'
                     }}
                   >
-                    {/* Top - Logo/Branding */}
-                    <div className="pt-8 pb-2 px-4 flex justify-center">
-                      <img 
-                        src={logo} 
-                        alt="LoveCount" 
-                        className="h-6 w-auto opacity-90"
-                      />
+                    {/* Bokeh spots */}
+                    <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+                      <div className="absolute w-32 h-32 rounded-full top-[8%] left-[-10%] opacity-[0.18]" style={{ background: 'radial-gradient(circle, #e84a5f 0%, transparent 70%)', filter: 'blur(30px)' }} />
+                      <div className="absolute w-24 h-24 rounded-full top-[55%] right-[-8%] opacity-[0.14]" style={{ background: 'radial-gradient(circle, #c2185b 0%, transparent 70%)', filter: 'blur(28px)' }} />
+                      <div className="absolute w-20 h-20 rounded-full bottom-[15%] left-[5%] opacity-[0.16]" style={{ background: 'radial-gradient(circle, #e84a5f 0%, transparent 70%)', filter: 'blur(25px)' }} />
+                      <div className="absolute w-16 h-16 rounded-full top-[30%] right-[10%] opacity-[0.12]" style={{ background: 'radial-gradient(circle, #d4456a 0%, transparent 70%)', filter: 'blur(22px)' }} />
+                      <div className="absolute w-28 h-28 rounded-full bottom-[40%] left-[50%] -translate-x-1/2 opacity-[0.1]" style={{ background: 'radial-gradient(circle, #e84a5f 0%, transparent 70%)', filter: 'blur(35px)' }} />
                     </div>
 
-                    {/* Couple Names */}
-                    <div className="text-center px-4 pb-2">
-                      <h3 className="text-lg font-serif font-bold text-white/90">
-                        Sarah <span className="text-coral">❤️</span> James
+                    {/* Top - Logo & Brand */}
+                    <div className="pt-10 pb-1 flex flex-col items-center z-10">
+                      <img src={logo} alt="LoveCount" className="h-5 w-auto opacity-90 mb-1.5" />
+                      <p className="text-[10px] tracking-[0.25em] uppercase" style={{ fontFamily: "'Playfair Display', serif", color: '#d4a0a0' }}>
+                        LoveCount
+                      </p>
+                      <div className="w-16 h-[1px] mt-2" style={{ background: 'linear-gradient(90deg, transparent, #e84a5f, transparent)' }} />
+                    </div>
+
+                    {/* Names */}
+                    <div className="text-center px-4 pt-5 pb-1 z-10">
+                      <h3 className="text-[22px] font-bold" style={{ fontFamily: "'Playfair Display', serif", background: 'linear-gradient(135deg, #d4a0a0, #e84a5f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        Sarah
+                      </h3>
+                      <span className="text-coral text-lg leading-none block my-0.5">♥</span>
+                      <h3 className="text-[22px] font-bold" style={{ fontFamily: "'Playfair Display', serif", background: 'linear-gradient(135deg, #d4a0a0, #e84a5f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        James
                       </h3>
                     </div>
 
-                    {/* Day Counter - Large coral text */}
-                    <div className="text-center px-4 py-4">
-                      <p className="text-3xl md:text-4xl font-bold text-coral counter-glow">
-                        {days.toLocaleString()}
-                      </p>
-                      <p className="text-white/70 text-sm mt-1">days together</p>
-                    </div>
-
-                    {/* Photo Grid - 3x2 */}
-                    <div className="flex-1 px-3 pb-3">
-                      <div className="grid grid-cols-3 gap-[2px] h-full rounded-lg overflow-hidden border border-coral/30">
-                        {photos.map((photo, index) => (
-                          <div 
-                            key={index} 
-                            className="relative overflow-hidden"
-                            style={{
-                              borderRight: index % 3 !== 2 ? '1px solid rgba(232, 74, 95, 0.3)' : 'none',
-                              borderBottom: index < 3 ? '1px solid rgba(232, 74, 95, 0.3)' : 'none',
-                            }}
-                          >
-                            <img
-                              src={photo}
-                              alt={`Couple moment ${index + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        ))}
+                    {/* Day Counter Card */}
+                    <div className="mx-4 mt-4 px-4 py-3 rounded-xl z-10" style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                      <div className="flex items-baseline justify-center gap-1.5 text-center">
+                        <div className="flex flex-col items-center">
+                          <span className="text-coral text-base font-bold">3</span>
+                          <span className="text-white/50 text-[7px] uppercase tracking-wider">years</span>
+                        </div>
+                        <span className="text-white/30 text-xs">,</span>
+                        <div className="flex flex-col items-center">
+                          <span className="text-coral text-base font-bold">8</span>
+                          <span className="text-white/50 text-[7px] uppercase tracking-wider">months</span>
+                        </div>
+                        <span className="text-white/30 text-xs">,</span>
+                        <div className="flex flex-col items-center">
+                          <span className="text-coral text-base font-bold">24</span>
+                          <span className="text-white/50 text-[7px] uppercase tracking-wider">days</span>
+                        </div>
                       </div>
+                      <p className="text-white/40 text-[6px] tracking-[0.2em] uppercase text-center mt-2">
+                        1,344 Days Together
+                      </p>
                     </div>
 
-                    {/* Bottom - Username */}
-                    <div className="pb-4 text-center">
-                      <p className="text-white/50 text-xs">@lovecount.uk</p>
+                    {/* Quote Card */}
+                    <div className="mx-4 mt-3 px-4 py-3 rounded-xl z-10" style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                      <p className="text-white/75 text-[9px] text-center italic leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        "Every day with you is my favourite day"
+                      </p>
+                    </div>
+
+                    {/* Bottom - Since date */}
+                    <div className="mt-auto pb-6 z-10">
+                      <p className="text-white/35 text-[7px] tracking-[0.2em] uppercase text-center">
+                        Since 14th March, 2020
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -105,7 +90,7 @@ const ShareYourStorySection = () => {
             </div>
           </div>
 
-          {/* Right Side - Text Content (40% width on desktop) */}
+          {/* Right Side - Text Content */}
           <div className="w-full lg:w-2/5 text-center lg:text-left">
             <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-3">
               Share Your Moments
