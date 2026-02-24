@@ -8,7 +8,7 @@ import {
 const FAQSection = () => {
   const faqs = [
     {
-      question: "How does the NFC keychain work?",
+      question: "How does the LoveCount Keychain work?",
       answer:
         "Just tap your anniversary gift keychain on the back of any smartphone (iPhone or Android). Your personalised love page opens instantly in the browser — no app needed.",
     },

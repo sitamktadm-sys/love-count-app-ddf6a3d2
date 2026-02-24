@@ -182,7 +182,7 @@ const TermsOfService = () => {
                 <li><strong>Emotional outcomes:</strong> No guarantee of specific emotional reactions or relationship outcomes</li>
                 <li><strong>Technical limitations:</strong> Occasional downtime for maintenance</li>
                 <li><strong>Photo quality:</strong> Final result depends on quality of photos you provide</li>
-                <li><strong>NFC compatibility:</strong> Most modern phones (2018+) compatible, older phones may vary</li>
+                <li><strong>Compatibility:</strong> Most modern phones (2018+) compatible, older phones may vary</li>
               </ul>
             </section>
 

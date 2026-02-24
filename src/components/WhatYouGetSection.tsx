@@ -33,7 +33,7 @@ const WhatYouGetSection = () => {
               </div>
             </div>
             <h3 className="text-xl font-semibold text-white mb-3">
-              Premium NFC Keychain
+              Premium LoveCount Keychain
             </h3>
             <p className="text-white/70 leading-relaxed">
               Soft silicone, waterproof, tap to open your page instantly
