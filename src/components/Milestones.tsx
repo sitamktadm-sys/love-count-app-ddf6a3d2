@@ -24,33 +24,46 @@ const ANNIVERSARY_TRADITIONS: Record<number, string> = {
   8: 'Pottery',
   9: 'Willow',
   10: 'Tin',
+  11: 'Steel',
+  12: 'Silk & Linen',
+  13: 'Lace',
+  14: 'Ivory',
+  15: 'Crystal',
+  20: 'China',
+  25: 'Silver',
+  30: 'Pearl',
+  35: 'Coral',
+  40: 'Ruby',
+  45: 'Sapphire',
+  50: 'Gold',
+  55: 'Emerald',
+  60: 'Diamond',
 };
+
+const MILESTONE_YEARS = Object.keys(ANNIVERSARY_TRADITIONS).map(Number).sort((a, b) => a - b);
 
 function calculateMilestones(startDate: string): Milestone[] {
   const start = new Date(startDate);
   const now = new Date();
   
-  const milestones: Milestone[] = [];
-  
-  // Anniversary milestones with traditions
-  for (let year = 1; year <= 10; year++) {
+  const milestones: Milestone[] = MILESTONE_YEARS.map(year => {
     const date = new Date(start);
     date.setFullYear(date.getFullYear() + year);
     const isPast = date <= now;
     const diffTime = date.getTime() - now.getTime();
     const daysUntil = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    milestones.push({
+    return {
       label: `${year} ${year === 1 ? 'Year' : 'Years'}`,
-      traditionName: ANNIVERSARY_TRADITIONS[year] || '',
+      traditionName: ANNIVERSARY_TRADITIONS[year],
       date,
       isPast,
       daysUntil: isPast ? 0 : daysUntil,
-    });
-  }
+    };
+  });
   
-  // Filter to show last 2 completed and next 3 upcoming
-  const completed = milestones.filter(m => m.isPast).slice(-2);
+  // Show ALL completed milestones + next 3 upcoming
+  const completed = milestones.filter(m => m.isPast);
   const upcoming = milestones.filter(m => !m.isPast).slice(0, 3);
   
   return [...completed, ...upcoming];
