@@ -33,7 +33,7 @@ const TermsOfService = () => {
                 <li><strong>Digital Asset:</strong> Downloadable Instagram Story image (renewable)</li>
               </ol>
               <p><strong>Price:</strong> £39.99 + shipping</p>
-              <p><strong>Annual hosting renewal:</strong> £14.99/year</p>
+              <p><strong>Annual hosting renewal:</strong> £11.99/year</p>
             </section>
 
             {/* Additional Keychains */}
