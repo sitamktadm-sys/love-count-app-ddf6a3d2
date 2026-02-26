@@ -8,6 +8,7 @@ const PricingSection = () => {
     "Real-time day counter",
     "Photo gallery (up to 15 photos)",
     "Instagram Story image",
+    "1 year hosting included",
     "Free UK delivery",
   ];
 
@@ -41,7 +42,7 @@ const PricingSection = () => {
                 <span className="text-5xl font-bold text-navy">£39.99</span>
               </div>
               <p className="text-sm text-navy/60 text-center mb-8">
-                Then £14.99/year to keep your page active
+                Then £11.99/year to keep your page active
               </p>
 
               {/* Features List */}
