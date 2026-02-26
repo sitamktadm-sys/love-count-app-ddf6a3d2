@@ -332,16 +332,18 @@ export function CustomerPage() {
           <LoveCounter startDate={data.relationship_start_date} />
         </div>
 
-        <div className="text-center">
-          <button
-            onClick={handleDownloadStory}
-            disabled={isGenerating}
-            className="btn-secondary inline-flex items-center gap-2"
-            style={{ opacity: isGenerating ? 0.6 : 1, cursor: isGenerating ? 'not-allowed' : 'pointer' }}
-          >
-            {isGenerating ? 'Generating...' : '📸 Download Story'}
-          </button>
-        </div>
+        {pageId !== "LC-DEMO" && (
+          <div className="text-center">
+            <button
+              onClick={handleDownloadStory}
+              disabled={isGenerating}
+              className="btn-secondary inline-flex items-center gap-2"
+              style={{ opacity: isGenerating ? 0.6 : 1, cursor: isGenerating ? 'not-allowed' : 'pointer' }}
+            >
+              {isGenerating ? 'Generating...' : '📸 Download Story'}
+            </button>
+          </div>
+        )}
 
         {data.photos.length > 0 && <PhotoCarousel photos={data.photos} />}
 
