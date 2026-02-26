@@ -101,7 +101,7 @@ const TermsOfService = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-medium text-foreground">Digital Content</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Page hosting:</strong> Minimum 1 year included, renewable at £14.99/year</li>
+                  <li><strong>Page hosting:</strong> Minimum 1 year included, renewable at £11.99/year</li>
                   <li><strong>Digital delivery:</strong> Love page live within 24-48 hours of form completion</li>
                   <li><strong>Story downloads:</strong> Unlimited downloads with updated day counter</li>
                   <li><strong>Photo storage:</strong> Your photos stored securely, deleted after page expiry unless renewed</li>

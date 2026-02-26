@@ -8,6 +8,7 @@ const PricingSection = () => {
     "Real-time day counter",
     "Photo gallery (up to 15 photos)",
     "Instagram Story image",
+    "1 year hosting included",
     "Free UK delivery",
   ];
 
