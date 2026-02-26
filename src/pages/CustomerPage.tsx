@@ -35,8 +35,35 @@ const loadingPhrases = [
   "Unwrapping your journey...",
 ];
 
+// Demo data matching hero phone mockup
+const DEMO_DATA: PageData = {
+  page_id: "LC-DEMO",
+  page_status: "Active",
+  name_1: "Sarah",
+  name_2: "James",
+  relationship_start_date: "2021-06-15",
+  message: "Every day with you is my favourite day",
+  photos: [
+    "https://i.postimg.cc/P5V9z3Vx/Chat-GPT-Image-Jan-17-2026-09-03-40-PM.png",
+    "https://i.postimg.cc/25qJHQgS/Chat-GPT-Image-Jan-17-2026-09-05-08-PM.png",
+    "https://i.postimg.cc/YS4VX6TS/Chat-GPT-Image-Jan-17-2026-09-09-07-PM.png",
+    "https://i.postimg.cc/pd970f3X/Chat-GPT-Image-Jan-17-2026-09-19-53-PM.png",
+    "https://i.postimg.cc/VNST7q2s/Chat-GPT-Image-Jan-17-2026-09-20-03-PM.png",
+    "https://i.postimg.cc/YS4VX6TL/Chat-GPT-Image-Jan-17-2026-09-25-23-PM.png",
+    "https://i.postimg.cc/GpBNMF6G/Chat-GPT-Image-Jan-17-2026-09-33-15-PM.png",
+    "https://i.postimg.cc/6Q7SHrFr/Chat-GPT-Image-Jan-17-2026-09-36-30-PM.png",
+    "https://i.postimg.cc/MGc4s7g0/Chat-GPT-Image-Jan-17-2026-09-40-39-PM.png",
+  ],
+  page_expiry_date: "2099-12-31",
+};
+
 // Fetch page data from API
 const fetchPageData = async (pageId: string): Promise<PageData> => {
+  // Return demo data for the demo page
+  if (pageId === "LC-DEMO") {
+    return DEMO_DATA;
+  }
+
   const response = await fetch(
     `https://n8n.sitalabs.co.uk/webhook/page?id=${pageId}`
   );
