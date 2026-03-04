@@ -6,6 +6,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ThankYou from "./pages/ThankYou";
+import ThankYouKeychain from "./pages/ThankYouKeychain";
 import CustomerPage from "./pages/CustomerPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -23,6 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/thanks-keychain" element={<ThankYouKeychain />} />
             <Route path="/p/:pageId" element={<CustomerPage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
