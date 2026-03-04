@@ -1,10 +1,10 @@
 import Logo from "@/components/Logo";
 import SuccessIcon from "@/components/SuccessIcon";
-import MessageBox from "@/components/MessageBox";
 import ConsumerRightsSection from "@/components/ConsumerRightsSection";
 import SocialLinks from "@/components/SocialLinks";
+import { Check } from "lucide-react";
 
-const ThankYou = () => {
+const ThankYouKeychain = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
@@ -23,7 +23,7 @@ const ThankYou = () => {
           {/* Thank You Message */}
           <div className="text-center space-y-2 animate-fade-in">
             <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-              Thank you for your order! 💕
+              Your extra keychain is confirmed! 💕
             </h1>
             <p className="text-muted-foreground text-base md:text-lg">
               We're so excited to help you celebrate your love story.
@@ -31,28 +31,37 @@ const ThankYou = () => {
           </div>
 
           {/* Message Box */}
-          <MessageBox />
-
-          {/* Consumer Rights */}
-          <ConsumerRightsSection />
-
-          {/* Matching Keychain Upsell */}
-          <div className="bg-foreground/5 rounded-xl p-6 space-y-3 animate-fade-in" style={{ animationDelay: '0.35s' }}>
-            <h3 className="text-lg font-semibold text-white text-center">
-              💕 Want a Matching One?
+          <div className="bg-card rounded-2xl p-6 md:p-8 border-l-4 border-r-4 border-coral animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <h3 className="text-lg md:text-xl font-semibold text-white mb-4 flex items-center justify-center gap-2">
+              <span>📧</span> What happens next?
             </h3>
-            <p className="text-white/80 text-sm text-center">
-              Get a second keychain for your partner for just <span className="text-coral font-semibold">£19.99</span>! It will link to your same personalised page once it's created. Perfect for sharing your love story together.
+
+            <p className="text-white/90 text-sm md:text-base mb-4 text-center">
+              You'll receive a confirmation email shortly with your order details.
             </p>
-            <p className="text-white/60 text-xs text-center">
-              The option to add a second keychain was available during checkout, but you can always order additional keychains later by contact support.
+
+            <ul className="space-y-3 mb-6 text-sm md:text-base flex flex-col items-center">
+              <li className="flex items-start gap-3">
+                <Check className="text-coral mt-0.5 flex-shrink-0" size={20} strokeWidth={3} />
+                <span className="text-white">Your order confirmation</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="text-coral mt-0.5 flex-shrink-0" size={20} strokeWidth={3} />
+                <span className="text-white">Your shipping details</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="text-coral mt-0.5 flex-shrink-0" size={20} strokeWidth={3} />
+                <span className="text-white">Estimated delivery within 3–5 working days</span>
+              </li>
+            </ul>
+
+            <p className="text-pink/80 text-xs md:text-sm italic text-center">
+              We're already programming your keychain to your existing love story page.
             </p>
           </div>
 
-          {/* Spam Notice */}
-          <p className="text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            💡 Can't find the email? Check your spam or junk folder.
-          </p>
+          {/* Consumer Rights */}
+          <ConsumerRightsSection />
 
           {/* Support Info */}
           <div className="text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.45s' }}>
@@ -78,4 +87,4 @@ const ThankYou = () => {
   );
 };
 
-export default ThankYou;
+export default ThankYouKeychain;
